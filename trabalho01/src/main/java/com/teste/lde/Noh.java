@@ -3,33 +3,33 @@ package com.teste.lde;
 public class Noh {
     
     private Object info;
-    private Noh proximo;
-    private Noh anterior;
+    private Noh next;
+    private Noh previous;
 
     public Noh(Object info) {
         this.info = info;
-        this.proximo = null;
-        this.anterior = null;
+        this.next = null;
+        this.previous = null;
     }
 
     public Object getInfo() { 
         return this.info;
     }
 
-    public Noh getProximo() { 
-        return this.proximo;
+    public Noh getNext() { 
+        return this.next;
     }
 
-    public void setProximo(Noh n) {
-        this.proximo = n;
+    public void setNext(Noh n) {
+        this.next = n;
     }
 
-    public Noh getAnterior() { 
-        return this.anterior;
+    public Noh getPrevious() { 
+        return this.previous;
     }
 
-    public void setAnterior(Noh n) {
-        this.anterior = n;
+    public void setPrevious(Noh n) {
+        this.previous = n;
     }
 
 }

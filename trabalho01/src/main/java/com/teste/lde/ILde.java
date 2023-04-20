@@ -2,19 +2,23 @@ package com.teste.lde;
 
 public interface ILde {
 
-    public void insereInicio(Object info);
-    public void insereFim(Object info);
-    public boolean estahVazia();
+    public void insertAtBeginning(Object info);
+
+    public void insertAtEnd(Object info);
+
+    public boolean isEmpty();
+
     public boolean remove(Object info);
-    public int tamanho();
+
+    public int size();
 
     // Retorna uma String que representa a lista a partir do inicio até o fim
-    public String getListaInicio();
+    public String getListFromBeginning();
 
     // Retorna uma String que representa a lista a partir do fim até o inicio
-    public String getListaFim();
+    public String getListFromEnd();
 
     // Retorna o Noh que contém o objeto info
-    public Noh consultarInfo(Object info);
+    public Noh find(Object info);
     
 }

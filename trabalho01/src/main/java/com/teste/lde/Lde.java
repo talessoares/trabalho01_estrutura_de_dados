@@ -2,49 +2,49 @@ package com.teste.lde;
 
 public class Lde implements ILde {
 
-    private Noh inicio;
-    private Noh fim;
+    private Noh begin;
+    private Noh end;
 
     public Lde() {
-        this.inicio = null;
-        this.fim = null;
+        this.begin = null;
+        this.end = null;
     }
 
     @Override
-    public void insereInicio(Object info) {
-        Noh novo = new Noh(info);
+    public void insertAtBeginning(Object info) {
+        Noh newNode = new Noh(info);
 
-        if (inicio == null) {
-            inicio = novo;
-            fim = novo;
+        if (begin == null) {
+            begin = newNode;
+            end = newNode;
         } else {
-            novo.setProximo(inicio);
-            inicio.setAnterior(novo);
-            inicio = novo;
+            newNode.setNext(begin);
+            begin.setNext(newNode);
+            begin = newNode;
         }
     }
 
     @Override
-    public void insereFim(Object info) {
-        Noh novo = new Noh(info);
+    public void insertAtEnd(Object info) {
+        Noh newNode = new Noh(info);
 
-        if (fim == null) {
-            inicio = novo;
-            fim = novo;
+        if (end == null) {
+            begin = newNode;
+            end = newNode;
         } else {
-            novo.setAnterior(fim);
-            fim.setProximo(novo);
-            fim = novo;
+            newNode.setPrevious(end);
+            end.setNext(newNode);
+            end = newNode;
         }
     }
 
     // REVER ESSE MÉTODO PARA OBSERVAR A COMPARAÇÃO DO OBJETO
     @Override
-    public Noh consultarInfo(Object info) {
-        Noh p = inicio;
+    public Noh find(Object info) {
+        Noh node = begin;
 
-        while (p != null && p.getInfo() != info) {
-            p = p.getProximo();
+        while (node != null && node.getInfo() != info) {
+            node = node.getNext();
         }
         
         return null;
@@ -52,67 +52,67 @@ public class Lde implements ILde {
 
     @Override
     public boolean remove(Object info) {
-        Noh p = consultarInfo(info);
+        Noh node = find(info);
 
-        if (p == null) {
+        if (node == null) {
             return false;
         }
 
-        if (p == inicio) {
-            inicio = p.getProximo();
+        if (node == begin) {
+            begin = node.getNext();
 
-            if (inicio != null) {
-                inicio.setAnterior(null);
+            if (begin != null) {
+                begin.setPrevious(null);
             } else {
-                fim = null;
+                end = null;
             }
 
-        } else if (p.getProximo() == null) {
-            p.getAnterior().setProximo(null);
-            fim = p.getAnterior();
+        } else if (node.getNext() == null) {
+            node.getPrevious().setNext(null);
+            end = node.getPrevious();
         } else {
-            p.getAnterior().setProximo(p.getProximo());
-            p.getProximo().setAnterior(p.getAnterior());
+            node.getPrevious().setNext(node.getNext());
+            node.getNext().setPrevious(node.getPrevious());
         }
         return true;
     }
 
     @Override
-    public int tamanho() {
-        int tamanho = 0;
+    public int size() {
+        int size = 0;
 
-        for (Noh i = inicio; i != null; i = i.getProximo()) {
-            tamanho++;
+        for (Noh i = begin; i != null; i = i.getNext()) {
+            size++;
         }
 
-        return tamanho;
+        return size;
     }
 
     @Override
-    public String getListaInicio() {
-        String lista = "";
+    public String getListFromBeginning() {
+        String list = "";
 
-        for (Noh i = inicio; i != null; i = i.getProximo()) {
-            lista += i.getInfo() + " ";
+        for (Noh i = begin; i != null; i = i.getNext()) {
+            list += i.getInfo() + " ";
         }
 
-        return lista;
+        return list;
     }
 
     @Override
-    public String getListaFim() {
-        String lista = "";
+    public String getListFromEnd() {
+        String list = "";
 
-        for (Noh i = fim; i != null; i = i.getAnterior()) {
-            lista += i.getInfo() + " ";
+        for (Noh i = end; i != null; i = i.getPrevious()) {
+            list += i.getInfo() + " ";
         }
 
-        return lista;
+        return list;
     }
 
     @Override
-    public boolean estahVazia() {
-        return inicio == null || fim == null;
+    public boolean isEmpty() {
+        return begin == null || end == null;
     }
 
 }
