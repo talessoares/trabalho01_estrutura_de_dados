@@ -1,5 +1,5 @@
 package com.teste.list;
 
-public class listVehicle {
+public class ListVehicle {
     
 }

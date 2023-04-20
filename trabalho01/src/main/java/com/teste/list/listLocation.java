@@ -1,5 +1,5 @@
 package com.teste.list;
 
-public class listLocation {
+public class ListLocation {
     
 }

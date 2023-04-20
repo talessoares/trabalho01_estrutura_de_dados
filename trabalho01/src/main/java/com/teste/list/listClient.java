@@ -2,18 +2,16 @@ package com.teste.list;
 
 import com.teste.lde.Noh;
 
-import java.security.InvalidAlgorithmParameterException;
-
 import com.teste.entities.Client;
 import com.teste.lde.ILde;
 
 
-public class listClient implements ILde{
+public class ListClient implements ILde{
 
     private Noh begin;
     private Noh end;
 
-    public listClient() {
+    public ListClient() {
         this.begin = null;
         this.end = null;
     }
@@ -70,25 +68,31 @@ public class listClient implements ILde{
 
     @Override
     public boolean isEmpty() {
+        throw new NullPointerException("Método não implementado");
     }
 
     @Override
     public boolean remove(Object info) {
+        throw new NullPointerException("Método não implementado");
     }
 
     @Override
     public int size() {
+        throw new NullPointerException("Método não implementado");
     }
 
     @Override
     public String getListFromBeginning() {
+        throw new NullPointerException("Método não implementado");
     }
 
     @Override
     public String getListFromEnd() {
+        throw new NullPointerException("Método não implementado");
     }
 
     @Override
     public Noh find(Object info) {
+        throw new NullPointerException("Método não implementado");
     }
 }
