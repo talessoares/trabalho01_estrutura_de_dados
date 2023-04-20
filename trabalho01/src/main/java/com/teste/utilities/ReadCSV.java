@@ -19,6 +19,10 @@ public class ReadCSV {
     }
 
     public void setFilePath(String filePath) {
+        if(filePath == null || filePath.trim().isEmpty()) {
+            throw new NullPointerException("Caminho do arquivo não pode ser nulo!");
+        }
+
         this.filePath = filePath;
     }
 
@@ -26,17 +30,17 @@ public class ReadCSV {
         BufferedReader br = null;
 
         try {
-            br = new BufferedReader(new FileReader(filePath));
+            br = new BufferedReader(new FileReader(this.filePath));
 
             String line = null;
-            content = "";
+            this.content = "";
 
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(";");
                 for (String value : values) {
-                    content += value + ";";
+                    this.content += value + ";";
                 }
-                content += "\n";
+                this.content += "\n";
             }
 
         } catch (IOException e) {
@@ -58,11 +62,11 @@ public class ReadCSV {
     }
 
     public String getContent() {
-        if(content == null || content.trim().isEmpty()) {
+        if(this.content == null || this.content.trim().isEmpty()) {
             throw new NullPointerException("Arquivo não lido anteriormente!");
         }
 
-        return content;
+        return this.content;
     }
 
 }
