@@ -19,6 +19,10 @@ public class Client {
     }
 
     public void setName(String name) {
+        if(name == null || name.trim().isEmpty()) {
+            throw new NullPointerException("Nome não pode ser nulo!");
+        }
+
         this.name = name;
     }
 
@@ -27,6 +31,10 @@ public class Client {
     }
 
     public void setCnh(int cnh) {
+        if(cnh < 0) {
+            throw new NullPointerException("CNH não pode ser negativa!");
+        }
+
         this.cnh = cnh;
     }
 
@@ -35,6 +43,10 @@ public class Client {
     }
 
     public void setPhone(int phone) {
+        if(phone < 0) {
+            throw new NullPointerException("Telefone não pode ser negativo!");
+        }
+
         this.phone = phone;
     }
     
@@ -43,6 +55,10 @@ public class Client {
     }
 
     public void setCpf(String cpf) {
+        if(cpf == null || cpf.trim().isEmpty()) {
+            throw new NullPointerException("CPF não pode ser nulo!");
+        }
+
         this.cpf = cpf;
     }
 }
