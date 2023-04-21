@@ -1,4 +1,4 @@
-package com.teste.list;
+package com.group.list;
 
 public class ListLocation {
     

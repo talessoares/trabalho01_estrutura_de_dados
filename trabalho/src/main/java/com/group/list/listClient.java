@@ -1,8 +1,8 @@
-package com.teste.list;
+package com.group.list;
 
-import com.teste.lde.Noh;
-import com.teste.entities.Client;
-import com.teste.lde.ILde;
+import com.group.lde.Noh;
+import com.group.entities.Client;
+import com.group.lde.ILde;
 
 
 public class ListClient implements ILde {

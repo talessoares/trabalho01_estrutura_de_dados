@@ -1,17 +1,17 @@
-package com.teste.menu;
+package com.group.menu;
 
 import java.util.Scanner;
-import com.teste.lde.ILde;
-import com.teste.lde.Lde;
-import com.teste.entities.Client;
-import com.teste.list.ListClient;
-import com.teste.menu.principalMenu;
+import com.group.lde.ILde;
+import com.group.lde.Lde;
+import com.group.entities.Client;
+import com.group.list.ListClient;
+import com.group.menu.PrincipalMenu;
 
-public class clientMenu {
+public class ClientMenu {
 
     private ListClient clientList;
 
-    public clientMenu(ListClient clientList) {
+    public ClientMenu(ListClient clientList) {
         this.clientList = clientList;
     }
 

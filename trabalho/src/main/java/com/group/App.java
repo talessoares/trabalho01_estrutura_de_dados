@@ -1,4 +1,4 @@
-package com.teste;
+package com.group;
 
 public class App {
     public static void main( String[] args )

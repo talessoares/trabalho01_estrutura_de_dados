@@ -1,5 +1,5 @@
-package com.teste.menu;
+package com.group.menu;
 
-public class vehicleMenu {
+public class VehicleMenu {
     
 }

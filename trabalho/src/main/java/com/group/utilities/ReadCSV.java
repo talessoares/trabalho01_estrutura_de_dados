@@ -1,4 +1,4 @@
-package com.teste.utilities;
+package com.group.utilities;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

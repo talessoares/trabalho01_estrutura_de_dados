@@ -1,4 +1,4 @@
-package com.teste.entities;
+package com.group.entities;
 
 public class Vehicle {
     

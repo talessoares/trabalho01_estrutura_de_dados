@@ -1,4 +1,4 @@
-package com.teste.lde;
+package com.group.lde;
 
 public interface ILde {
 
