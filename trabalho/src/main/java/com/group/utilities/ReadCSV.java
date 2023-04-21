@@ -10,6 +10,10 @@ public class ReadCSV {
     private String content;
 
     public ReadCSV(String filePath) {
+        if(filePath == null || filePath.trim().isEmpty()) {
+            throw new NullPointerException("Caminho do arquivo não pode ser nulo!");
+        }
+
         this.filePath = filePath;
         this.content = "";
     }
@@ -43,8 +47,14 @@ public class ReadCSV {
                 this.content += "\n";
             }
 
+            if(this.content.trim().isEmpty()) {
+                throw new NullPointerException("Arquivo vazio!");
+            }
+
         } catch (IOException e) {
             throw new NullPointerException("Arquivo não encontrado!");
+        } catch (NullPointerException e) {
+            throw new NullPointerException("Arquivo vazio!");
         } catch(Exception e) {
             throw new NullPointerException("Erro inesperado ao ler o arquivo!");
         } finally {
