@@ -48,34 +48,60 @@ public class Vehicle {
         return category;
     }
 
-    public void setPlate(String plate){
+    public void setPlate(String plate) {
+        if(plate == null || plate.trim().isEmpty()) {
+            throw new NullPointerException("Placa não pode ser nula!");
+        }
+
         this.plate = plate;
     }
 
-    public void setModel(String model){
+    public void setModel(String model) {
+        if(model == null || model.trim().isEmpty()) {
+            throw new NullPointerException("Modelo não pode ser nulo!");
+        }
+
         this.model = model;
     }
 
-    public void setYear(int year){
+    public void setYear(int year) {
+        if(year < 0) {
+            throw new NullPointerException("Ano não pode ser negativo!");
+        }
+
         this.year = year;
     }
 
-    public void setHorsePower(int horsePower){
+    public void setHorsePower(int horsePower) {
+        if(horsePower < 0) {
+            throw new NullPointerException("Potência não pode ser negativa!");
+        }
+
         this.horsePower = horsePower;
     }
 
-    public void setSeats(int seats){
+    public void setSeats(int seats) {
+        if(seats < 0) {
+            throw new NullPointerException("Quantidade de assentos não pode ser negativa!");
+        }
+
         this.seats = seats;
     }
 
-    public void setBrands(String brand){
+    public void setBrands(String brand) {
+        if(brand == null || brand.trim().isEmpty()) {
+            throw new NullPointerException("Marca não pode ser nula!");
+        }
+
         this.brand = brand;
     }
 
-    public void setCategory(String category){
+    public void setCategory(String category) {
+        if(category == null || category.trim().isEmpty()) {
+            throw new NullPointerException("Categoria não pode ser nula!");
+        }
+
         this.category = category;
     }
-
-    
 
 }
