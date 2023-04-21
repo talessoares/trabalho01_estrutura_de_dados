@@ -1,12 +1,11 @@
 package com.teste.list;
 
 import com.teste.lde.Noh;
-
 import com.teste.entities.Client;
 import com.teste.lde.ILde;
 
 
-public class ListClient implements ILde{
+public class ListClient implements ILde {
 
     private Noh begin;
     private Noh end;
@@ -93,6 +92,12 @@ public class ListClient implements ILde{
 
     @Override
     public Noh find(Object info) {
-        throw new NullPointerException("Método não implementado");
+        Noh node = begin;
+
+        while (node != null && node.getInfo() != info) {
+            node = node.getNext();
+        }
+        
+        return node;
     }
 }
