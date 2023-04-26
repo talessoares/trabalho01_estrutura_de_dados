@@ -3,11 +3,11 @@ package com.group.entities;
 public class Client {
 
     private String name;
-    private int cnh;
-    private int phone;
+    private String cnh;
+    private String phone;
     private String cpf;
 
-    public Client(String name, int cnh, int phone, String cpf) {
+    public Client(String name, String cnh, String phone, String cpf) {
         this.name = name;
         this.cnh = cnh;
         this.phone = phone;
@@ -26,24 +26,24 @@ public class Client {
         this.name = name;
     }
 
-    public int getCnh() {
+    public String getCnh() {
         return cnh;
     }
 
-    public void setCnh(int cnh) {
-        if(cnh < 0) {
+    public void setCnh(String cnh) {
+        if(cnh == null || cnh.trim().isEmpty()) {
             throw new NullPointerException("CNH não pode ser negativa!");
         }
 
         this.cnh = cnh;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
-        if(phone < 0) {
+    public void setPhone(String phone) {
+        if(phone == null || phone.trim().isEmpty()) {
             throw new NullPointerException("Telefone não pode ser negativo!");
         }
 

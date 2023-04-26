@@ -8,9 +8,9 @@ public class Vehicle {
     private int horsePower;
     private int seats;
     private String brand;
-    private String category;
+    private Category category;
 
-    public Vehicle (String plate, String model, int year, int horsePower, int seats, String brand, String category){
+    public Vehicle (String plate, String model, int year, int horsePower, int seats, String brand, Category category){
         this.plate = plate;
         this.model = model;
         this.year = year;
@@ -44,7 +44,7 @@ public class Vehicle {
         return brand;
     }
 
-    public String getCategory(){
+    public Category getCategory(){
         return category;
     }
 
@@ -88,7 +88,7 @@ public class Vehicle {
         this.seats = seats;
     }
 
-    public void setBrands(String brand) {
+    public void setBrand(String brand) {
         if(brand == null || brand.trim().isEmpty()) {
             throw new NullPointerException("Marca não pode ser nula!");
         }
@@ -96,8 +96,8 @@ public class Vehicle {
         this.brand = brand;
     }
 
-    public void setCategory(String category) {
-        if(category == null || category.trim().isEmpty()) {
+    public void setCategory(Category category) {
+        if(category == null) {
             throw new NullPointerException("Categoria não pode ser nula!");
         }
 

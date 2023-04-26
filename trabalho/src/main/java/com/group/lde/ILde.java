@@ -19,6 +19,6 @@ public interface ILde {
     public String getListFromEnd();
 
     // Retorna o Noh que contém o objeto info
-    public Noh find(Object info);
+    public Node find(Object info);
     
 }

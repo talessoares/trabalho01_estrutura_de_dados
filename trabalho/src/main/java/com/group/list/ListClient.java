@@ -1,103 +1,119 @@
 package com.group.list;
 
-import com.group.lde.Noh;
 import com.group.entities.Client;
-import com.group.lde.ILde;
+import com.group.lde.LdeClient;
+import com.group.lde.Node;
 
+public class ListClient {
 
-public class ListClient implements ILde {
-
-    private Noh begin;
-    private Noh end;
+    private LdeClient ldeClient;
 
     public ListClient() {
-        this.begin = null;
-        this.end = null;
+        this.ldeClient = new LdeClient();
     }
 
-    public void editClient(Object info) throws IllegalArgumentException  {
-        if (!(info instanceof Client)) { 
-            throw new IllegalArgumentException("O objeto informado não é um cliente");
+    public ListClient(LdeClient ldeClient) {
+        this.ldeClient = ldeClient;
+    }
+
+    public void addClientAtBeginning(Client client) {
+        if(client == null) {
+            throw new NullPointerException("O objeto informado é nulo");
         }
 
-    
-
-    }
-
-    public void listClients() {
-
-    }
-
-    @Override
-    public void insertAtBeginning(Object info) throws IllegalArgumentException {
-        if (!(info instanceof Client)) { 
-            throw new IllegalArgumentException("O objeto informado não é um cliente");
-        } 
-
-        Client client = (Client) info;
-        Noh newNode = new Noh(client);
-        if (begin == null) {
-            begin = newNode;
-            end = newNode;
-        } else {
-            newNode.setNext(begin);
-            begin.setNext(newNode);
-            begin = newNode;
-        }
-    }
-    
-
-    @Override
-    public void insertAtEnd(Object info) {
-        if (!(info instanceof Client)) { 
-            throw new IllegalArgumentException("O objeto informado não é um cliente");
-        }
-
-        Client client = (Client) info;
-        Noh newNode = new Noh(client);
-        if (end == null) {
-            begin = newNode;
-            end = newNode;
-        } else {
-            newNode.setPrevious(end);
-            end.setNext(newNode);
-            end = newNode;
+        try {
+            this.ldeClient.insertAtBeginning(client);
+        } catch (Exception e) {
+            throw e;
         }
     }
 
-    @Override
-    public boolean isEmpty() {
-        throw new NullPointerException("Método não implementado");
+    public void addClientAtEnd(Client client) {
+        if(client == null) {
+            throw new NullPointerException("O objeto informado é nulo");
+        }
+
+        try {
+            this.ldeClient.insertAtEnd(client);
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
-    @Override
-    public boolean remove(Object info) {
-        throw new NullPointerException("Método não implementado");
+    public boolean removeClient(Client client) {
+        if(client == null) {
+            throw new NullPointerException("O objeto informado é nulo");
+        }
+
+        try {
+            return this.ldeClient.remove(client);
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
-    @Override
+    public Node find(String cpf) {
+        if(cpf == null || cpf.trim().isEmpty()) {
+            throw new NullPointerException("O objeto informado é nulo");
+        }
+
+        try {
+            return this.ldeClient.find(cpf);
+        } catch (Exception e) {
+            throw e;
+        }      
+    }
+
     public int size() {
-        throw new NullPointerException("Método não implementado");
+        return this.ldeClient.size();
     }
 
-    @Override
+    public boolean isEmpty() {
+        return this.ldeClient.isEmpty();
+    }
+   
     public String getListFromBeginning() {
-        throw new NullPointerException("Método não implementado");
+       return this.ldeClient.getListFromBeginning();
     }
 
-    @Override
     public String getListFromEnd() {
-        throw new NullPointerException("Método não implementado");
+        return this.ldeClient.getListFromEnd();
     }
 
-    @Override
-    public Noh find(Object info) {
-        Noh node = begin;
-
-        while (node != null && node.getInfo() != info) {
-            node = node.getNext();
+    public void setName(Client client, String name) {
+        if(client == null) {
+            throw new NullPointerException("O objeto informado é nulo");
         }
-        
-        return node;
+
+        if(name == null || name.trim().isEmpty()) {
+            throw new NullPointerException("O nome informado é nulo");
+        }
+
+        client.setName(name);
     }
+
+    public void setPhone(Client client, String phone) {
+        if(client == null) {
+            throw new NullPointerException("O objeto informado é nulo");
+        }
+
+        if(phone == null || phone.trim().isEmpty()) {
+            throw new NullPointerException("O telefone informado é nulo");
+        }
+
+        client.setPhone(phone);
+    }
+
+    public void setCnh(Client client, String cnh) {
+        if(client == null) {
+            throw new NullPointerException("O objeto informado é nulo");
+        }
+
+        if(cnh == null || cnh.trim().isEmpty()) {
+            throw new NullPointerException("A CNH informada é nula");
+        }
+
+        client.setCnh(cnh);
+    }
+
 }

@@ -1,18 +1,26 @@
 package com.group.lde;
 
-public class Lde implements ILde {
+import com.group.entities.Vehicle;
 
-    private Noh begin;
-    private Noh end;
+public class LdeVehicle implements ILde {
 
-    public Lde() {
+    private Node begin;
+    private Node end;
+
+    public LdeVehicle() {
         this.begin = null;
         this.end = null;
     }
 
     @Override
     public void insertAtBeginning(Object info) {
-        Noh newNode = new Noh(info);
+
+        if(!(info instanceof Vehicle)) {
+            throw new IllegalArgumentException("O objeto informado não é um veículo");
+        }
+
+        Vehicle vehicle = (Vehicle) info;
+        Node newNode = new Node(vehicle);
 
         if (begin == null) {
             begin = newNode;
@@ -26,7 +34,13 @@ public class Lde implements ILde {
 
     @Override
     public void insertAtEnd(Object info) {
-        Noh newNode = new Noh(info);
+
+        if(!(info instanceof Vehicle)) {
+            throw new IllegalArgumentException("O objeto informado não é um veículo");
+        }
+
+        Vehicle vehicle = (Vehicle) info;
+        Node newNode = new Node(vehicle);
 
         if (end == null) {
             begin = newNode;
@@ -38,21 +52,20 @@ public class Lde implements ILde {
         }
     }
 
-    // REVER ESSE MÉTODO PARA OBSERVAR A COMPARAÇÃO DO OBJETO
     @Override
-    public Noh find(Object info) {
-        Noh node = begin;
-
-        while (node != null && node.getInfo() != info) {
-            node = node.getNext();
-        }
-        
-        return null;
+    public boolean isEmpty() {
+        return begin == null || end == null;
     }
 
     @Override
     public boolean remove(Object info) {
-        Noh node = find(info);
+
+        if(!(info instanceof Vehicle)) {
+            throw new IllegalArgumentException("O objeto informado não é um veículo");
+        }
+
+        Vehicle vehicle = (Vehicle) info;
+        Node node = find(vehicle);
 
         if (node == null) {
             return false;
@@ -81,7 +94,7 @@ public class Lde implements ILde {
     public int size() {
         int size = 0;
 
-        for (Noh i = begin; i != null; i = i.getNext()) {
+        for (Node i = begin; i != null; i = i.getNext()) {
             size++;
         }
 
@@ -92,8 +105,8 @@ public class Lde implements ILde {
     public String getListFromBeginning() {
         String list = "";
 
-        for (Noh i = begin; i != null; i = i.getNext()) {
-            list += i.getInfo() + " ";
+        for (Node i = begin; i != null; i = i.getNext()) {
+            list += i.getInfo() + "\n";
         }
 
         return list;
@@ -103,16 +116,27 @@ public class Lde implements ILde {
     public String getListFromEnd() {
         String list = "";
 
-        for (Noh i = end; i != null; i = i.getPrevious()) {
-            list += i.getInfo() + " ";
+        for (Node i = end; i != null; i = i.getPrevious()) {
+            list += i.getInfo() + "\n";
         }
 
         return list;
     }
 
     @Override
-    public boolean isEmpty() {
-        return begin == null || end == null;
-    }
+    public Node find(Object info) {
+        if(!(info instanceof String)) {
+            throw new IllegalArgumentException("O objeto informado não é um veículo");
+        }
 
+        String plate = (String) info;
+        Node node = begin;
+
+        while (node != null && (!((Vehicle) node.getInfo()).getPlate().equals(plate))) {
+            node = node.getNext();
+        }
+        
+        return null;
+    }
+    
 }

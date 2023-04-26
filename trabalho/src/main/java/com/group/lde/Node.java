@@ -1,12 +1,12 @@
 package com.group.lde;
 
-public class Noh {
+public class Node {
     
     private Object info;
-    private Noh next;
-    private Noh previous;
+    private Node next;
+    private Node previous;
 
-    public Noh(Object info) {
+    public Node(Object info) {
         this.info = info;
         this.next = null;
         this.previous = null;
@@ -16,19 +16,19 @@ public class Noh {
         return this.info;
     }
 
-    public Noh getNext() { 
+    public Node getNext() { 
         return this.next;
     }
 
-    public void setNext(Noh n) {
+    public void setNext(Node n) {
         this.next = n;
     }
 
-    public Noh getPrevious() { 
+    public Node getPrevious() { 
         return this.previous;
     }
 
-    public void setPrevious(Noh n) {
+    public void setPrevious(Node n) {
         this.previous = n;
     }
 
