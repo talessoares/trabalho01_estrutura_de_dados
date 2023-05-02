@@ -103,7 +103,7 @@ public class LdeCategory implements ILde {
         String list = "";
 
         for (Node i = begin; i != null; i = i.getNext()) {
-            list += i.getInfo() + "\n";
+            list += i.getInfo().toString() + "\n";
         }
 
         return list;
@@ -122,17 +122,19 @@ public class LdeCategory implements ILde {
 
     @Override
     public Node find(Object info) {
-        if (!(info instanceof Category)) { 
+        if (!(info instanceof Long)) { 
             throw new IllegalArgumentException("O objeto informado não é uma locação");
         }
+
+        long id = (Long) info;
         
         Node node = begin;
 
-        while (node != null && node.getInfo() != info) {
+        while (node != null && ((Category) node.getInfo()).getId() != id) {
             node = node.getNext();
         }
         
-        return null;
+        return node;
     }
     
 }

@@ -10,7 +10,7 @@ public class Vehicle {
     private String brand;
     private Category category;
 
-    public Vehicle (String plate, String model, int year, int horsePower, int seats, String brand, Category category){
+    public Vehicle(String plate, String model, int year, int horsePower, int seats, String brand, Category category) {
         this.plate = plate;
         this.model = model;
         this.year = year;
@@ -20,15 +20,15 @@ public class Vehicle {
         this.category = category;
     }
 
-    public String getPlate(){
+    public String getPlate() {
         return plate;
     }
 
-    public String getModel(){
+    public String getModel() {
         return model;
     }
 
-    public int getYear(){
+    public int getYear() {
         return year;
     }
 
@@ -102,6 +102,11 @@ public class Vehicle {
         }
 
         this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "Plate: " + plate + ";Model: " + model + ";Year: " + year + ";Horse Power: " + horsePower + ";Seats: " + seats + ";Brand: " + brand + ";Category: " + category.toString();
     }
 
 }

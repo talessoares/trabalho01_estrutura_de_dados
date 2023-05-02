@@ -1,7 +1,6 @@
 package com.group.list;
 
 import com.group.entities.Category;
-import com.group.entities.Location;
 import com.group.lde.LdeCategory;
 import com.group.lde.Node;
 
@@ -53,12 +52,12 @@ public class ListCategory {
         }
     }
 
-    public Node find(String name) {
-        if(name == null || name.trim().isEmpty()) {
+    public Node find(long id) {
+        if(id < 0) {
             throw new NullPointerException("O objeto informado é nulo");
         }
 
-        return this.ldeCategory.find(name);        
+        return this.ldeCategory.find(id);        
     }
 
     public int size() {

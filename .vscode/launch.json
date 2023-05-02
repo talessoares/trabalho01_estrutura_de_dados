@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.group.App",
+            "projectName": "trabalho",
+            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-19/lib\" --add-modules javafx.controls,javafx.fxml"
+        }
+    ]
+}

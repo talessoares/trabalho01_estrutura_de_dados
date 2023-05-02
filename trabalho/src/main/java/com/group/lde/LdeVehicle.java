@@ -106,7 +106,7 @@ public class LdeVehicle implements ILde {
         String list = "";
 
         for (Node i = begin; i != null; i = i.getNext()) {
-            list += i.getInfo() + "\n";
+            list += i.getInfo().toString() + "\n";
         }
 
         return list;

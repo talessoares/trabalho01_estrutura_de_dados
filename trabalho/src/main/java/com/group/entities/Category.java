@@ -10,20 +10,25 @@ public class Category {
         this.id = id;
     }
 
-    public void setCategoryName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getCategoryName() {
+    public String getName() {
         return name;
     }
 
-    public void setCategoryId(long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public long getCategoryId() {
+    public long getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Id: " + id + ";Nome: " + name;
     }
     
 }

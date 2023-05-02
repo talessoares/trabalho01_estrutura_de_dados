@@ -17,7 +17,7 @@ public class ListVehicle {
         this.ldeVehicle = ldeVehicle;
     }
 
-    public void addClientAtBeginning(Vehicle vehicle) {
+    public void addVehicleAtBeginning(Vehicle vehicle) {
         if(vehicle == null) {
             throw new NullPointerException("O objeto informado é nulo");
         }
@@ -29,7 +29,7 @@ public class ListVehicle {
         }
     }
 
-    public void addClientAtEnd(Vehicle vehicle) {
+    public void addVehicleAtEnd(Vehicle vehicle) {
         if(vehicle == null) {
             throw new NullPointerException("O objeto informado é nulo");
         }
@@ -41,7 +41,7 @@ public class ListVehicle {
         }
     }
 
-    public boolean removeClient(Vehicle vehicle) {
+    public boolean removeVehicle(Vehicle vehicle) {
         if(vehicle == null) {
             throw new NullPointerException("O objeto informado é nulo");
         }
