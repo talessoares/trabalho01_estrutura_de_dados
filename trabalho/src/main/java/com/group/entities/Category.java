@@ -4,10 +4,16 @@ public class Category {
 
     private String name;
     private long id;
+    private static long idCounter = 1017;
 
     public Category(String name, long id) {
         this.name = name;
         this.id = id;
+    }
+
+    public Category(String name) {
+        this.name = name;
+        this.id = idCounter++;
     }
 
     public void setName(String name) {
