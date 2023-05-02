@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.controller.ControllerIndex">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.controller.ControllerIndex">
    <children>
       <Pane fx:id="paneMenuClientesFechado" layoutY="551.0" maxHeight="200.0" onMouseMoved="#hoverBtnCliente" prefHeight="49.0" prefWidth="250.0" style="-fx-background-color: #370617;">
          <children>
@@ -18,22 +18,22 @@
       </Pane>
       <Pane fx:id="paneMenuClientesExpandido" layoutY="339.0" maxHeight="443.0" onMouseExited="#fecharMenuClientes" prefHeight="260.0" prefWidth="250.0" style="-fx-background-color: #370617;" visible="false">
          <children>
-            <Button fx:id="btnAdicionaCliente" layoutY="20.0" mnemonicParsing="false" onAction="#adicionaCliente" prefHeight="44.0" prefWidth="250.0" style="-fx-background-color: #370617; -fx-background-radius: 0;" text="Adicionar cliente" textFill="WHITE">
+            <Button fx:id="btnAdicionaCliente" layoutY="20.0" mnemonicParsing="false" onAction="#adicionaCliente" prefHeight="44.0" prefWidth="250.0" styleClass="purpleBtn" stylesheets="@style.css" text="Adicionar cliente" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btnRemoveCliente" layoutY="63.0" mnemonicParsing="false" onAction="#removeCliente" prefHeight="44.0" prefWidth="250.0" style="-fx-background-color: #370617; -fx-background-radius: 0;" text="Remover cliente" textFill="WHITE">
+            <Button fx:id="btnRemoveCliente" layoutY="63.0" mnemonicParsing="false" onAction="#removeCliente" prefHeight="44.0" prefWidth="250.0" styleClass="purpleBtn" stylesheets="@style.css" text="Remover cliente" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btnVisualizaInformacoesCliente" layoutY="149.0" mnemonicParsing="false" onAction="#visualizaInformacoesCliente" prefHeight="44.0" prefWidth="250.0" style="-fx-background-color: #370617; -fx-background-radius: 0;" text="Visualizar informações" textFill="WHITE">
+            <Button fx:id="btnVisualizaInformacoesCliente" layoutY="149.0" mnemonicParsing="false" onAction="#visualizaInformacoesCliente" prefHeight="44.0" prefWidth="250.0" styleClass="purpleBtn" stylesheets="@style.css" text="Visualizar informações" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btnAlterarInformacoesCliente" layoutY="106.0" mnemonicParsing="false" onAction="#alterarInformacoesCliente" prefHeight="44.0" prefWidth="250.0" style="-fx-background-color: #370617; -fx-background-radius: 0;" text="Alterar informações" textFill="WHITE" wrapText="true">
+            <Button fx:id="btnAlterarInformacoesCliente" layoutY="106.0" mnemonicParsing="false" onAction="#alterarInformacoesCliente" prefHeight="44.0" prefWidth="250.0" styleClass="purpleBtn" stylesheets="@style.css" text="Alterar informações" textFill="WHITE" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
@@ -51,22 +51,22 @@
       </Pane>
       <Pane fx:id="paneMenuVeiculosExpandido" layoutX="250.0" layoutY="339.0" onMouseExited="#fecharMenuVeiculos" prefHeight="260.0" prefWidth="250.0" style="-fx-background-color: #45081d;" visible="false">
          <children>
-            <Button fx:id="btnRemoveVeiculo" layoutY="66.0" mnemonicParsing="false" onAction="#removeVeiculo" prefHeight="44.0" prefWidth="250.0" style="-fx-background-color: #45081d; -fx-background-radius: 0;" text="Remover veículo" textFill="WHITE">
+            <Button fx:id="btnRemoveVeiculo" layoutY="66.0" mnemonicParsing="false" onAction="#removeVeiculo" prefHeight="44.0" prefWidth="250.0" styleClass="mediumPink" stylesheets="@style.css" text="Remover veículo" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btnVisualizaInformacoesVeiculo" layoutY="152.0" mnemonicParsing="false" onAction="#visualizaInformacoesVeiculo" prefHeight="44.0" prefWidth="250.0" style="-fx-background-color: #45081d; -fx-background-radius: 0;" text="Visualizar informações" textFill="WHITE">
+            <Button fx:id="btnVisualizaInformacoesVeiculo" layoutY="152.0" mnemonicParsing="false" onAction="#visualizaInformacoesVeiculo" prefHeight="44.0" prefWidth="250.0" styleClass="mediumPink" stylesheets="@style.css" text="Visualizar informações" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btnAlteraInformacoesVeiculo" layoutY="108.0" mnemonicParsing="false" onAction="#alteraInformacoesVeiculo" prefHeight="44.0" prefWidth="250.0" style="-fx-background-color: #45081d; -fx-background-radius: 0;" text="Alterar informações" textFill="WHITE" wrapText="true">
+            <Button fx:id="btnAlteraInformacoesVeiculo" layoutY="108.0" mnemonicParsing="false" onAction="#alteraInformacoesVeiculo" prefHeight="44.0" prefWidth="250.0" styleClass="mediumPink" stylesheets="@style.css" text="Alterar informações" textFill="WHITE" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btnAdicionaVeiculo" layoutY="23.0" mnemonicParsing="false" onAction="#adicionaVeiculo" prefHeight="44.0" prefWidth="250.0" style="-fx-background-color: #45081d; -fx-background-radius: 0;" text="Adicionar veículo" textFill="WHITE">
+            <Button fx:id="btnAdicionaVeiculo" layoutY="23.0" mnemonicParsing="false" onAction="#adicionaVeiculo" prefHeight="44.0" prefWidth="250.0" styleClass="mediumPink" stylesheets="@style.css" text="Adicionar veículo" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
@@ -84,22 +84,22 @@
       </Pane>
       <Pane fx:id="paneMenuLocacoesExpandido" layoutX="501.0" layoutY="339.0" onMouseExited="#fecharMenuLocacoes" prefHeight="260.0" prefWidth="250.0" style="-fx-background-color: #5c0a27;" visible="false">
          <children>
-            <Button fx:id="btnAdicionaLocacao" layoutY="27.0" mnemonicParsing="false" onAction="#adicionaLocacao" prefHeight="44.0" prefWidth="250.0" style="-fx-background-color: #5c0a27; -fx-background-radius: 0;" text="Adicionar locação" textFill="WHITE">
+            <Button fx:id="btnAdicionaLocacao" layoutY="27.0" mnemonicParsing="false" onAction="#adicionaLocacao" prefHeight="44.0" prefWidth="250.0" styleClass="pinkBtn" stylesheets="@style.css" text="Adicionar locação" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btnRemoveLocacao" layoutY="70.0" mnemonicParsing="false" onAction="#removeLocacao" prefHeight="44.0" prefWidth="250.0" style="-fx-background-color: #5c0a27; -fx-background-radius: 0;" text="Remover locação" textFill="WHITE">
+            <Button fx:id="btnRemoveLocacao" layoutY="70.0" mnemonicParsing="false" onAction="#removeLocacao" prefHeight="44.0" prefWidth="250.0" styleClass="pinkBtn" stylesheets="@style.css" text="Remover locação" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btnVisualizaInformacoesLocacao" layoutY="156.0" mnemonicParsing="false" onAction="#visualizaInformacoesLocacao" prefHeight="44.0" prefWidth="250.0" style="-fx-background-color: #5c0a27; -fx-background-radius: 0;" text="Visualizar informações" textFill="WHITE">
+            <Button fx:id="btnVisualizaInformacoesLocacao" layoutY="156.0" mnemonicParsing="false" onAction="#visualizaInformacoesLocacao" prefHeight="44.0" prefWidth="250.0" styleClass="pinkBtn" stylesheets="@style.css" text="Visualizar informações" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btnAlteraInformacoesLocacao" layoutY="113.0" mnemonicParsing="false" onAction="#alteraInformacoesLocacao" prefHeight="44.0" prefWidth="250.0" style="-fx-background-color: #5c0a27; -fx-background-radius: 0;" text="Alterar informações" textFill="WHITE" wrapText="true">
+            <Button fx:id="btnAlteraInformacoesLocacao" layoutY="113.0" mnemonicParsing="false" onAction="#alteraInformacoesLocacao" prefHeight="44.0" prefWidth="250.0" styleClass="pinkBtn" stylesheets="@style.css" text="Alterar informações" textFill="WHITE" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
@@ -117,22 +117,22 @@
       </Pane>
       <Pane fx:id="paneMenuCategoriasExpandido" layoutX="751.0" layoutY="339.0" onMouseExited="#fecharMenuCategoria" prefHeight="260.0" prefWidth="250.0" style="-fx-background-color: #8a0f3a;" visible="false">
          <children>
-            <Button fx:id="btnAdicionaCategoria" layoutY="27.0" mnemonicParsing="false" onAction="#adicionaCategoria" prefHeight="44.0" prefWidth="250.0" style="-fx-background-color: #8a0f3a; -fx-background-radius: 0;" text="Adicionar categoria" textFill="WHITE">
+            <Button fx:id="btnAdicionaCategoria" layoutY="27.0" mnemonicParsing="false" onAction="#adicionaCategoria" prefHeight="44.0" prefWidth="250.0" styleClass="ultraPinkBtn" stylesheets="@style.css" text="Adicionar categoria" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btnRemoveCategoria" layoutY="70.0" mnemonicParsing="false" onAction="#removeCategoria" prefHeight="44.0" prefWidth="250.0" style="-fx-background-color: #8a0f3a; -fx-background-radius: 0;" text="Remover categoria" textFill="WHITE">
+            <Button fx:id="btnRemoveCategoria" layoutY="70.0" mnemonicParsing="false" onAction="#removeCategoria" prefHeight="44.0" prefWidth="250.0" styleClass="ultraPinkBtn" stylesheets="@style.css" text="Remover categoria" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btnVisualizaInformacoesCategoria" layoutY="156.0" mnemonicParsing="false" onAction="#visualizaInformacoesCategoria" prefHeight="44.0" prefWidth="250.0" style="-fx-background-color: #8a0f3a; -fx-background-radius: 0;" text="Visualizar informações" textFill="WHITE">
+            <Button fx:id="btnVisualizaInformacoesCategoria" layoutY="156.0" mnemonicParsing="false" onAction="#visualizaInformacoesCategoria" prefHeight="44.0" prefWidth="250.0" styleClass="ultraPinkBtn" stylesheets="@style.css" text="Visualizar informações" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btnAlteraInformacoesCategoria" layoutY="113.0" mnemonicParsing="false" onAction="#alteraInformacoesCategoria" prefHeight="44.0" prefWidth="250.0" style="-fx-background-color: #8a0f3a; -fx-background-radius: 0;" text="Alterar informações" textFill="WHITE" wrapText="true">
+            <Button fx:id="btnAlteraInformacoesCategoria" layoutY="113.0" mnemonicParsing="false" onAction="#alteraInformacoesCategoria" prefHeight="44.0" prefWidth="250.0" styleClass="ultraPinkBtn" stylesheets="@style.css" text="Alterar informações" textFill="WHITE" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
