@@ -87,13 +87,13 @@ public class ControllerCreateClient {
 
     @FXML
     void hoverBtnVoltar(MouseEvent event) {
-        btnVoltar.setImage(new Image("com/views/images/pngVoltarHover.png"));
+        btnVoltar.setImage(new Image("com/group/views/images/pngVoltarHover.png"));
         btnVoltar.setStyle("-fx-cursor: hand;");
     }
 
     @FXML
     void notHoverBtnVoltar(MouseEvent event) {
-        btnVoltar.setImage(new Image("com/views/images/pngVoltar.png"));
+        btnVoltar.setImage(new Image("com/group/views/images/pngVoltar.png"));
         btnVoltar.setStyle("-fx-cursor: hand;");
     }
 

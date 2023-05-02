@@ -80,3 +80,29 @@
     cursor: hand;
     -fx-cursor: hand;
 }
+
+.ultraPinkBtn {
+    background-color: #8a0f3a;
+    -fx-background-color: #8a0f3a;
+}
+
+.ultraPinkBtn:hover {
+    -fx-text-fill: #8a0f3a;
+    background-color: white;
+    -fx-background-color: white;
+    cursor: hand;
+    -fx-cursor: hand;
+}
+
+.mediumPink {
+    background-color: #45081d;
+    -fx-background-color: #45081d;
+}
+
+.mediumPink:hover {
+    -fx-text-fill: #45081d;
+    background-color: white;
+    -fx-background-color: white;
+    cursor: hand;
+    -fx-cursor: hand;
+}
