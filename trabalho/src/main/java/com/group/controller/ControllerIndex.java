@@ -192,7 +192,13 @@ public class ControllerIndex {
 
     @FXML
     void removeCliente(ActionEvent event) {
-
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/client/viewDeleteClient.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            alertInterface("ERRO", "Não foi possível entrar na tela de excluir um cliente", AlertType.ERROR);
+        }
     }
 
     @FXML

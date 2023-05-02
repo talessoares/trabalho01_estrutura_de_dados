@@ -8,8 +8,11 @@ public class Location {
     private Vehicle vehicle;
     private Date locationDate;
     private Date devolutionDate;
+    private long id;
+    private static long idCounter = 1000;
 
-    public Location(Client client, Vehicle vehicle, Date locationDate, Date devolutionDate) {
+    public Location(long id, Client client, Vehicle vehicle, Date locationDate, Date devolutionDate) {
+        this.id = idCounter++;
         this.client = client;
         this.vehicle = vehicle;
         this.locationDate = locationDate;
@@ -62,6 +65,14 @@ public class Location {
         }
 
         this.devolutionDate = devolutionDate;
+    }
+
+    public long getId(){
+        return id;
+    }
+
+    public void setId(long id){
+        this.id = id;
     }
     
 

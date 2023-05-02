@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -13,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.controller.client.ControllerCreateClient">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.controller.client.ControllerDeleteClient">
    <children>
-      <Button fx:id="btnAdicionar" layoutX="514.0" layoutY="520.0" mnemonicParsing="false" onAction="#createClient" prefHeight="46.0" prefWidth="134.0" styleClass="redBtn" stylesheets="@../style.css" text="Excluir" textFill="WHITE">
+      <Button fx:id="btnRemover" layoutX="514.0" layoutY="520.0" mnemonicParsing="false" onAction="#removeClient" prefHeight="46.0" prefWidth="134.0" styleClass="redBtn" stylesheets="@../style.css" text="Remover" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -25,7 +20,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Label layoutX="306.0" layoutY="27.0" prefHeight="54.0" prefWidth="286.0" text="Excluir categoria" textFill="WHITE">
+      <Label layoutX="305.0" layoutY="27.0" prefHeight="54.0" prefWidth="291.0" text="Remover Cliente" textFill="WHITE">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
@@ -42,15 +37,15 @@
       </Label>
       <ImageView fx:id="btnVoltar" fitHeight="50.0" fitWidth="50.0" layoutX="38.0" layoutY="29.0" onMouseClicked="#voltarParaPrincipal" onMouseEntered="#hoverBtnVoltar" onMouseExited="#notHoverBtnVoltar">
          <image>
-            <Image url="@../../views/images/pngVoltar.png" />
+            <Image url="@../images/pngVoltar.png" />
          </image>
       </ImageView>
-      <TextField fx:id="textFieldTelefone" layoutX="38.0" layoutY="214.0" prefHeight="40.0" prefWidth="822.0" promptText="Digite o ID da categoria que deseja excuir" style="-fx-background-radius: 5; -fx-background-color: white;">
+      <TextField fx:id="textFieldCPF" layoutX="38.0" layoutY="190.0" prefHeight="40.0" prefWidth="822.0" promptText="Digite o cpf" style="-fx-background-radius: 5; -fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Label layoutX="38.0" layoutY="188.0" text="ID" textFill="WHITE">
+      <Label layoutX="38.0" layoutY="164.0" text="CPF" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
