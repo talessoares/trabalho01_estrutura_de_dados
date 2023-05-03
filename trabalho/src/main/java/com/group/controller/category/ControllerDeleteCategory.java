@@ -22,7 +22,7 @@ public class ControllerDeleteCategory {
 
     @FXML
     private Button btnLimparExcCategoria;
-
+    
     @FXML
     private ImageView btnVoltarExcCategoria;
 
@@ -39,39 +39,30 @@ public class ControllerDeleteCategory {
     }
 
     @FXML
-    void createClient(ActionEvent event) {
-        String nomeCat = textFieldNomeCategoria.getText();
-
-        try {
-            if(nomeCat == null || nomeCat.trim().isEmpty()) {
-                throw new NullPointerException("Nome não pode ser vazio");
-            }
-
-            Category category = new Category(nomeCat);
-            ListCategory.addCategoryAtEnd(category);
-
-        } catch (NullPointerException e) {
-            alertInterface("Erro", e.getMessage(), AlertType.ERROR);
-        } catch (Exception e) {
-            alertInterface("Erro", e.getMessage(), AlertType.ERROR);
-        }
-    }
-
-    @FXML
     void hoverBtnVoltar(MouseEvent event) {
-        btnVoltarCategoria.setImage(new Image("com/group/views/images/pngVoltarHover.png"));
-        btnVoltarCategoria.setStyle("-fx-cursor: hand;");
+        btnVoltarExcCategoria.setImage(new Image("com/group/views/images/pngVoltarHover.png"));
+        btnVoltarExcCategoria.setStyle("-fx-cursor: hand;");
     }
 
     @FXML
     void notHoverBtnVoltar(MouseEvent event) {
-        btnVoltarCategoria.setImage(new Image("com/group/views/images/pngVoltar.png"));
-        btnVoltarCategoria.setStyle("-fx-cursor: hand;");
+        btnVoltarExcCategoria.setImage(new Image("com/group/views/images/pngVoltar.png"));
+        btnVoltarExcCategoria.setStyle("-fx-cursor: hand;");
     }
 
     @FXML
     void limparCampos(ActionEvent event) {
-        textFieldNomeCategoria.clear();
+        textFieldIdExcluirCategoria.clear();
+    }
+
+
+    @FXML
+    void removeCategory(ActionEvent event) {
+        if (textFieldIdExcluirCategoria == null){
+            alertInterface("ERRO", "O campo CPF não pode ser nulo!", AlertType.ERROR);
+        }
+
+        
     }
 
     @FXML
@@ -94,5 +85,5 @@ public class ControllerDeleteCategory {
         alert.setContentText(mensagem);
         alert.showAndWait();
     }
-
 }
+
