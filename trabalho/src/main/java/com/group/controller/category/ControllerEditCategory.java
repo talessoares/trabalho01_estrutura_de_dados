@@ -18,51 +18,81 @@ import javafx.scene.layout.Pane;
 public class ControllerEditCategory {
     
     @FXML
-    private Button btnExcluirCategoria;
+    private Button btnConsultarCategoria;
 
     @FXML
-    private Button btnLimparExcCategoria;
+    private Button btnEditarCategoria;
+
+    @FXML
+    private Button btnLimparEditCat;
     
     @FXML
-    private ImageView btnVoltarExcCategoria;
+    private ImageView btnVoltarEdirCat;
 
     @FXML
-    private TextField textFieldIdExcluirCategoria;
+    private TextField textFieldIdEditCategoria;
 
     @FXML
-    private AnchorPane rootPaneCriaCat;
+    private TextField textFieldNovoNomeCategoria;
 
     @FXML
-    void initialize() {
-        // ALTERAR ISSO, PUXAR DO MENU PRINCIPAL DE FORMA ESTÁTICA
-        this.ListCategory = new ListCategory();
-    }
+    private AnchorPane rootPaneEditCat;
 
     @FXML
     void hoverBtnVoltar(MouseEvent event) {
-        btnVoltarExcCategoria.setImage(new Image("com/group/views/images/pngVoltarHover.png"));
-        btnVoltarExcCategoria.setStyle("-fx-cursor: hand;");
+        btnVoltarEdirCat.setImage(new Image("com/group/views/images/pngVoltarHover.png"));
+        btnVoltarEdirCat.setStyle("-fx-cursor: hand;");
     }
 
     @FXML
     void notHoverBtnVoltar(MouseEvent event) {
-        btnVoltarExcCategoria.setImage(new Image("com/group/views/images/pngVoltar.png"));
-        btnVoltarExcCategoria.setStyle("-fx-cursor: hand;");
+        btnVoltarEdirCat.setImage(new Image("com/group/views/images/pngVoltar.png"));
+        btnVoltarEdirCat.setStyle("-fx-cursor: hand;");
     }
 
     @FXML
     void limparCampos(ActionEvent event) {
-        textFieldIdExcluirCategoria.clear();
+        textFieldIdEditCategoria.clear();
+        textFieldNovoNomeCategoria.clear();
     }
 
+    @FXML
+    void consultarCategoria(){
+        if (textFieldIdEditCategoria.getText().isEmpty()){
+            alertInterface("ERRO", "O campo ID não pode ser nulo!", AlertType.ERROR);
+        } else {
+            try {
+                int id = Integer.parseInt(textFieldIdEditCategoria.getText());
+                Category category = ListCategory.searchCategory(id);
+                if (category == null){
+                    alertInterface("ERRO", "Categoria não encontrada!", AlertType.ERROR);
+                } else {
+                    textFieldNovoNomeCategoria.setText(category.getName());
+                }
+            } catch (Exception e) {
+                alertInterface("ERRO", "O campo ID deve ser um número inteiro!", AlertType.ERROR);
+            }
+        }
+    }
 
     @FXML
-    void removeCategory(ActionEvent event) {
-        if (textFieldIdExcluirCategoria == null){
-            alertInterface("ERRO", "O campo CPF não pode ser nulo!", AlertType.ERROR);
+    void editarCategoria(){
+        if (textFieldIdEditCategoria.getText().isEmpty() || textFieldNovoNomeCategoria.getText().isEmpty()){
+            alertInterface("ERRO", "Os campos não podem ser nulos!", AlertType.ERROR);
+        } else {
+            try {
+                int id = Integer.parseInt(textFieldIdEditCategoria.getText());
+                Category category = ListCategory.searchCategory(id);
+                if (category == null){
+                    alertInterface("ERRO", "Categoria não encontrada!", AlertType.ERROR);
+                } else {
+                    category.setName(textFieldNovoNomeCategoria.getText());
+                    alertInterface("SUCESSO", "Categoria editada com sucesso!", AlertType.INFORMATION);
+                }
+            } catch (Exception e) {
+                alertInterface("ERRO", "O campo ID deve ser um número inteiro!", AlertType.ERROR);
+            }
         }
-
-        
     }
 
     @FXML
@@ -71,8 +101,8 @@ public class ControllerEditCategory {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../views/viewIndex.fxml"));
             Pane cmdPane = (Pane) fxmlLoader.load();
 
-            rootPaneCriaCat.getChildren().clear();
-            rootPaneCriaCat.getChildren().add(cmdPane);
+            rootPaneEditCat.getChildren().clear();
+            rootPaneEditCat.getChildren().add(cmdPane);
         } catch (Exception e) {
             alertInterface("ERRO", "Não foi possível voltar para o menu principal", AlertType.ERROR);
         }
