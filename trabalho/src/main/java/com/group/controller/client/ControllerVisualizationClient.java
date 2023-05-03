@@ -92,6 +92,12 @@ public class ControllerVisualizationClient {
 
     @FXML
     void imprimirListaInicio(ActionEvent event) {
+
+        if(listClient.isEmpty()) {
+            alertInterface("Lista Vazia", "A lista está vazia, não há o que imprimir.", AlertType.INFORMATION);
+            return;
+        }
+
         String content = listClient.getListFromBeginning();
         String[] contentBreak = content.split("\n");
 
@@ -114,6 +120,12 @@ public class ControllerVisualizationClient {
 
     @FXML
     void imprimirListaFinal(ActionEvent event) {
+
+        if(listClient.isEmpty()) {
+            alertInterface("Lista Vazia", "A lista está vazia, não há o que imprimir.", AlertType.INFORMATION);
+            return;
+        }
+
         String content = listClient.getListFromEnd();
         String[] contentBreak = content.split("\n");
 

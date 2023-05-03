@@ -120,6 +120,12 @@ public class ControllerVisualizationVehicle {
 
     @FXML
     void imprimirListaInicio(ActionEvent event) {
+
+        if(listVehicle.isEmpty()) {
+            alertInterface("Lista Vazia", "A lista está vazia, não há o que imprimir.", AlertType.INFORMATION);
+            return;
+        }
+
         String content = listVehicle.getListFromBeginning();
         String[] contentBreak = content.split("\n");
 
@@ -153,6 +159,12 @@ public class ControllerVisualizationVehicle {
 
     @FXML
     void imprimirListaFinal(ActionEvent event) {
+
+        if(listVehicle.isEmpty()) {
+            alertInterface("Lista Vazia", "A lista está vazia, não há o que imprimir.", AlertType.INFORMATION);
+            return;
+        }
+
         String content = listVehicle.getListFromEnd();
         String[] contentBreak = content.split("\n");
 

@@ -174,6 +174,12 @@ public class ControllerVisualizationLocation {
 
     @FXML
     void imprimirListaFinal(ActionEvent event) {
+
+        if(listLocation.isEmpty()) {
+            alertInterface("Lista Vazia", "A lista está vazia, não há o que imprimir.", AlertType.INFORMATION);
+            return;
+        }
+
         String content = listLocation.getListFromEnd();
         String[] contentBreak = content.split("\n");
 
@@ -193,6 +199,12 @@ public class ControllerVisualizationLocation {
 
     @FXML
     void imprimirListaInicio(ActionEvent event) {
+
+        if(listLocation.isEmpty()) {
+            alertInterface("Lista Vazia", "A lista está vazia, não há o que imprimir.", AlertType.INFORMATION);
+            return;
+        }
+
         String content = listLocation.getListFromBeginning();
         String[] contentBreak = content.split("\n");
 

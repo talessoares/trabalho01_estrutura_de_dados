@@ -123,6 +123,12 @@ public class ControllerVisualizationCategory {
 
     @FXML
     void imprimirListaInicio(ActionEvent event) {
+
+        if(listCategory.isEmpty()) {
+            alertInterface("Lista Vazia", "A lista está vazia, não há o que imprimir.", AlertType.INFORMATION);
+            return;
+        }
+
         String content = listCategory.getListFromBeginning();
         String[] breakContent = content.split("\n");
 
@@ -142,6 +148,12 @@ public class ControllerVisualizationCategory {
 
     @FXML
     void imprimirListaFinal(ActionEvent event) {
+
+        if(listCategory.isEmpty()) {
+            alertInterface("Lista Vazia", "A lista está vazia, não há o que imprimir.", AlertType.INFORMATION);
+            return;
+        }
+
         String content = listCategory.getListFromEnd();
         String[] breakContent = content.split("\n");
 

@@ -1,6 +1,8 @@
 package com.group.controller.client;
 
 import com.group.controller.ControllerIndex;
+import com.group.entities.Client;
+import com.group.lde.Node;
 import com.group.list.ListClient;
 import com.group.list.ListLocation;
 
@@ -70,6 +72,22 @@ public class ControllerDeleteClient {
 
             if(cpf == null || cpf.trim().isEmpty()) {
                 throw new NullPointerException("Cpf não pode ser vazio");
+            }
+
+            Node node = listClient.find(cpf);
+
+            if(node == null) {
+                throw new NullPointerException("Cliente não encontrado");
+            }
+
+            Client client = (Client) node.getInfo();
+
+            String cnh = client.getCnh();
+
+            node = listLocation.findByCnh(cnh);
+
+            if(node != null) {
+                throw new NullPointerException("Cliente possui locação ativa");
             }
 
             if(listClient.removeClient(cpf)) {
