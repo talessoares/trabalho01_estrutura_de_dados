@@ -12,7 +12,7 @@
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.controller.client.ControllerCreateClient">
    <children>
-      <Button fx:id="btnAdicionar" layoutX="462.0" layoutY="521.0" mnemonicParsing="false" onAction="#createClient" prefHeight="46.0" prefWidth="134.0" styleClass="greenBtn" stylesheets="@../style.css" text="Consultar" textFill="WHITE">
+      <Button fx:id="btnConsult" layoutX="462.0" layoutY="521.0" mnemonicParsing="false" onAction="#consultLocation" prefHeight="46.0" prefWidth="134.0" styleClass="greenBtn" stylesheets="@../style.css" text="Consultar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -22,7 +22,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Label layoutX="354.0" layoutY="27.0" prefHeight="54.0" prefWidth="216.0" text="Criar Veículo" textFill="WHITE">
+      <Label layoutX="307.0" layoutY="27.0" prefHeight="54.0" prefWidth="309.0" text="Visualizar Locação" textFill="WHITE">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
@@ -53,7 +53,7 @@
       </TableView>
       <Button fx:id="btnImprimirInicio" layoutX="720.0" layoutY="102.0" mnemonicParsing="false" onAction="#imprimirListaInicio" text="Imprimir desde o início" />
       <Button fx:id="btnImprimirFinal" layoutX="720.0" layoutY="136.0" mnemonicParsing="false" onAction="#imprimirListaFinal" prefHeight="26.0" prefWidth="138.0" text="Imprimir desde o final" />
-      <TextField fx:id="textFieldNome" layoutX="40.0" layoutY="121.0" prefHeight="40.0" prefWidth="398.0" promptText="Digite o ID da locação" style="-fx-background-radius: 5; -fx-background-color: white;">
+      <TextField fx:id="textFieldIdLocation" layoutX="40.0" layoutY="121.0" prefHeight="40.0" prefWidth="398.0" promptText="Digite o ID da locação" style="-fx-background-radius: 5; -fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
