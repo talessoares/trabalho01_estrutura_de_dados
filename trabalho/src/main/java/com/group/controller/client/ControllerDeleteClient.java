@@ -1,5 +1,8 @@
 package com.group.controller.client;
 
+import com.group.controller.ControllerIndex;
+import com.group.list.ListClient;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,6 +33,13 @@ public class ControllerDeleteClient {
     @FXML
     private TextField textFieldCPF;
 
+    private ListClient listClient;
+
+    @FXML
+    void initialize() {
+        this.listClient = ControllerIndex.getListClient();
+    }
+
     @FXML
     void hoverBtnVoltar(MouseEvent event) {
         btnVoltar.setImage(new Image("com/group/views/images/pngVoltarHover.png"));
@@ -50,10 +60,26 @@ public class ControllerDeleteClient {
 
     @FXML
     void removeClient(ActionEvent event) {
-        if (textFieldCPF == null){
-            alertInterface("ERRO", "O campo CPF não pode ser nulo!", AlertType.ERROR);
-        }
+        String cpf = textFieldCPF.getText();
 
+        try {
+
+            if(cpf == null || cpf.trim().isEmpty()) {
+                throw new NullPointerException("Cpf não pode ser vazio");
+            }
+
+            if(listClient.removeClient(cpf)) {
+                alertInterface("Sucesso", "Cliente removido com sucesso", AlertType.INFORMATION);
+                limparCampos(event);
+            } else {
+                throw new NullPointerException("Cliente não encontrado");
+            }
+
+        } catch (NullPointerException e) {
+            alertInterface("ERRO", e.getMessage(), AlertType.ERROR);
+        } catch (Exception e) {
+            alertInterface("ERRO inesperado", e.getMessage(), AlertType.ERROR);
+        }
         
     }
 

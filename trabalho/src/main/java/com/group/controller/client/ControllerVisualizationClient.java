@@ -1,10 +1,18 @@
 package com.group.controller.client;
 
+import com.group.controller.ControllerIndex;
+import com.group.entities.Client;
+import com.group.lde.Node;
+import com.group.list.ListClient;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -18,13 +26,19 @@ import javafx.scene.layout.Pane;
 public class ControllerVisualizationClient {
 
     @FXML
-    private TableView<?> TableviewVisuCat;
+    private TableView<Client> tableviewVisuClient;
 
     @FXML
-    private Button btnConsultarCat;
+    private Button btnConsultar;
 
     @FXML
     private Button btnLimparEditCat;
+
+    @FXML
+    private Button btnImprimirInicio;
+
+    @FXML
+    private Button btnImprimirFinal;
 
     @FXML
     private ImageView btnVoltarEdirCat;
@@ -33,19 +47,31 @@ public class ControllerVisualizationClient {
     private AnchorPane rootPaneEditCat;
 
     @FXML
-    private TableColumn<?, ?> tableColumnIdCategoria;
+    private TableColumn<Client, String> tableColumnNome;
 
     @FXML
-    private TableColumn<?, ?> tableColumnIdCategoria1;
+    private TableColumn<Client, String> tableColumnTelefone;
 
     @FXML
-    private TableColumn<?, ?> tableColumnIdCategoria11;
+    private TableColumn<Client, String> tableColumnCNH;
 
     @FXML
-    private TableColumn<?, ?> tableColumnNomeCategoria1;
+    private TableColumn<Client, String> tableColumnCpf;
 
     @FXML
-    private TextField textFieldIdEditCategoria;
+    private TextField textFieldCpf;
+
+    private ListClient listClient;
+
+    @FXML
+    void initialize() {
+        this.listClient = ControllerIndex.getListClient();
+
+        tableColumnNome.setCellValueFactory(new PropertyValueFactory<Client, String>("name"));
+        tableColumnTelefone.setCellValueFactory(new PropertyValueFactory<Client, String>("phone"));
+        tableColumnCNH.setCellValueFactory(new PropertyValueFactory<Client, String>("cnh"));
+        tableColumnCpf.setCellValueFactory(new PropertyValueFactory<Client, String>("cpf"));
+    }
 
     @FXML
     void hoverBtnVoltar(MouseEvent event) {
@@ -61,7 +87,79 @@ public class ControllerVisualizationClient {
 
     @FXML
     void limparCampos(ActionEvent event) {
-        textFieldIdEditCategoria.clear();
+        textFieldCpf.clear();
+    }
+
+    @FXML
+    void imprimirListaInicio(ActionEvent event) {
+        String content = listClient.getListFromBeginning();
+        String[] contentBreak = content.split("\n");
+
+        ObservableList<Client> list = FXCollections.observableArrayList();
+
+        for(String line : contentBreak) {
+            
+            String name = line.split(";")[0].split(":")[1];
+            String cnh = line.split(";")[1].split(":")[1];
+            String phone = line.split(";")[2].split(":")[1];
+            String cpf = line.split(";")[3].split(":")[1];
+
+            Client client = new Client(name, cnh, phone, cpf);
+            list.add(client);
+        }
+
+        tableviewVisuClient.getItems().clear();
+        tableviewVisuClient.setItems(list);
+    }
+
+    @FXML
+    void imprimirListaFinal(ActionEvent event) {
+        String content = listClient.getListFromEnd();
+        String[] contentBreak = content.split("\n");
+
+        ObservableList<Client> list = FXCollections.observableArrayList();
+
+        for(String line : contentBreak) {
+            
+            String name = line.split(";")[0].split(":")[1];
+            String cnh = line.split(";")[1].split(":")[1];
+            String phone = line.split(";")[2].split(":")[1];
+            String cpf = line.split(";")[3].split(":")[1];
+
+            Client client = new Client(name, cnh, phone, cpf);
+            list.add(client);
+        }
+
+        tableviewVisuClient.getItems().clear();
+        tableviewVisuClient.setItems(list);
+    }
+
+    @FXML
+    void consultClient(ActionEvent event) {
+        String cpf = textFieldCpf.getText();
+
+        try {
+
+            if(cpf == null || cpf.trim().isEmpty()) {
+                throw new NullPointerException("Campo categoria não pode ser vazio");
+            }
+
+            Node node = listClient.find(cpf);
+
+            if(node == null) {
+                throw new NullPointerException("Cliente não encontrado");
+            }
+
+            Client client = (Client) node.getInfo();
+
+            tableviewVisuClient.getItems().clear();
+            tableviewVisuClient.getItems().add(client);
+            
+        } catch (NullPointerException e) {
+            alertInterface("ERRO", e.getMessage(), AlertType.ERROR);
+        } catch (Exception e) {
+            alertInterface("ERRO inesperado", e.getMessage(), AlertType.ERROR);
+        }
     }
 
     @FXML

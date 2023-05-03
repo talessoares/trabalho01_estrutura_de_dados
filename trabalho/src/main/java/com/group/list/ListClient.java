@@ -40,13 +40,13 @@ public class ListClient {
         }
     }
 
-    public boolean removeClient(Client client) {
-        if(client == null) {
+    public boolean removeClient(String cpf) {
+        if(cpf == null || cpf.trim().isEmpty()) {
             throw new NullPointerException("O objeto informado é nulo");
         }
 
         try {
-            return this.ldeClient.remove(client);
+            return this.ldeClient.remove(cpf);
         } catch (Exception e) {
             throw e;
         }

@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPaneEditCat" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.controller.client.ControllerCreateClient">
+<AnchorPane fx:id="rootPaneEditCat" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.controller.client.ControllerVisualizationClient">
    <children>
-      <TextField fx:id="textFieldIdEditCategoria" layoutX="32.0" layoutY="162.0" prefHeight="40.0" prefWidth="390.0" promptText="Digite o CPF do cliente que deseja visualizar" style="-fx-background-radius: 5; -fx-background-color: white;">
+      <TextField fx:id="textFieldCpf" layoutX="32.0" layoutY="162.0" prefHeight="40.0" prefWidth="390.0" promptText="Digite o CPF do cliente que deseja visualizar" style="-fx-background-radius: 5; -fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
@@ -47,18 +47,20 @@
             <Image url="@../../views/images/pngVoltar.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnConsultarCat" layoutX="553.0" layoutY="520.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="46.0" prefWidth="133.0" styleClass="yellowBtn" stylesheets="@../style.css" text="Consultar" textFill="WHITE">
+      <Button fx:id="btnConsultar" layoutX="553.0" layoutY="520.0" mnemonicParsing="false" onAction="#consultClient" prefHeight="46.0" prefWidth="133.0" styleClass="yellowBtn" stylesheets="@../style.css" text="Consultar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <TableView fx:id="TableviewVisuCat" layoutX="28.0" layoutY="218.0" prefHeight="280.0" prefWidth="844.0">
+      <TableView fx:id="tableviewVisuClient" layoutX="28.0" layoutY="218.0" prefHeight="280.0" prefWidth="844.0">
          <columns>
-            <TableColumn fx:id="tableColumnIdCategoria" prefWidth="193.0" text="Nome" />
-            <TableColumn fx:id="tableColumnIdCategoria11" prefWidth="210.0" text="Telefone" />
-            <TableColumn fx:id="tableColumnIdCategoria1" prefWidth="226.0" text="CNH" />
-            <TableColumn fx:id="tableColumnNomeCategoria1" minWidth="0.0" prefWidth="214.0" text="CPF" />
+            <TableColumn fx:id="tableColumnNome" prefWidth="193.0" text="Nome" />
+            <TableColumn fx:id="tableColumnTelefone" prefWidth="210.0" text="Telefone" />
+            <TableColumn fx:id="tableColumnCNH" prefWidth="226.0" text="CNH" />
+            <TableColumn fx:id="tableColumnCpf" minWidth="0.0" prefWidth="214.0" text="CPF" />
          </columns>
       </TableView>
+      <Button fx:id="btnImprimirInicio" layoutX="733.0" layoutY="142.0" mnemonicParsing="false" onAction="#imprimirListaInicio" text="Imprimir desde o início" />
+      <Button fx:id="btnImprimirFinal" layoutX="733.0" layoutY="176.0" mnemonicParsing="false" onAction="#imprimirListaFinal" prefHeight="26.0" prefWidth="138.0" text="Imprimir desde o final" />
    </children>
 </AnchorPane>

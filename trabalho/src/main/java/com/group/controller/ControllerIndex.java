@@ -167,7 +167,13 @@ public class ControllerIndex {
 
     @FXML
     void alterarInformacoesCliente(ActionEvent event) {
-
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/client/viewEditClient.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            alertInterface("ERRO", "Não foi possível entrar na tela de editar um cliente", AlertType.ERROR);
+        }
     }
 
     @FXML
@@ -255,7 +261,13 @@ public class ControllerIndex {
 
     @FXML
     void visualizaInformacoesCliente(ActionEvent event) {
-
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/client/viewVisualizationClient.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            alertInterface("ERRO", "Não foi possível entrar na tela de visualizar um cliente", AlertType.ERROR);
+        }
     }
 
     @FXML

@@ -64,7 +64,7 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Name: " + this.name + "; CNH: " + this.cnh + "; Phone: " + this.phone + "; CPF: " + this.cpf + ";";
+        return "Name:" + this.name + ";CNH:" + this.cnh + ";Phone:" + this.phone + ";CPF:" + this.cpf;
     }
 
 }

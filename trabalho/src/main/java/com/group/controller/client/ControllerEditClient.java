@@ -1,5 +1,10 @@
 package com.group.controller.client;
 
+import com.group.controller.ControllerIndex;
+import com.group.entities.Client;
+import com.group.lde.Node;
+import com.group.list.ListClient;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,13 +27,32 @@ public class ControllerEditClient {
     private Button btnRemover;
 
     @FXML
+    private Button btnConsultarCliente;
+
+    @FXML
     private ImageView btnVoltar;
 
     @FXML
     private AnchorPane rootPane;
 
     @FXML
-    private TextField textFieldCPF;
+    private TextField textFieldEditCPF;
+
+    @FXML
+    private TextField textFieldEditNome;
+
+    @FXML
+    private TextField textFieldEditCNH;
+
+    @FXML
+    private TextField textFieldEditTelefone;
+
+    private ListClient listClient;
+
+    @FXML
+    void initialize() {
+        this.listClient = ControllerIndex.getListClient();
+    }
 
     @FXML
     void hoverBtnVoltar(MouseEvent event) {
@@ -44,17 +68,86 @@ public class ControllerEditClient {
 
     @FXML
     void limparCampos(ActionEvent event) {
-        textFieldCPF.clear();
+        textFieldEditCPF.clear();
     }
 
 
     @FXML
-    void removeClient(ActionEvent event) {
-        if (textFieldCPF == null){
-            alertInterface("ERRO", "O campo CPF não pode ser nulo!", AlertType.ERROR);
+    void editClient(ActionEvent event) {
+        String cpf = textFieldEditCPF.getText();
+        String name = textFieldEditNome.getText();
+        String cnh = textFieldEditCNH.getText();
+        String phone = textFieldEditTelefone.getText();
+
+        try {
+
+            if(cpf == null || cpf.trim().isEmpty()) {
+                throw new NullPointerException("Cpf não pode ser vazio");
+            }
+
+            if(name == null || name.trim().isEmpty()) {
+                throw new NullPointerException("Nome não pode ser vazio");
+            }
+
+            if(cnh == null || cnh.trim().isEmpty()) {
+                throw new NullPointerException("CNH não pode ser vazio");
+            }
+
+            if(phone == null || phone.trim().isEmpty()) {
+                throw new NullPointerException("Telefone não pode ser vazio");
+            }
+
+            Node node = listClient.find(cpf);
+
+            if(node == null) {
+                throw new NullPointerException("Cliente não encontrado");
+            }
+
+            Client client = (Client) node.getInfo();
+
+            client.setName(name);
+            client.setCnh(cnh);
+            client.setPhone(phone);
+
+            alertInterface("Sucesso", "Cliente editado com sucesso", AlertType.INFORMATION);
+
+        } catch (NullPointerException e) {
+            alertInterface("ERRO", e.getMessage(), AlertType.ERROR);
+        } catch (Exception e) {
+            alertInterface("ERRO inesperado", e.getMessage(), AlertType.ERROR);
         }
 
         
+    }
+
+    @FXML
+    void consultClient(ActionEvent event) {
+        String cpf = textFieldEditCPF.getText();
+
+        try {
+
+            if(cpf == null || cpf.trim().isEmpty()) {
+                throw new NullPointerException("Cpf não pode ser vazio");
+            }
+
+            Node node = listClient.find(cpf);
+
+            if(node == null) {
+                throw new NullPointerException("Cliente não encontrado");
+            }
+
+            Client client = (Client) node.getInfo();
+
+            textFieldEditNome.setText(client.getName());
+            textFieldEditCNH.setText(client.getCnh());
+            textFieldEditTelefone.setText(client.getPhone());
+
+        } catch (NullPointerException e) {
+            alertInterface("ERRO", e.getMessage(), AlertType.ERROR);
+        } catch (Exception e) {
+            alertInterface("ERRO inesperado", e.getMessage(), AlertType.ERROR);
+        }
+
     }
 
     @FXML

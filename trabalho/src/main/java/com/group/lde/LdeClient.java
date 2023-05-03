@@ -58,12 +58,12 @@ public class LdeClient implements ILde {
 
     @Override
     public boolean remove(Object info) {
-        if (!(info instanceof Client)) { 
-            throw new IllegalArgumentException("O objeto informado não é um cliente");
+        if (!(info instanceof String)) { 
+            throw new IllegalArgumentException("O objeto informado não é uma string");
         }
 
-        Client client = (Client) info;
-        Node node = find(client);
+        String cpf = (String) info;
+        Node node = find(cpf);
 
         if (node == null) {
             return false;
@@ -115,7 +115,7 @@ public class LdeClient implements ILde {
         String list = "";
 
         for (Node i = end; i != null; i = i.getPrevious()) {
-            list += i.getInfo() + "\n";
+            list += i.getInfo().toString() + "\n";
         }
 
         return list;

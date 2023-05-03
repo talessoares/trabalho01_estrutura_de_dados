@@ -86,7 +86,6 @@ public class ControllerCreateClient {
 
             client = new Client(nome, cnh, telefone, cpf);
             listClient.addClientAtEnd(client);
-            System.out.println(listClient.getListFromBeginning());
             
             alertInterface("Sucesso", "Cliente cadastrado com sucesso!", AlertType.INFORMATION);
 
