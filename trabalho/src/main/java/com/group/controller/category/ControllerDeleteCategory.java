@@ -1,6 +1,9 @@
 package com.group.controller.category;
 import com.group.controller.ControllerIndex;
+import com.group.lde.Node;
 import com.group.list.ListCategory;
+import com.group.list.ListVehicle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,13 +32,16 @@ public class ControllerDeleteCategory {
     private TextField textFieldIdExcluirCategoria;
 
     @FXML
-    private AnchorPane rootPaneCriaCat;
+    private AnchorPane rootPane;
 
     private ListCategory listCategory;
+
+    private ListVehicle listVehicle;
 
     @FXML
     void initialize() {
         this.listCategory = ControllerIndex.getListCategory();
+        this.listVehicle = ControllerIndex.getListVehicle();
     }
 
     @FXML
@@ -51,7 +57,13 @@ public class ControllerDeleteCategory {
 
             try {
                 long idCategoriaLong = Long.parseLong(idCategoria);
-                
+
+                Node node = listVehicle.findByCategory(idCategoriaLong);
+
+                if(node != null) {
+                    throw new Exception("Não é possível remover uma categoria que possui veículos");
+                }
+
                 if(listCategory.removeCategory(idCategoriaLong)) {
                     alertInterface("Sucesso", "Categoria removida com sucesso", AlertType.INFORMATION);
                 } else {
@@ -63,7 +75,7 @@ public class ControllerDeleteCategory {
         } catch (NullPointerException e) {
             alertInterface("Erro", e.getMessage(), AlertType.ERROR);
         } catch(Exception e) {
-            alertInterface("Erro inesperado", e.getMessage(), AlertType.ERROR);
+            alertInterface("Erro", e.getMessage(), AlertType.ERROR);
         }
     }
 
@@ -90,10 +102,11 @@ public class ControllerDeleteCategory {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../views/viewIndex.fxml"));
             Pane cmdPane = (Pane) fxmlLoader.load();
 
-            rootPaneCriaCat.getChildren().clear();
-            rootPaneCriaCat.getChildren().add(cmdPane);
+            rootPane.getChildren().clear();
+            rootPane.getChildren().add(cmdPane);
         } catch (Exception e) {
             alertInterface("ERRO", "Não foi possível voltar para o menu principal", AlertType.ERROR);
+            e.printStackTrace();
         }
     }
 

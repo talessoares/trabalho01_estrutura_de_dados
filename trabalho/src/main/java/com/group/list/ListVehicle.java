@@ -41,9 +41,9 @@ public class ListVehicle {
         }
     }
 
-    public boolean removeVehicle(Vehicle vehicle) {
-        if(vehicle == null) {
-            throw new NullPointerException("O objeto informado é nulo");
+    public boolean removeVehicle(String vehicle) {
+        if(vehicle == null || vehicle.trim().isEmpty()) {
+            throw new NullPointerException("O objeto informado é vazio");
         }
 
         return this.ldeVehicle.remove(vehicle);
@@ -55,6 +55,14 @@ public class ListVehicle {
         }
 
         return this.ldeVehicle.find(plate);        
+    }
+
+    public Node findByCategory(long id) {
+        if(id <= 0) {
+            throw new NullPointerException("O objeto informado é nulo");
+        }
+
+        return this.ldeVehicle.findByCategory(id);        
     }
 
     public int size() {

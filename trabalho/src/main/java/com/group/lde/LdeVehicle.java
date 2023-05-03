@@ -15,7 +15,7 @@ public class LdeVehicle implements ILde {
     @Override
     public void insertAtBeginning(Object info) {
 
-        if(!(info instanceof Vehicle)) {
+        if (!(info instanceof Vehicle)) {
             throw new IllegalArgumentException("O objeto informado não é um veículo");
         }
 
@@ -35,7 +35,7 @@ public class LdeVehicle implements ILde {
     @Override
     public void insertAtEnd(Object info) {
 
-        if(!(info instanceof Vehicle)) {
+        if (!(info instanceof Vehicle)) {
             throw new IllegalArgumentException("O objeto informado não é um veículo");
         }
 
@@ -60,12 +60,12 @@ public class LdeVehicle implements ILde {
     @Override
     public boolean remove(Object info) {
 
-        if(!(info instanceof Vehicle)) {
-            throw new IllegalArgumentException("O objeto informado não é um veículo");
+        if (!(info instanceof String)) {
+            throw new IllegalArgumentException("O objeto informado não é uma string");
         }
 
-        Vehicle vehicle = (Vehicle) info;
-        Node node = find(vehicle);
+        String placa = (String) info;
+        Node node = find(placa);
 
         if (node == null) {
             return false;
@@ -125,8 +125,8 @@ public class LdeVehicle implements ILde {
 
     @Override
     public Node find(Object info) {
-        if(!(info instanceof String)) {
-            throw new IllegalArgumentException("O objeto informado não é um veículo");
+        if (!(info instanceof String)) {
+            throw new IllegalArgumentException("O objeto informado não é uma string");
         }
 
         String plate = (String) info;
@@ -135,8 +135,24 @@ public class LdeVehicle implements ILde {
         while (node != null && (!((Vehicle) node.getInfo()).getPlate().equals(plate))) {
             node = node.getNext();
         }
-        
-        return null;
+
+        return node;
     }
-    
+
+    public Node findByCategory(Object info) {
+        if (!(info instanceof Long)) {
+            throw new IllegalArgumentException("O objeto informado não é uma locação");
+        }
+
+        long id = (Long) info;
+
+        Node node = begin;
+
+        while (node != null && ((Vehicle) node.getInfo()).getCategory().getId() != id) {
+            node = node.getNext();
+        }
+
+        return node;
+    }
+
 }

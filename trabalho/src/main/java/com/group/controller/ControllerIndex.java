@@ -141,7 +141,13 @@ public class ControllerIndex {
 
     @FXML
     void adicionaVeiculo(ActionEvent event) {
-
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/vehicle/viewCreateVehicle.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            alertInterface("ERRO", "Não foi possível entrar na tela de criar veiculo", AlertType.ERROR);
+        }
     }
 
     @FXML
@@ -162,7 +168,13 @@ public class ControllerIndex {
 
     @FXML
     void alteraInformacoesVeiculo(ActionEvent event) {
-
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/vehicle/viewEditVehicle.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            alertInterface("ERRO", "Não foi possível entrar na tela de editar um veiculo", AlertType.ERROR);
+        }
     }
 
     @FXML
@@ -245,7 +257,13 @@ public class ControllerIndex {
 
     @FXML
     void removeVeiculo(ActionEvent event) {
-
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/vehicle/viewDeleteVehicle.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            alertInterface("ERRO", "Não foi possível entrar na tela de excluir um veiculo", AlertType.ERROR);
+        }
     }
 
     @FXML
