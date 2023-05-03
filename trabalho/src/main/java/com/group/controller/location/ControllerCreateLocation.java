@@ -1,9 +1,16 @@
-package com.group.controller.vehicle;
+package com.group.controller.location;
+
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.Calendar;
 
 import com.group.controller.ControllerIndex;
-import com.group.entities.Category;
+import com.group.entities.Client;
+import com.group.entities.Location;
 import com.group.entities.Vehicle;
 import com.group.lde.Node;
+import com.group.list.ListClient;
+import com.group.list.ListLocation;
 import com.group.list.ListVehicle;
 
 import javafx.beans.property.SimpleObjectProperty;
@@ -13,33 +20,37 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
-public class ControllerVisualizationVehicle {
+public class ControllerCreateLocation {
 
     @FXML
-    private Button btnConsultar;
-
-    @FXML
-    private Button btnImprimirFinal;
-
-    @FXML
-    private Button btnImprimirInicio;
+    private Button btnAdicionar;
 
     @FXML
     private Button btnLimpar;
 
     @FXML
+    private Button btnListar;
+
+    @FXML
     private ImageView btnVoltar;
+
+    @FXML
+    private DatePicker datePickerDataFinal;
+
+    @FXML
+    private DatePicker datePickerDataInicio;
 
     @FXML
     private AnchorPane rootPane;
@@ -72,13 +83,24 @@ public class ControllerVisualizationVehicle {
     private TableView<Vehicle> tableViewVehicle;
 
     @FXML
+    private TextField textFieldCnh;
+
+    @FXML
     private TextField textFieldPlaca;
+
+    private final double valorPorDia = 250;
+
+    private ListLocation listLocation;
 
     private ListVehicle listVehicle;
 
+    private ListClient listClient;
+
     @FXML
     void initialize() {
+        this.listLocation = ControllerIndex.getListLocation();
         this.listVehicle = ControllerIndex.getListVehicle();
+        this.listClient = ControllerIndex.getListClient();
 
         tableColumnAno.setCellValueFactory(dadosTabela -> new SimpleObjectProperty<>(dadosTabela.getValue().getYear()));
         tableColumnAssentos.setCellValueFactory(dadosTabela -> new SimpleObjectProperty<>(dadosTabela.getValue().getSeats()));
@@ -91,97 +113,98 @@ public class ControllerVisualizationVehicle {
     }
 
     @FXML
-    void consultVehicle(ActionEvent event) {
+    void createLocation(ActionEvent event) {
+
+        String cnh = textFieldCnh.getText();
         String placa = textFieldPlaca.getText();
 
         try {
 
-            if(placa == null || placa.trim().isEmpty()) {
-                throw new NullPointerException("Campo placa não pode ser vazio");
+            LocalDate dataInicio = datePickerDataInicio.getValue();
+            LocalDate dataFinal = datePickerDataFinal.getValue();
+
+            if(dataInicio == null || dataFinal == null) {
+                throw new NullPointerException("Data de início ou data final não foram preenchidas");
             }
 
-            Node node = listVehicle.find(placa);
+            if(dataInicio.isAfter(dataFinal)) {
+                throw new Exception("Data de início não pode ser maior que a data final");
+            }
+
+            if(cnh == null || cnh.trim().isEmpty()) {
+                throw new NullPointerException("CNH não foi preenchida");
+            }
+
+            if(placa == null || placa.trim().isEmpty()) {
+                throw new NullPointerException("Placa não foi preenchida");
+            }
+
+            Node node = listLocation.find(placa);
+
+            if(node != null) {
+                throw new Exception("Veículo já está locado");
+            }
+
+            node = listClient.findByCNH(cnh);
 
             if(node == null) {
-                throw new NullPointerException("Veiculo não encontrado");
+                throw new NullPointerException("CNH não encontrada");
             }
 
-            Vehicle client = (Vehicle) node.getInfo();
+            Client client = (Client) node.getInfo();
 
-            tableViewVehicle.getItems().clear();
-            tableViewVehicle.getItems().add(client);
+            node = listVehicle.find(placa);
+
+            if(node == null) {
+                throw new NullPointerException("Placa não encontrada");
+            }
+
+            Vehicle vehicle = (Vehicle) node.getInfo();
+
+            Calendar dataInicioCalendar = Calendar.getInstance();
+            dataInicioCalendar.setTime(Date.valueOf(dataInicio));
             
+            Calendar dataFinalCalendar = Calendar.getInstance();
+            dataFinalCalendar.setTime(Date.valueOf(dataFinal));
+
+            double dias = (dataFinalCalendar.getTimeInMillis() - dataInicioCalendar.getTimeInMillis()) / (1000 * 60 * 60 * 24);
+            double valorParaPagar = dias * valorPorDia;
+
+            Location location = new Location(client, vehicle, dataInicioCalendar, dataFinalCalendar, valorParaPagar);
+            listLocation.addLocationAtEnd(location);
+
+            alertInterface("SUCESSO", "Locação criada com sucesso!\nO valor a ser pago será de: " + valorParaPagar, AlertType.INFORMATION);
+
+            listarVeiculosDisponiveis(event);
         } catch (NullPointerException e) {
             alertInterface("ERRO", e.getMessage(), AlertType.ERROR);
         } catch (Exception e) {
-            alertInterface("ERRO inesperado", e.getMessage(), AlertType.ERROR);
+            alertInterface("ERRO", e.getMessage(), AlertType.ERROR);
         }
+        
     }
 
     @FXML
-    void imprimirListaInicio(ActionEvent event) {
+    void listarVeiculosDisponiveis(ActionEvent event) {
         String content = listVehicle.getListFromBeginning();
-        String[] contentBreak = content.split("\n");
+        String[] breakContent = content.split("\n");
 
-        ObservableList<Vehicle> list = FXCollections.observableArrayList();
+        ObservableList<Vehicle> observableList = FXCollections.observableArrayList();
 
-        for(String line : contentBreak) {
+        for(String line : breakContent) {
+
             String placa = line.split(";")[0].split(":")[1];
-            String modelo = line.split(";")[1].split(":")[1];
-            String ano = line.split(";")[2].split(":")[1];
-            String potencia = line.split(";")[3].split(":")[1];
-            String assentos = line.split(";")[4].split(":")[1];
-            String marca = line.split(";")[5].split(":")[1];
-            String idCategoria = line.split(";")[6].split(":")[2];
-            String nomeCategoria = line.split(";")[7].split(":")[1];
 
-            int anoInt = Integer.parseInt(ano);
-            int potenciaInt = Integer.parseInt(potencia);
-            int assentosInt = Integer.parseInt(assentos);
-            long idCategoriaInt = Long.parseLong(idCategoria);
+            Node node = listLocation.find(placa);
 
-            Category category = new Category(nomeCategoria, idCategoriaInt);
-
-            Vehicle vehicle = new Vehicle(placa, modelo, anoInt, potenciaInt, assentosInt, marca, category);
-
-            list.add(vehicle);
+            if(node == null) {
+                node = listVehicle.find(placa);
+                Vehicle vehicle = (Vehicle) node.getInfo();
+                observableList.add(vehicle);
+            }
         }
 
-        tableViewVehicle.getItems().clear();
-        tableViewVehicle.setItems(list);
-    }
-
-    @FXML
-    void imprimirListaFinal(ActionEvent event) {
-        String content = listVehicle.getListFromEnd();
-        String[] contentBreak = content.split("\n");
-
-        ObservableList<Vehicle> list = FXCollections.observableArrayList();
-
-        for(String line : contentBreak) {
-            String placa = line.split(";")[0].split(":")[1];
-            String modelo = line.split(";")[1].split(":")[1];
-            String ano = line.split(";")[2].split(":")[1];
-            String potencia = line.split(";")[3].split(":")[1];
-            String assentos = line.split(";")[4].split(":")[1];
-            String marca = line.split(";")[5].split(":")[1];
-            String idCategoria = line.split(";")[6].split(":")[2];
-            String nomeCategoria = line.split(";")[7].split(":")[1];
-
-            int anoInt = Integer.parseInt(ano);
-            int potenciaInt = Integer.parseInt(potencia);
-            int assentosInt = Integer.parseInt(assentos);
-            long idCategoriaInt = Long.parseLong(idCategoria);
-
-            Category category = new Category(nomeCategoria, idCategoriaInt);
-
-            Vehicle vehicle = new Vehicle(placa, modelo, anoInt, potenciaInt, assentosInt, marca, category);
-
-            list.add(vehicle);
-        }
-
-        tableViewVehicle.getItems().clear();
-        tableViewVehicle.setItems(list);
+        tableViewVehicle.setItems(observableList);
     }
 
     @FXML
@@ -219,7 +242,11 @@ public class ControllerVisualizationVehicle {
 
     @FXML
     void limparCampos(ActionEvent event) {
+        textFieldCnh.setText("");
         textFieldPlaca.setText("");
+        datePickerDataInicio.setValue(null);
+        datePickerDataFinal.setValue(null);
+        
     }
 
 }

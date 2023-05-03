@@ -2,6 +2,7 @@ package com.group.list;
 
 import com.group.entities.Location;
 import com.group.lde.LdeLocation;
+import com.group.lde.Node;
 
 public class ListLocation { 
 
@@ -15,7 +16,7 @@ public class ListLocation {
         this.ldeLocation = ldeLocation;
     }
 
-    public void addClientAtBeginning(Location location) {
+    public void addLocationAtBeginning(Location location) {
         if(location == null) {
             throw new NullPointerException("O objeto informado é nulo");
         }
@@ -27,7 +28,7 @@ public class ListLocation {
         }
      }
 
-     public void addClientAtEnd(Location location) {
+     public void addLocationAtEnd(Location location) {
         if(location == null) {
             throw new NullPointerException("O objeto informado é nulo");
         }
@@ -39,13 +40,13 @@ public class ListLocation {
         }
     }
 
-    public boolean removeClient(Location location) {
-        if(location == null) {
+    public boolean removeLocation(String placa) {
+        if(placa == null || placa.trim().isEmpty()) {
             throw new NullPointerException("O objeto informado é nulo");
         }
 
         try {
-            return this.ldeLocation.remove(location);
+            return this.ldeLocation.remove(placa);
         } catch (Exception e) {
             throw e;
         }
@@ -65,6 +66,14 @@ public class ListLocation {
 
     public String getListFromEnd() {
         return this.ldeLocation.getListFromEnd();
+    }
+
+    public Node find(String placa) {
+        if(placa == null || placa.trim().isEmpty()) {
+            throw new NullPointerException("O objeto informado é nulo");
+        }
+
+        return this.ldeLocation.find(placa);        
     }
 
     // public void setClient(Location location, Client client) {

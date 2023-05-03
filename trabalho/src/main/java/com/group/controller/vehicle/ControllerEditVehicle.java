@@ -218,7 +218,13 @@ public class ControllerEditVehicle {
 
     @FXML
     void limparCampos(ActionEvent event) {
-        
+        textFieldAno.setText("");
+        textFieldAssentos.setText("");
+        textFieldCategoria.setText("");
+        textFieldMarca.setText("");
+        textFieldModelo.setText("");
+        textFieldPlaca.setText("");
+        textFieldPotencia.setText("");
     }
 
     @FXML

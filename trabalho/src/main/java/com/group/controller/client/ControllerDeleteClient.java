@@ -54,7 +54,7 @@ public class ControllerDeleteClient {
 
     @FXML
     void limparCampos(ActionEvent event) {
-        textFieldCPF.clear();
+        textFieldCPF.setText("");
     }
 
 

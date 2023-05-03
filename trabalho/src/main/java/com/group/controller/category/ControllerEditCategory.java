@@ -62,8 +62,8 @@ public class ControllerEditCategory {
 
     @FXML
     void limparCampos(ActionEvent event) {
-        textFieldIdEditCategoria.clear();
-        textFieldNovoNomeCategoria.clear();
+        textFieldIdEditCategoria.setText("");
+        textFieldNovoNomeCategoria.setText("");
     }
 
     @FXML

@@ -136,7 +136,13 @@ public class ControllerIndex {
 
     @FXML
     void adicionaLocacao(ActionEvent event) {
-
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/location/viewCreateLocation.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            alertInterface("ERRO", "Não foi possível entrar na tela de criar locação", AlertType.ERROR);
+        }
     }
 
     @FXML
@@ -163,7 +169,13 @@ public class ControllerIndex {
 
     @FXML
     void alteraInformacoesLocacao(ActionEvent event) {
-
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/location/viewEditLocation.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            alertInterface("ERRO", "Não foi possível entrar na tela de visualizar uma locação", AlertType.ERROR);
+        }
     }
 
     @FXML
@@ -185,6 +197,94 @@ public class ControllerIndex {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             alertInterface("ERRO", "Não foi possível entrar na tela de editar um cliente", AlertType.ERROR);
+        }
+    }
+
+    @FXML
+    void removeCategoria(ActionEvent event) {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/category/viewDeleteCategory.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            alertInterface("ERRO", "Não foi possível entrar na tela de excluir uma categoria", AlertType.ERROR);
+        }
+    }   
+
+    @FXML
+    void removeCliente(ActionEvent event) {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/client/viewDeleteClient.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            alertInterface("ERRO", "Não foi possível entrar na tela de excluir um cliente", AlertType.ERROR);
+        }
+    }
+
+    @FXML
+    void removeLocacao(ActionEvent event) {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/location/viewDeleteLocation.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            alertInterface("ERRO", "Não foi possível entrar na tela de excluir uma locação", AlertType.ERROR);
+        }
+    }
+
+    @FXML
+    void removeVeiculo(ActionEvent event) {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/vehicle/viewDeleteVehicle.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            alertInterface("ERRO", "Não foi possível entrar na tela de excluir um veiculo", AlertType.ERROR);
+        }
+    }
+
+    @FXML
+    void visualizaInformacoesCategoria(ActionEvent event) {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/category/viewVisualizationCategory.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            alertInterface("ERRO", "Não foi possível entrar na tela de visualizar um categoria", AlertType.ERROR);
+        }
+    }
+
+    @FXML
+    void visualizaInformacoesCliente(ActionEvent event) {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/client/viewVisualizationClient.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            alertInterface("ERRO", "Não foi possível entrar na tela de visualizar um cliente", AlertType.ERROR);
+        }
+    }
+
+    @FXML
+    void visualizaInformacoesLocacao(ActionEvent event) {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/location/viewVisualizationLocation.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            alertInterface("ERRO", "Não foi possível entrar na tela de visualizar uma locação", AlertType.ERROR);
+        }
+    }
+
+    @FXML
+    void visualizaInformacoesVeiculo(ActionEvent event) {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/vehicle/viewVisualizationVehicle.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            alertInterface("ERRO", "Não foi possível entrar na tela de visualizar um veiculo", AlertType.ERROR);
         }
     }
 
@@ -226,82 +326,6 @@ public class ControllerIndex {
     @FXML
     void hoverBtnVeiculo(MouseEvent event) {
         paneMenuVeiculosExpandido.setVisible(true);
-    }
-
-    @FXML
-    void removeCategoria(ActionEvent event) {
-        try {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/category/viewDeleteCategory.fxml"));
-            rootPane.getChildren().setAll(pane);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            alertInterface("ERRO", "Não foi possível entrar na tela de excluir uma categoria", AlertType.ERROR);
-        }
-    }   
-
-    @FXML
-    void removeCliente(ActionEvent event) {
-        try {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/client/viewDeleteClient.fxml"));
-            rootPane.getChildren().setAll(pane);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            alertInterface("ERRO", "Não foi possível entrar na tela de excluir um cliente", AlertType.ERROR);
-        }
-    }
-
-    @FXML
-    void removeLocacao(ActionEvent event) {
-
-    }
-
-    @FXML
-    void removeVeiculo(ActionEvent event) {
-        try {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/vehicle/viewDeleteVehicle.fxml"));
-            rootPane.getChildren().setAll(pane);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            alertInterface("ERRO", "Não foi possível entrar na tela de excluir um veiculo", AlertType.ERROR);
-        }
-    }
-
-    @FXML
-    void visualizaInformacoesCategoria(ActionEvent event) {
-        try {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/category/viewVisualizationCategory.fxml"));
-            rootPane.getChildren().setAll(pane);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            alertInterface("ERRO", "Não foi possível entrar na tela de visualizar um categoria", AlertType.ERROR);
-        }
-    }
-
-    @FXML
-    void visualizaInformacoesCliente(ActionEvent event) {
-        try {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/client/viewVisualizationClient.fxml"));
-            rootPane.getChildren().setAll(pane);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            alertInterface("ERRO", "Não foi possível entrar na tela de visualizar um cliente", AlertType.ERROR);
-        }
-    }
-
-    @FXML
-    void visualizaInformacoesLocacao(ActionEvent event) {
-
-    }
-
-    @FXML
-    void visualizaInformacoesVeiculo(ActionEvent event) {
-        try {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/vehicle/viewVisualizationVehicle.fxml"));
-            rootPane.getChildren().setAll(pane);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            alertInterface("ERRO", "Não foi possível entrar na tela de visualizar um veiculo", AlertType.ERROR);
-        }
     }
 
     void alertInterface(String titulo, String mensagem, AlertType tipo) {

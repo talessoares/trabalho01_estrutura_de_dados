@@ -68,7 +68,7 @@ public class ControllerEditClient {
 
     @FXML
     void limparCampos(ActionEvent event) {
-        textFieldEditCPF.clear();
+        textFieldEditCPF.setText("");
     }
 
 

@@ -87,7 +87,7 @@ public class ControllerVisualizationClient {
 
     @FXML
     void limparCampos(ActionEvent event) {
-        textFieldCpf.clear();
+        textFieldCpf.setText("");
     }
 
     @FXML

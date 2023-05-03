@@ -136,4 +136,19 @@ public class LdeClient implements ILde {
         
         return node;
     }
+
+    public Node findByCNH(Object info) {
+        if(!(info instanceof String)) {
+            throw new IllegalArgumentException("O objeto informado não é uma string");
+        }
+
+        String cnh = (String) info;
+        Node node = begin;
+
+        while(node != null && (!((Client) node.getInfo()).getCnh().equals(cnh))) {
+            node = node.getNext();
+        }
+
+        return node;
+    }
 }

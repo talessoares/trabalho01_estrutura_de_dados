@@ -93,7 +93,7 @@ public class ControllerDeleteCategory {
 
     @FXML
     void limparCampos(ActionEvent event) {
-        textFieldIdExcluirCategoria.clear();
+        textFieldIdExcluirCategoria.setText("");
     }
 
     @FXML

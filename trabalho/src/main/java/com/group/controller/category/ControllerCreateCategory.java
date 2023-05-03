@@ -73,7 +73,7 @@ public class ControllerCreateCategory {
 
     @FXML
     void limparCampos(ActionEvent event) {
-        textFieldNomeCategoria.clear();
+        textFieldNomeCategoria.setText("");
     }
 
     @FXML

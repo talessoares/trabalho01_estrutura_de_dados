@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.controller.client.ControllerCreateClient">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.controller.location.ControllerVisualizationLocation">
    <children>
       <Button fx:id="btnConsult" layoutX="462.0" layoutY="521.0" mnemonicParsing="false" onAction="#consultLocation" prefHeight="46.0" prefWidth="134.0" styleClass="greenBtn" stylesheets="@../style.css" text="Consultar" textFill="WHITE">
          <font>
@@ -42,23 +42,23 @@
             <Image url="@../../views/images/pngVoltar.png" />
          </image>
       </ImageView>
-      <TableView layoutX="40.0" layoutY="180.0" prefHeight="310.0" prefWidth="819.0">
+      <TableView fx:id="tableViewLocation" layoutX="40.0" layoutY="180.0" prefHeight="310.0" prefWidth="819.0">
         <columns>
-          <TableColumn fx:id="tableColumnIdLocacao" prefWidth="145.5999984741211" text="ID Locação" />
-          <TableColumn fx:id="tableColumnPlaca" prefWidth="228.0" text="Placa veículo" />
-            <TableColumn fx:id="tableColumnCpf" prefWidth="221.60000610351562" text="Cpf Cliente" />
-            <TableColumn fx:id="tableColumnDataLocacao" prefWidth="115.199951171875" text="Data locação" />
-            <TableColumn fx:id="tableColumnDataDevolucao" prefWidth="107.199951171875" text="Data devolução" />
+          <TableColumn fx:id="tableColumnPlaca" prefWidth="212.7999496459961" text="Placa veículo" />
+            <TableColumn fx:id="tableColumnCpf" prefWidth="203.2000732421875" text="Cpf Cliente" />
+            <TableColumn fx:id="tableColumnDataLocacao" prefWidth="140.00009155273438" text="Data locação" />
+            <TableColumn fx:id="tableColumnDataDevolucao" prefWidth="131.20001220703125" text="Data devolução" />
+            <TableColumn fx:id="tableColumnValor" prefWidth="130.39990234375" text="Valor" />
         </columns>
       </TableView>
       <Button fx:id="btnImprimirInicio" layoutX="720.0" layoutY="102.0" mnemonicParsing="false" onAction="#imprimirListaInicio" text="Imprimir desde o início" />
       <Button fx:id="btnImprimirFinal" layoutX="720.0" layoutY="136.0" mnemonicParsing="false" onAction="#imprimirListaFinal" prefHeight="26.0" prefWidth="138.0" text="Imprimir desde o final" />
-      <TextField fx:id="textFieldIdLocation" layoutX="40.0" layoutY="121.0" prefHeight="40.0" prefWidth="398.0" promptText="Digite o ID da locação" style="-fx-background-radius: 5; -fx-background-color: white;">
+      <TextField fx:id="textFieldPlaca" layoutX="40.0" layoutY="121.0" prefHeight="40.0" prefWidth="398.0" promptText="Digite a placa do veículo" style="-fx-background-radius: 5; -fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Label layoutX="43.0" layoutY="95.0" text="ID" textFill="WHITE">
+      <Label layoutX="43.0" layoutY="95.0" text="Placa" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>

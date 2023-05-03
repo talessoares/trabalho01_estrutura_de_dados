@@ -84,6 +84,12 @@ public class ControllerCreateClient {
                 throw new Exception("Cliente já cadastrado");
             }
 
+            node = listClient.findByCNH(cnh);
+
+            if(node != null) {
+                throw new Exception("CNH já cadastrada");
+            }
+
             client = new Client(nome, cnh, telefone, cpf);
             listClient.addClientAtEnd(client);
             
@@ -110,10 +116,10 @@ public class ControllerCreateClient {
 
     @FXML
     void limparCampos(ActionEvent event) {
-        textFieldCNH.clear();
-        textFieldCPF.clear();
-        textFieldNome.clear();
-        textFieldTelefone.clear();
+        textFieldCNH.setText("");
+        textFieldCPF.setText("");
+        textFieldNome.setText("");
+        textFieldTelefone.setText("");
     }
 
     @FXML

@@ -57,12 +57,12 @@ public class LdeLocation implements ILde {
 
     @Override
     public boolean remove(Object info) {
-        if (!(info instanceof Location)) { 
-            throw new IllegalArgumentException("O objeto informado não é uma locação");
+        if (!(info instanceof String)) { 
+            throw new IllegalArgumentException("O objeto informado não é uma string");
         }
 
-        Location location = (Location) info;
-        Node node = find(location);
+        String placa = (String) info;
+        Node node = find(placa);
 
         if (node == null) {
             return false;
@@ -103,7 +103,7 @@ public class LdeLocation implements ILde {
         String list = "";
 
         for (Node i = begin; i != null; i = i.getNext()) {
-            list += i.getInfo() + "\n";
+            list += i.getInfo().toString() + "\n";
         }
 
         return list;
@@ -114,7 +114,7 @@ public class LdeLocation implements ILde {
         String list = "";
 
         for (Node i = end; i != null; i = i.getPrevious()) {
-            list += i.getInfo() + "\n";
+            list += i.getInfo().toString() + "\n";
         }
 
         return list;
@@ -122,17 +122,18 @@ public class LdeLocation implements ILde {
 
     @Override
     public Node find(Object info) {
-        if (!(info instanceof Location)) { 
-            throw new IllegalArgumentException("O objeto informado não é uma locação");
+        if (!(info instanceof String)) { 
+            throw new IllegalArgumentException("O objeto informado não é uma string");
         }
         
+        String placa = (String) info;
         Node node = begin;
 
-        while (node != null && node.getInfo() != info) {
+        while (node != null && (!((Location) node.getInfo()).getVehicle().getPlate().equals(placa))) {
             node = node.getNext();
         }
         
-        return null;
+        return node;
     }
     
     

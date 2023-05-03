@@ -1,19 +1,16 @@
 package com.group.entities;
 
-import java.util.Date;
+import java.util.Calendar;
 
 public class Location {
 
     private Client client;
     private Vehicle vehicle;
-    private Date locationDate;
-    private Date devolutionDate;
-    private long id;
+    private Calendar locationDate;
+    private Calendar devolutionDate;
     private double value;
-    private static long idCounter = 1000;
 
-    public Location(long id, Client client, Vehicle vehicle, Date locationDate, Date devolutionDate, double value) {
-        this.id = idCounter++;
+    public Location(Client client, Vehicle vehicle, Calendar locationDate, Calendar devolutionDate, double value) {
         this.client = client;
         this.vehicle = vehicle;
         this.locationDate = locationDate;
@@ -45,11 +42,11 @@ public class Location {
         this.vehicle = vehicle;
     }
 
-    public Date getLocationDate() {
+    public Calendar getLocationDate() {
         return locationDate;
     }
 
-    public void setLocationDate(Date locationDate) {
+    public void setLocationDate(Calendar locationDate) {
         if (locationDate == null) {
             throw new NullPointerException("Data de locação não pode ser nula!");
         }
@@ -57,24 +54,16 @@ public class Location {
         this.locationDate = locationDate;
     }
 
-    public Date getDevolutionDate() {
+    public Calendar getDevolutionDate() {
         return devolutionDate;
     }
 
-    public void setDevolutionDate(Date devolutionDate) {
+    public void setDevolutionDate(Calendar devolutionDate) {
         if (devolutionDate == null) {
             throw new NullPointerException("Data de devolução não pode ser nula!");
         }
 
         this.devolutionDate = devolutionDate;
-    }
-
-    public long getId(){
-        return id;
-    }
-
-    public void setId(long id){
-        this.id = id;
     }
 
     public double getValue() {
@@ -87,6 +76,11 @@ public class Location {
         }
 
         this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return "Cnh:" + client.getCnh() + ";Placa:" + vehicle.getPlate() + ";Data de locação:" + locationDate + ";Data de devolução:" + devolutionDate + ";Valor:" + value;
     }
     
 

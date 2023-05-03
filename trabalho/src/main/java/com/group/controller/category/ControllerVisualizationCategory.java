@@ -79,7 +79,7 @@ public class ControllerVisualizationCategory {
 
     @FXML
     void limparCampos(ActionEvent event) {
-        textFieldIdEditCategoria.clear();
+        textFieldIdEditCategoria.setText("");
     }
 
     @FXML

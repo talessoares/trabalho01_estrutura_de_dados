@@ -172,10 +172,6 @@ public class ListVehicle {
         }
 
         vehicle.setCategory(category);
-    }    
-
-        
-
-
-
+    }
+ 
 }

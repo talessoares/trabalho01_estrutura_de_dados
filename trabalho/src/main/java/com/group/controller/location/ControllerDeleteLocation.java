@@ -1,7 +1,7 @@
-package com.group.controller.vehicle;
+package com.group.controller.location;
 
 import com.group.controller.ControllerIndex;
-import com.group.list.ListVehicle;
+import com.group.list.ListLocation;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,7 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
-public class ControllerDeleteVehicle {
+public class ControllerDeleteLocation {
 
     @FXML
     private Button btnLimpar;
@@ -33,12 +33,11 @@ public class ControllerDeleteVehicle {
     @FXML
     private TextField textFieldPlaca;
 
-    private ListVehicle listVehicle;
-
+    private ListLocation listLocation;
 
     @FXML
     void initialize() {
-        this.listVehicle = ControllerIndex.getListVehicle();
+        this.listLocation = ControllerIndex.getListLocation();
     }
 
     @FXML
@@ -48,13 +47,13 @@ public class ControllerDeleteVehicle {
         try {
 
             if(placa == null || placa.trim().isEmpty()) {
-                throw new NullPointerException("Placa não pode ser vazio");
+                throw new NullPointerException("O campo placa não pode ser vazio");
             }
 
-            if(listVehicle.removeVehicle(placa)) {
+            if(listLocation.removeLocation(placa)) {
                 alertInterface("SUCESSO", "Veículo removido com sucesso", AlertType.INFORMATION);
             } else {
-                alertInterface("ERRO", "Veículo não encontrado", AlertType.ERROR);
+                throw new Exception("Placa não encontrada");
             }
 
         } catch (NullPointerException e) {
@@ -62,23 +61,7 @@ public class ControllerDeleteVehicle {
         } catch (Exception e) {
             alertInterface("ERRO", e.getMessage(), AlertType.ERROR);
         }
-    }
 
-    @FXML
-    void hoverBtnVoltar(MouseEvent event) {
-        btnVoltar.setImage(new Image("com/group/views/images/pngVoltarHover.png"));
-        btnVoltar.setStyle("-fx-cursor: hand;");
-    }
-
-    @FXML
-    void notHoverBtnVoltar(MouseEvent event) {
-        btnVoltar.setImage(new Image("com/group/views/images/pngVoltar.png"));
-        btnVoltar.setStyle("-fx-cursor: hand;");
-    }
-
-    @FXML
-    void limparCampos(ActionEvent event) {
-        textFieldPlaca.setText("");
     }
 
     @FXML
@@ -100,6 +83,23 @@ public class ControllerDeleteVehicle {
         alert.setHeaderText(null);
         alert.setContentText(mensagem);
         alert.showAndWait();
+    }
+
+    @FXML
+    void hoverBtnVoltar(MouseEvent event) {
+        btnVoltar.setImage(new Image("com/group/views/images/pngVoltarHover.png"));
+        btnVoltar.setStyle("-fx-cursor: hand;");
+    }
+
+    @FXML
+    void notHoverBtnVoltar(MouseEvent event) {
+        btnVoltar.setImage(new Image("com/group/views/images/pngVoltar.png"));
+        btnVoltar.setStyle("-fx-cursor: hand;");
+    }
+
+    @FXML
+    void limparCampos(ActionEvent event) {
+        textFieldPlaca.setText("");        
     }
 
 }

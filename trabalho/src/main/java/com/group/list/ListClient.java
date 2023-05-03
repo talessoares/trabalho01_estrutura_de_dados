@@ -64,6 +64,18 @@ public class ListClient {
         }      
     }
 
+    public Node findByCNH(String cnh) {
+        if(cnh == null || cnh.trim().isEmpty()) {
+            throw new NullPointerException("O objeto informado é nulo");
+        }
+
+        try {
+            return this.ldeClient.findByCNH(cnh);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
     public int size() {
         return this.ldeClient.size();
     }
