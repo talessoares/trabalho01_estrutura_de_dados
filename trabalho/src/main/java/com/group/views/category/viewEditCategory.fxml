@@ -15,12 +15,12 @@
             <Font size="18.0" />
          </font>
       </TextField>
-      <Button fx:id="btnEditarCategoria" layoutX="514.0" layoutY="520.0" mnemonicParsing="false" onAction="#createClient" prefHeight="46.0" prefWidth="134.0" styleClass="yellowBtn" stylesheets="@../style.css" text="Editar" textFill="WHITE">
+      <Button fx:id="btnEditarCategoria" layoutX="594.0" layoutY="520.0" mnemonicParsing="false" onAction="#createClient" prefHeight="46.0" prefWidth="134.0" styleClass="greenBtn" stylesheets="@../style.css" text="Editar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btnLimpar" layoutX="289.0" layoutY="520.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="46.0" prefWidth="133.0" styleClass="grayBtn" stylesheets="@../style.css" text="Limpar" textFill="WHITE">
+      <Button fx:id="btnLimpar" layoutX="153.0" layoutY="520.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="46.0" prefWidth="133.0" styleClass="grayBtn" stylesheets="@../style.css" text="Limpar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -55,10 +55,15 @@
             <Font size="18.0" />
          </font>
       </TextField>
-      <Label layoutX="32.0" layoutY="300.0" text="Novo nome da categoria" textFill="WHITE">
+      <Label layoutX="32.0" layoutY="300.0" text="Nome categoria" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
+      <Button fx:id="btnConsultarCat" layoutX="376.0" layoutY="520.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="46.0" prefWidth="133.0" styleClass="yellowBtn" stylesheets="@../style.css" text="Consultar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
