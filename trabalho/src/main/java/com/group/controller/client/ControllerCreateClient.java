@@ -1,5 +1,6 @@
 package com.group.controller.client;
 
+import com.group.controller.ControllerIndex;
 import com.group.entities.Client;
 import com.group.list.ListClient;
 
@@ -46,8 +47,7 @@ public class ControllerCreateClient {
 
     @FXML
     void initialize() {
-        // ALTERAR ISSO, PUXAR DO MENU PRINCIPAL DE FORMA ESTÁTICA
-        this.listClient = new ListClient();
+        this.listClient = ControllerIndex.getListClient();
     }
 
     @FXML
