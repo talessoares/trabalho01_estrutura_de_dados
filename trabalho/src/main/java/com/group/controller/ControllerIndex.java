@@ -1,5 +1,10 @@
 package com.group.controller;
 
+import com.group.list.ListCategory;
+import com.group.list.ListClient;
+import com.group.list.ListLocation;
+import com.group.list.ListVehicle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -99,6 +104,14 @@ public class ControllerIndex {
     @FXML
     private AnchorPane rootPane;
 
+    private static ListClient listClient;
+
+    private static ListCategory listCategory;
+
+    private static ListLocation listLocation;
+
+    private static ListVehicle listVehicle;
+
     @FXML
     void adicionaCategoria(ActionEvent event) {
 
@@ -106,6 +119,7 @@ public class ControllerIndex {
 
     @FXML
     void adicionaCliente(ActionEvent event) {
+        System.out.println(listCategory.getListFromBeginning());
         try {
             AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/client/viewCreateClient.fxml"));
             rootPane.getChildren().setAll(pane);
@@ -237,5 +251,37 @@ public class ControllerIndex {
         alert.setHeaderText(null);
         alert.setContentText(mensagem);
         alert.showAndWait();
+    }
+
+    public static void setListClient(ListClient listClientNova) {
+        listClient = listClientNova;
+    }
+
+    public static ListClient getListClient() {
+        return listClient;
+    }
+
+    public static void setListCategory(ListCategory listCategoryNova) {
+        listCategory = listCategoryNova;
+    }
+
+    public static ListCategory getListCategory() {
+        return listCategory;
+    }
+
+    public static void setListLocation(ListLocation listLocationNova) {
+        listLocation = listLocationNova;
+    }
+
+    public static ListLocation getListLocation() {
+        return listLocation;
+    }
+
+    public static void setListVehicle(ListVehicle listVehicleNova) {
+        listVehicle = listVehicleNova;
+    }
+
+    public static ListVehicle getListVehicle() {
+        return listVehicle;
     }
 }
