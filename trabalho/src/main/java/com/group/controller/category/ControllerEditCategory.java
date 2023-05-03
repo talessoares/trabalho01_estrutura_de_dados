@@ -15,7 +15,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
-public class ControllerDeleteCategory {
+public class ControllerEditCategory {
     
     @FXML
     private Button btnExcluirCategoria;
@@ -31,6 +31,12 @@ public class ControllerDeleteCategory {
 
     @FXML
     private AnchorPane rootPaneCriaCat;
+
+    @FXML
+    void initialize() {
+        // ALTERAR ISSO, PUXAR DO MENU PRINCIPAL DE FORMA ESTÁTICA
+        this.ListCategory = new ListCategory();
+    }
 
     @FXML
     void hoverBtnVoltar(MouseEvent event) {
@@ -80,4 +86,5 @@ public class ControllerDeleteCategory {
         alert.showAndWait();
     }
 }
+
 
