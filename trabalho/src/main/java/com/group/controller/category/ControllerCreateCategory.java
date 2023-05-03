@@ -1,7 +1,7 @@
 package com.group.controller.category;
+import com.group.controller.ControllerIndex;
 import com.group.entities.Category;
 import com.group.list.ListCategory;
-import com.group.lde.LdeCategory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,10 +32,11 @@ public class ControllerCreateCategory {
     @FXML
     private AnchorPane rootPaneCriaCat;
 
+    private ListCategory listCategory;
+
     @FXML
     void initialize() {
-        // ALTERAR ISSO, PUXAR DO MENU PRINCIPAL DE FORMA ESTÁTICA
-        this.ListCategory = new ListCategory();
+        this.listCategory = ControllerIndex.getListCategory();
     }
 
     @FXML
@@ -48,7 +49,8 @@ public class ControllerCreateCategory {
             }
 
             Category category = new Category(nomeCat);
-            ListCategory.addCategoryAtEnd(category);
+            listCategory.addCategoryAtEnd(category);
+            alertInterface("Sucesso", "Categoria criada com sucesso", AlertType.INFORMATION);
 
         } catch (NullPointerException e) {
             alertInterface("Erro", e.getMessage(), AlertType.ERROR);

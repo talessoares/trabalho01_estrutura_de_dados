@@ -57,12 +57,12 @@ public class LdeCategory implements ILde {
 
     @Override
     public boolean remove(Object info) {
-        if (!(info instanceof Category)) { 
-            throw new IllegalArgumentException("O objeto informado não é uma locação");
+        if (!(info instanceof Long)) { 
+            throw new IllegalArgumentException("O objeto informado não é um long");
         }
 
-        Category category = (Category) info;
-        Node node = find(category);
+        long id = (Long) info;
+        Node node = find(id);
 
         if (node == null) {
             return false;

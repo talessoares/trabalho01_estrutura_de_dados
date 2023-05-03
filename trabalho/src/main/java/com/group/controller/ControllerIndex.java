@@ -114,18 +114,23 @@ public class ControllerIndex {
 
     @FXML
     void adicionaCategoria(ActionEvent event) {
-
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/category/viewCreateCategory.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            alertInterface("ERRO", "Não foi possível entrar na tela de criar categoria", AlertType.ERROR);
+        }
     }
 
     @FXML
     void adicionaCliente(ActionEvent event) {
-        System.out.println(listCategory.getListFromBeginning());
         try {
             AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/client/viewCreateClient.fxml"));
             rootPane.getChildren().setAll(pane);
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            alertInterface("ERRO", "Não foi possível entrar na tela de alterar produto", AlertType.ERROR);
+            alertInterface("ERRO", "Não foi possível entrar na tela de criar cliente", AlertType.ERROR);
         }
     }
 
@@ -201,8 +206,14 @@ public class ControllerIndex {
 
     @FXML
     void removeCategoria(ActionEvent event) {
-
-    }
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/category/viewDeleteCategory.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            alertInterface("ERRO", "Não foi possível entrar na tela de excluir uma categoria", AlertType.ERROR);
+        }
+    }   
 
     @FXML
     void removeCliente(ActionEvent event) {

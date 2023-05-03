@@ -67,12 +67,12 @@ public class ControllerEditCategory {
         } else {
             try {
                 int id = Integer.parseInt(textFieldIdEditCategoria.getText());
-                Category category = ListCategory.searchCategory(id);
-                if (category == null){
-                    alertInterface("ERRO", "Categoria não encontrada!", AlertType.ERROR);
-                } else {
-                    textFieldNovoNomeCategoria.setText(category.getName());
-                }
+                // Category category = ListCategory.searchCategory(id);
+                // if (category == null){
+                //     alertInterface("ERRO", "Categoria não encontrada!", AlertType.ERROR);
+                // } else {
+                //     textFieldNovoNomeCategoria.setText(category.getName());
+                // }
             } catch (Exception e) {
                 alertInterface("ERRO", "O campo ID deve ser um número inteiro!", AlertType.ERROR);
             }
@@ -86,13 +86,13 @@ public class ControllerEditCategory {
         } else {
             try {
                 int id = Integer.parseInt(textFieldIdEditCategoria.getText());
-                Category category = ListCategory.searchCategory(id);
-                if (category == null){
-                    alertInterface("ERRO", "Categoria não encontrada!", AlertType.ERROR);
-                } else {
-                    category.setName(textFieldNovoNomeCategoria.getText());
-                    alertInterface("SUCESSO", "Categoria editada com sucesso!", AlertType.INFORMATION);
-                }
+                // Category category = ListCategory.searchCategory(id);
+                // if (category == null){
+                //     alertInterface("ERRO", "Categoria não encontrada!", AlertType.ERROR);
+                // } else {
+                //     category.setName(textFieldNovoNomeCategoria.getText());
+                //     alertInterface("SUCESSO", "Categoria editada com sucesso!", AlertType.INFORMATION);
+                // }
             } catch (Exception e) {
                 alertInterface("ERRO", "O campo ID deve ser um número inteiro!", AlertType.ERROR);
             }
