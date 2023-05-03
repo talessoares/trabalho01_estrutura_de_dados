@@ -2,6 +2,7 @@ package com.group.controller.client;
 
 import com.group.controller.ControllerIndex;
 import com.group.entities.Client;
+import com.group.lde.Node;
 import com.group.list.ListClient;
 
 import javafx.event.ActionEvent;
@@ -75,8 +76,19 @@ public class ControllerCreateClient {
                 throw new NullPointerException("Telefone não pode ser vazio");
             }
 
-            Client client = new Client(nome, cpf, cnh, telefone);
+            Client client = null;
+
+            Node node = listClient.find(cpf);
+
+            if(node != null) {
+                throw new Exception("Cliente já cadastrado");
+            }
+
+            client = new Client(nome, cnh, telefone, cpf);
             listClient.addClientAtEnd(client);
+            System.out.println(listClient.getListFromBeginning());
+            
+            alertInterface("Sucesso", "Cliente cadastrado com sucesso!", AlertType.INFORMATION);
 
         } catch (NullPointerException e) {
             alertInterface("Erro", e.getMessage(), AlertType.ERROR);

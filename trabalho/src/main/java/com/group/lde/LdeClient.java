@@ -104,7 +104,7 @@ public class LdeClient implements ILde {
         String list = "";
 
         for (Node i = begin; i != null; i = i.getNext()) {
-            list += i.getInfo() + "\n";
+            list += i.getInfo().toString() + "\n";
         }
 
         return list;
@@ -130,7 +130,7 @@ public class LdeClient implements ILde {
         String cpf = (String) info;
         Node node = begin;
 
-        while (node != null && (!((Client) node.getInfo()).getName().equals(cpf))) {
+        while (node != null && (!((Client) node.getInfo()).getCpf().equals(cpf))) {
             node = node.getNext();
         }
         

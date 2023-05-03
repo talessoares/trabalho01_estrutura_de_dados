@@ -62,4 +62,9 @@ public class Client {
         this.cpf = cpf;
     }
 
+    @Override
+    public String toString() {
+        return "Name: " + this.name + "; CNH: " + this.cnh + "; Phone: " + this.phone + "; CPF: " + this.cpf + ";";
+    }
+
 }

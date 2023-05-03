@@ -60,7 +60,7 @@ public class App extends Application {
                 Category category = new Category(name, idLong);
                 
                 try {
-                    listCategory.addClientAtEnd(category);
+                    listCategory.addCategoryAtEnd(category);
                 } catch (Exception e) {
                     System.out.println("Erro ao adicionar categoria: " + e.getMessage());
                 }
