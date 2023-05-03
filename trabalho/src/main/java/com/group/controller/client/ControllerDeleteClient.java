@@ -2,6 +2,7 @@ package com.group.controller.client;
 
 import com.group.controller.ControllerIndex;
 import com.group.list.ListClient;
+import com.group.list.ListLocation;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,9 +36,12 @@ public class ControllerDeleteClient {
 
     private ListClient listClient;
 
+    private ListLocation listLocation;
+
     @FXML
     void initialize() {
         this.listClient = ControllerIndex.getListClient();
+        this.listLocation = ControllerIndex.getListLocation();
     }
 
     @FXML

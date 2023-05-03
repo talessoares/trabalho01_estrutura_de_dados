@@ -76,51 +76,5 @@ public class ListLocation {
         return this.ldeLocation.find(placa);        
     }
 
-    // public void setClient(Location location, Client client) {
-    //     if(location == null) {
-    //         throw new NullPointerException("O objeto informado é nulo");
-    //     }
-
-    //     if (client == null || client.getCpf().trim().isEmpty()) {
-    //         throw new NullPointerException("O cliente informado é nulo");
-    //     }
-
-    //     vehicle.setClient(client);
-    // }
-
-    // public void setVehicle(Location location, Vehicle vehicle) {
-    //     if(location == null) {
-    //         throw new NullPointerException("O objeto informado é nulo");
-    //     }
-
-    //     if (vehicle == null || vehicle.getPlate().trim().isEmpty()) {
-    //         throw new NullPointerException("O veículo informado é nulo");
-    //     }
-
-    //     vehicle.setVehicle(vehicle);
-    // }
-
-    // public void setLocationDate(Location location, Date locationDate){
-    //     if(location == null) {
-    //         throw new NullPointerException("O objeto informado é nulo");
-    //     }
-
-    //     if (locationDate == null || locationDate.trim().isEmpty()) {
-    //         throw new NullPointerException("A data de locação não pode ser nula");
-    //     }
-
-    //     vehicle.setLocationDate(locationDate);
-    // }
-
-    // public void serDevolutionDate(Location location, Date devolutionDate){
-    //     if(location == null) {
-    //         throw new NullPointerException("O objeto informado é nulo");
-    //     }
-
-    //     if (devolutionDate == null || devolutionDate.trim().isEmpty()) {
-    //         throw new NullPointerException("A data de devolução não pode ser nula");
-    //     }
-
-    //     vehicle.setDevolutionDate(devolutionDate);
-    // }
+    
 }

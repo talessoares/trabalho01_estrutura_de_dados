@@ -5,7 +5,6 @@ import java.util.Calendar;
 
 import com.group.controller.ControllerIndex;
 import com.group.entities.Location;
-import com.group.entities.Vehicle;
 import com.group.lde.Node;
 import com.group.list.ListLocation;
 
