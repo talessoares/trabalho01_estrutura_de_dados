@@ -2,8 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -17,12 +15,12 @@
             <Font size="18.0" />
          </font>
       </TextField>
-      <Button fx:id="btnEditarCategoria" layoutX="594.0" layoutY="520.0" mnemonicParsing="false" onAction="#createClient" prefHeight="46.0" prefWidth="134.0" styleClass="greenBtn" stylesheets="@../style.css" text="Editar" textFill="WHITE">
+      <Button fx:id="btnEditarCategoria" layoutX="491.0" layoutY="520.0" mnemonicParsing="false" onAction="#createClient" prefHeight="46.0" prefWidth="134.0" styleClass="greenBtn" stylesheets="@../style.css" text="Editar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btnLimparEditCat" layoutX="153.0" layoutY="520.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="46.0" prefWidth="133.0" styleClass="grayBtn" stylesheets="@../style.css" text="Limpar" textFill="WHITE">
+      <Button fx:id="btnLimparEditCat" layoutX="220.0" layoutY="520.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="46.0" prefWidth="133.0" styleClass="grayBtn" stylesheets="@../style.css" text="Limpar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -52,26 +50,15 @@
             <Image url="@../../views/images/pngVoltar.png" />
          </image>
       </ImageView>
-      <TextField fx:id="textFieldNovoNomeCategoria" layoutX="448.0" layoutY="162.0" prefHeight="40.0" prefWidth="426.0" promptText="Digite o novo nome da categoria" style="-fx-background-radius: 5; -fx-background-color: white;">
+      <TextField fx:id="textFieldNovoNomeCategoria" layoutX="31.0" layoutY="280.0" prefHeight="40.0" prefWidth="426.0" promptText="Digite o novo nome da categoria" style="-fx-background-radius: 5; -fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Label layoutX="452.0" layoutY="129.0" text="Nome categoria" textFill="WHITE">
+      <Label layoutX="31.0" layoutY="255.0" text="Nome categoria" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Button fx:id="btnConsultarCat" layoutX="376.0" layoutY="520.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="46.0" prefWidth="133.0" styleClass="yellowBtn" stylesheets="@../style.css" text="Consultar" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Button>
-      <TableView fx:id="TableviewEditCat" layoutX="30.0" layoutY="218.0" prefHeight="280.0" prefWidth="844.0">
-         <columns>
-            <TableColumn fx:id="tableColumnIdCategoria" prefWidth="254.0" text="ID Categoria" />
-            <TableColumn fx:id="tableColumnNomeCategoria" minWidth="0.0" prefWidth="589.0" text="Nome Categoria" />
-         </columns>
-      </TableView>
    </children>
 </AnchorPane>

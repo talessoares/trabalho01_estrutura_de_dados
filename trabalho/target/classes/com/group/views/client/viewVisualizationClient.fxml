@@ -2,6 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -10,22 +12,17 @@
 
 <AnchorPane fx:id="rootPaneEditCat" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.controller.client.ControllerCreateClient">
    <children>
-      <TextField fx:id="textFieldIdEditCategoria" layoutX="31.0" layoutY="162.0" prefHeight="40.0" prefWidth="390.0" promptText="Digite o ID da categoria que deseja editar" style="-fx-background-radius: 5; -fx-background-color: white;">
+      <TextField fx:id="textFieldIdEditCategoria" layoutX="32.0" layoutY="162.0" prefHeight="40.0" prefWidth="390.0" promptText="Digite o CPF do cliente que deseja visualizar" style="-fx-background-radius: 5; -fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Button fx:id="btnEditarCategoria" layoutX="491.0" layoutY="520.0" mnemonicParsing="false" onAction="#createClient" prefHeight="46.0" prefWidth="134.0" styleClass="greenBtn" stylesheets="@../style.css" text="Editar" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Button>
       <Button fx:id="btnLimparEditCat" layoutX="220.0" layoutY="520.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="46.0" prefWidth="133.0" styleClass="grayBtn" stylesheets="@../style.css" text="Limpar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Label layoutX="286.0" layoutY="27.0" prefHeight="54.0" prefWidth="272.0" text="Editar categoria" textFill="WHITE">
+      <Label layoutX="286.0" layoutY="27.0" prefHeight="54.0" prefWidth="333.0" text="Visualizar cliente" textFill="WHITE">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
@@ -40,7 +37,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="32.0" layoutY="129.0" text="ID da categoria " textFill="WHITE">
+      <Label layoutX="32.0" layoutY="129.0" text="CPF do cliente" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -50,15 +47,18 @@
             <Image url="@../../views/images/pngVoltar.png" />
          </image>
       </ImageView>
-      <TextField fx:id="textFieldNovoNomeCategoria" layoutX="31.0" layoutY="280.0" prefHeight="40.0" prefWidth="426.0" promptText="Digite o novo nome da categoria" style="-fx-background-radius: 5; -fx-background-color: white;">
+      <Button fx:id="btnConsultarCat" layoutX="553.0" layoutY="520.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="46.0" prefWidth="133.0" styleClass="yellowBtn" stylesheets="@../style.css" text="Consultar" textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
-      </TextField>
-      <Label layoutX="31.0" layoutY="255.0" text="Nome categoria" textFill="WHITE">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
+      </Button>
+      <TableView fx:id="TableviewVisuCat" layoutX="28.0" layoutY="218.0" prefHeight="280.0" prefWidth="844.0">
+         <columns>
+            <TableColumn fx:id="tableColumnIdCategoria" prefWidth="193.0" text="Nome" />
+            <TableColumn fx:id="tableColumnIdCategoria11" prefWidth="210.0" text="Telefone" />
+            <TableColumn fx:id="tableColumnIdCategoria1" prefWidth="226.0" text="CNH" />
+            <TableColumn fx:id="tableColumnNomeCategoria1" minWidth="0.0" prefWidth="214.0" text="CPF" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

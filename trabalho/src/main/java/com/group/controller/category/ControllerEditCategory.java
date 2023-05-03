@@ -34,9 +34,6 @@ public class ControllerEditCategory {
     private TextField textFieldIdEditCategoria;
 
     @FXML
-    private TableView TableviewEditCat;
-
-    @FXML
     private TextField textFieldNovoNomeCategoria;
 
     @FXML
