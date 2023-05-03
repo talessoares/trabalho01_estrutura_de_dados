@@ -1,5 +1,6 @@
 package com.group;
 
+import com.group.controller.ControllerIndex;
 import com.group.entities.Category;
 import com.group.entities.Vehicle;
 import com.group.list.ListCategory;
@@ -124,6 +125,11 @@ public class App extends Application {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+
+        ControllerIndex.setListCategory(listCategory);
+        ControllerIndex.setListVehicle(listVehicle);
+        ControllerIndex.setListClient(listClient);
+        ControllerIndex.setListLocation(listLocation);
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(viewInicial));

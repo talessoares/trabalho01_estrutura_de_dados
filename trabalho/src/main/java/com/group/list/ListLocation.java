@@ -1,12 +1,7 @@
 package com.group.list;
 
-import com.group.entities.Client;
 import com.group.entities.Location;
-import com.group.entities.Vehicle;
 import com.group.lde.LdeLocation;
-import com.group.lde.Node;
-
-import java.util.Date;
 
 public class ListLocation { 
 
