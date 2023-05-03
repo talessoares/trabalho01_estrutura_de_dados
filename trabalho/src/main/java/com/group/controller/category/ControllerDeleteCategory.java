@@ -65,9 +65,6 @@ public class ControllerDeleteCategory {
         } catch(Exception e) {
             alertInterface("Erro inesperado", e.getMessage(), AlertType.ERROR);
         }
-
-
-        
     }
 
     @FXML

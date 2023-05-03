@@ -1,13 +1,15 @@
 package com.group.controller.category;
+
+import com.group.controller.ControllerIndex;
 import com.group.entities.Category;
 import com.group.list.ListCategory;
-import com.group.lde.LdeCategory;
+import com.group.lde.Node;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
@@ -17,18 +19,21 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 public class ControllerEditCategory {
-    
-    @FXML
-    private Button btnConsultarCategoria;
 
     @FXML
     private Button btnEditarCategoria;
 
     @FXML
     private Button btnLimparEditCat;
-    
+
+    @FXML
+    private Button btnConsultarCategoria;
+
     @FXML
     private ImageView btnVoltarEdirCat;
+
+    @FXML
+    private AnchorPane rootPaneEditCat;
 
     @FXML
     private TextField textFieldIdEditCategoria;
@@ -36,8 +41,12 @@ public class ControllerEditCategory {
     @FXML
     private TextField textFieldNovoNomeCategoria;
 
+    private ListCategory listCategory;
+
     @FXML
-    private AnchorPane rootPaneEditCat;
+    void initialize() {
+        this.listCategory = ControllerIndex.getListCategory();
+    }
 
     @FXML
     void hoverBtnVoltar(MouseEvent event) {
@@ -58,41 +67,75 @@ public class ControllerEditCategory {
     }
 
     @FXML
-    void consultarCategoria(){
-        if (textFieldIdEditCategoria.getText().isEmpty()){
-            alertInterface("ERRO", "O campo ID não pode ser nulo!", AlertType.ERROR);
-        } else {
-            try {
-                int id = Integer.parseInt(textFieldIdEditCategoria.getText());
-                // Category category = ListCategory.searchCategory(id);
-                // if (category == null){
-                //     alertInterface("ERRO", "Categoria não encontrada!", AlertType.ERROR);
-                // } else {
-                //     textFieldNovoNomeCategoria.setText(category.getName());
-                // }
-            } catch (Exception e) {
-                alertInterface("ERRO", "O campo ID deve ser um número inteiro!", AlertType.ERROR);
+    void consultarCategoria() {
+
+        String textFieldIdCategory = textFieldIdEditCategoria.getText();
+
+        try {
+
+            long id;
+
+            if(textFieldIdCategory == null || textFieldIdCategory.trim().isEmpty()) {
+                throw new Exception("O campo ID não pode ser nulo!");
             }
+
+            try {
+                id = Long.parseLong(textFieldIdEditCategoria.getText());
+            } catch (NumberFormatException e) {
+                throw new Exception("O campo ID deve ser um número inteiro!");
+            }
+
+            Node node = listCategory.find(id);
+
+            if(node == null) {
+                throw new Exception("Categoria não encontrada!");
+            }
+            
+            Category category = (Category) node.getInfo();
+            textFieldNovoNomeCategoria.setText(category.getName());
+            
+        } catch (Exception e) {
+            alertInterface("ERRO", e.getMessage(), AlertType.ERROR);
         }
+
     }
 
     @FXML
-    void editarCategoria(){
-        if (textFieldIdEditCategoria.getText().isEmpty() || textFieldNovoNomeCategoria.getText().isEmpty()){
-            alertInterface("ERRO", "Os campos não podem ser nulos!", AlertType.ERROR);
-        } else {
-            try {
-                int id = Integer.parseInt(textFieldIdEditCategoria.getText());
-                // Category category = ListCategory.searchCategory(id);
-                // if (category == null){
-                //     alertInterface("ERRO", "Categoria não encontrada!", AlertType.ERROR);
-                // } else {
-                //     category.setName(textFieldNovoNomeCategoria.getText());
-                //     alertInterface("SUCESSO", "Categoria editada com sucesso!", AlertType.INFORMATION);
-                // }
-            } catch (Exception e) {
-                alertInterface("ERRO", "O campo ID deve ser um número inteiro!", AlertType.ERROR);
+    void editarCategoria() {
+        String textFieldIdCategory = textFieldIdEditCategoria.getText();
+        String nomeCategory = textFieldNovoNomeCategoria.getText();
+
+        try {
+
+            long id;
+
+            if(textFieldIdCategory == null || textFieldIdCategory.trim().isEmpty()) {
+                throw new Exception("O campo ID não pode ser nulo!");
             }
+
+            if(nomeCategory == null || nomeCategory.trim().isEmpty()) {
+                throw new Exception("O campo Nome não pode ser nulo!");
+            }
+
+            try {
+                id = Long.parseLong(textFieldIdEditCategoria.getText());
+            } catch (NumberFormatException e) {
+                throw new Exception("O campo ID deve ser um número inteiro!");
+            }
+
+            Node node = listCategory.find(id);
+
+            if(node == null) {
+                throw new Exception("Categoria não encontrada!");
+            }
+            
+            Category category = (Category) node.getInfo();
+            category.setName(nomeCategory);
+
+            alertInterface("SUCESSO", "Categoria editada com sucesso!", AlertType.INFORMATION);
+            
+        } catch (Exception e) {
+            alertInterface("ERRO", e.getMessage(), AlertType.ERROR);
         }
     }
 
@@ -117,5 +160,3 @@ public class ControllerEditCategory {
         alert.showAndWait();
     }
 }
-
-

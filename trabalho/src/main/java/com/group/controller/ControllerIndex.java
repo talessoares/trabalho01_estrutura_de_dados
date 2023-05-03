@@ -146,7 +146,13 @@ public class ControllerIndex {
 
     @FXML
     void alteraInformacoesCategoria(ActionEvent event) {
-
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/category/viewEditCategory.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            alertInterface("ERRO", "Não foi possível entrar na tela de editar categoria", AlertType.ERROR);
+        }
     }
 
     @FXML
@@ -238,7 +244,13 @@ public class ControllerIndex {
 
     @FXML
     void visualizaInformacoesCategoria(ActionEvent event) {
-
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/category/viewVisualizationCategory.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            alertInterface("ERRO", "Não foi possível entrar na tela de visualizar um categoria", AlertType.ERROR);
+        }
     }
 
     @FXML
