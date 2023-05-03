@@ -40,13 +40,13 @@ public class ListCategory {
         }
     }
 
-    public boolean removeClient(Category category) {
-        if(category == null) {
+    public boolean removeCategory(long id) {
+        if(id <= 0) {
             throw new NullPointerException("O objeto informado é nulo");
         }
 
         try {
-            return this.ldeCategory.remove(category);
+            return this.ldeCategory.remove(id);
         } catch (Exception e) {
             throw e;
         }

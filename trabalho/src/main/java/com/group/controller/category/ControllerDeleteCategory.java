@@ -1,7 +1,6 @@
 package com.group.controller.category;
-import com.group.entities.Category;
+import com.group.controller.ControllerIndex;
 import com.group.list.ListCategory;
-import com.group.lde.LdeCategory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,6 +31,45 @@ public class ControllerDeleteCategory {
     @FXML
     private AnchorPane rootPaneCriaCat;
 
+    private ListCategory listCategory;
+
+    @FXML
+    void initialize() {
+        this.listCategory = ControllerIndex.getListCategory();
+    }
+
+    @FXML
+    void removeCategory(ActionEvent event) {
+
+        String idCategoria = textFieldIdExcluirCategoria.getText();
+
+        try {
+
+            if(idCategoria == null || idCategoria.trim().isEmpty()) {
+                throw new NullPointerException("O campo de ID não pode ser vazio");
+            }
+
+            try {
+                long idCategoriaLong = Long.parseLong(idCategoria);
+                
+                if(listCategory.removeCategory(idCategoriaLong)) {
+                    alertInterface("Sucesso", "Categoria removida com sucesso", AlertType.INFORMATION);
+                } else {
+                    alertInterface("Erro", "Categoria não encontrada", AlertType.ERROR);
+                }
+            } catch (NumberFormatException e) {
+                throw new NumberFormatException("O campo de ID deve ser um número inteiro");
+            }
+        } catch (NullPointerException e) {
+            alertInterface("Erro", e.getMessage(), AlertType.ERROR);
+        } catch(Exception e) {
+            alertInterface("Erro inesperado", e.getMessage(), AlertType.ERROR);
+        }
+
+
+        
+    }
+
     @FXML
     void hoverBtnVoltar(MouseEvent event) {
         btnVoltarExcCategoria.setImage(new Image("com/group/views/images/pngVoltarHover.png"));
@@ -47,16 +85,6 @@ public class ControllerDeleteCategory {
     @FXML
     void limparCampos(ActionEvent event) {
         textFieldIdExcluirCategoria.clear();
-    }
-
-
-    @FXML
-    void removeCategory(ActionEvent event) {
-        if (textFieldIdExcluirCategoria == null){
-            alertInterface("ERRO", "O campo CPF não pode ser nulo!", AlertType.ERROR);
-        }
-
-        
     }
 
     @FXML
