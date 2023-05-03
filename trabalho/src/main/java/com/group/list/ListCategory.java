@@ -16,7 +16,7 @@ public class ListCategory {
         this.ldeCategory = ldeCategory;
     }
 
-    public void addClientAtBeginning(Category category) {
+    public void addCategoryAtBeginning(Category category) {
         if(category == null) {
             throw new NullPointerException("O objeto informado é nulo");
         }
@@ -28,7 +28,7 @@ public class ListCategory {
         }
     }
 
-    public void addClientAtEnd(Category category) {
+    public void addCategoryAtEnd(Category category) {
         if(category == null) {
             throw new NullPointerException("O objeto informado é nulo");
         }

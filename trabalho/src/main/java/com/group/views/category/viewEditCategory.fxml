@@ -10,7 +10,12 @@
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.controller.client.ControllerCreateClient">
    <children>
-      <Button fx:id="btnExcluirCategoria" layoutX="514.0" layoutY="520.0" mnemonicParsing="false" onAction="#createClient" prefHeight="46.0" prefWidth="134.0" styleClass="redBtn" stylesheets="@../style.css" text="Excluir" textFill="WHITE">
+      <TextField fx:id="textFieldIdEditCategoria" layoutX="31.0" layoutY="162.0" prefHeight="40.0" prefWidth="822.0" promptText="Digite o ID da categoria que deseja editar" style="-fx-background-radius: 5; -fx-background-color: white;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button fx:id="btnEditarCategoria" layoutX="514.0" layoutY="520.0" mnemonicParsing="false" onAction="#createClient" prefHeight="46.0" prefWidth="134.0" styleClass="yellowBtn" stylesheets="@../style.css" text="Editar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -20,7 +25,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Label layoutX="306.0" layoutY="27.0" prefHeight="54.0" prefWidth="286.0" text="Excluir categoria" textFill="WHITE">
+      <Label layoutX="286.0" layoutY="27.0" prefHeight="54.0" prefWidth="272.0" text="Editar categoria" textFill="WHITE">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
@@ -35,17 +40,22 @@
             <Font size="16.0" />
          </font>
       </Label>
+      <Label layoutX="38.0" layoutY="129.0" text="ID da categoria " textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
       <ImageView fx:id="btnVoltar" fitHeight="50.0" fitWidth="50.0" layoutX="38.0" layoutY="29.0" onMouseClicked="#voltarParaPrincipal" onMouseEntered="#hoverBtnVoltar" onMouseExited="#notHoverBtnVoltar">
          <image>
             <Image url="@../../views/images/pngVoltar.png" />
          </image>
       </ImageView>
-      <TextField fx:id="textFieldIdExcluirCategoria" layoutX="38.0" layoutY="214.0" prefHeight="40.0" prefWidth="822.0" promptText="Digite o ID da categoria que deseja excuir" style="-fx-background-radius: 5; -fx-background-color: white;">
+      <TextField fx:id="textFieldNovoNomeCategoria" layoutX="31.0" layoutY="325.0" prefHeight="40.0" prefWidth="822.0" promptText="Digite o novo nome da categoria" style="-fx-background-radius: 5; -fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Label layoutX="38.0" layoutY="188.0" text="ID" textFill="WHITE">
+      <Label layoutX="32.0" layoutY="300.0" text="Novo nome da categoria" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
