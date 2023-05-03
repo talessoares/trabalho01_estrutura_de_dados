@@ -9,14 +9,16 @@ public class Location {
     private Date locationDate;
     private Date devolutionDate;
     private long id;
+    private double value;
     private static long idCounter = 1000;
 
-    public Location(long id, Client client, Vehicle vehicle, Date locationDate, Date devolutionDate) {
+    public Location(long id, Client client, Vehicle vehicle, Date locationDate, Date devolutionDate, double value) {
         this.id = idCounter++;
         this.client = client;
         this.vehicle = vehicle;
         this.locationDate = locationDate;
         this.devolutionDate = devolutionDate;
+        this.value = value;
     }
 
     public Client getClient() {
@@ -73,6 +75,18 @@ public class Location {
 
     public void setId(long id){
         this.id = id;
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+    public void setValue(double value) {
+        if (value < 0) {
+            throw new IllegalArgumentException("Valor não pode ser negativo!");
+        }
+
+        this.value = value;
     }
     
 

@@ -295,7 +295,13 @@ public class ControllerIndex {
 
     @FXML
     void visualizaInformacoesVeiculo(ActionEvent event) {
-
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/vehicle/viewVisualizationVehicle.fxml"));
+            rootPane.getChildren().setAll(pane);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            alertInterface("ERRO", "Não foi possível entrar na tela de visualizar um veiculo", AlertType.ERROR);
+        }
     }
 
     void alertInterface(String titulo, String mensagem, AlertType tipo) {

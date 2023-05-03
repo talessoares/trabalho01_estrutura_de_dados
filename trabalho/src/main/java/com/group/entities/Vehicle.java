@@ -106,7 +106,7 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return "Plate: " + plate + ";Model: " + model + ";Year: " + year + ";Horse Power: " + horsePower + ";Seats: " + seats + ";Brand: " + brand + ";Category: " + category.toString();
+        return "Plate:" + plate + ";Model:" + model + ";Year:" + year + ";Horse Power:" + horsePower + ";Seats:" + seats + ";Brand:" + brand + ";Category:" + category.toString();
     }
 
 }
