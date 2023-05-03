@@ -10,19 +10,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPaneEditCat" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.controller.client.ControllerVisualizationClient">
+<AnchorPane fx:id="rootPaneEditCat" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.controller.client.ControllerVisualizationClient">
    <children>
-      <TextField fx:id="textFieldCpf" layoutX="32.0" layoutY="162.0" prefHeight="40.0" prefWidth="390.0" promptText="Digite o CPF do cliente que deseja visualizar" style="-fx-background-radius: 5; -fx-background-color: white;">
+      <TextField fx:id="textFieldCpf" layoutX="32.0" layoutY="162.0" prefHeight="40.0" prefWidth="450.0" promptText="Digite o CPF do cliente que deseja visualizar" style="-fx-background-radius: 5; -fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Button fx:id="btnLimparEditCat" layoutX="220.0" layoutY="520.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="46.0" prefWidth="133.0" styleClass="grayBtn" stylesheets="@../style.css" text="Limpar" textFill="WHITE">
+      <Button fx:id="btnLimparEditCat" layoutX="328.0" layoutY="520.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="46.0" prefWidth="133.0" styleClass="grayBtn" stylesheets="@../style.css" text="Limpar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Label layoutX="286.0" layoutY="27.0" prefHeight="54.0" prefWidth="333.0" text="Visualizar cliente" textFill="WHITE">
+      <Label layoutX="356.0" layoutY="27.0" prefHeight="54.0" prefWidth="289.0" text="Visualizar cliente" textFill="WHITE">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
@@ -47,12 +47,12 @@
             <Image url="@../../views/images/pngVoltar.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnConsultar" layoutX="553.0" layoutY="520.0" mnemonicParsing="false" onAction="#consultClient" prefHeight="46.0" prefWidth="133.0" styleClass="yellowBtn" stylesheets="@../style.css" text="Consultar" textFill="WHITE">
+      <Button fx:id="btnConsultar" layoutX="537.0" layoutY="520.0" mnemonicParsing="false" onAction="#consultClient" prefHeight="46.0" prefWidth="133.0" styleClass="yellowBtn" stylesheets="@../style.css" text="Consultar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <TableView fx:id="tableviewVisuClient" layoutX="28.0" layoutY="218.0" prefHeight="280.0" prefWidth="844.0">
+      <TableView fx:id="tableviewVisuClient" layoutX="28.0" layoutY="218.0" prefHeight="280.0" prefWidth="945.0">
          <columns>
             <TableColumn fx:id="tableColumnNome" prefWidth="193.0" text="Nome" />
             <TableColumn fx:id="tableColumnTelefone" prefWidth="210.0" text="Telefone" />
@@ -60,7 +60,7 @@
             <TableColumn fx:id="tableColumnCpf" minWidth="0.0" prefWidth="214.0" text="CPF" />
          </columns>
       </TableView>
-      <Button fx:id="btnImprimirInicio" layoutX="733.0" layoutY="142.0" mnemonicParsing="false" onAction="#imprimirListaInicio" text="Imprimir desde o início" />
-      <Button fx:id="btnImprimirFinal" layoutX="733.0" layoutY="176.0" mnemonicParsing="false" onAction="#imprimirListaFinal" prefHeight="26.0" prefWidth="138.0" text="Imprimir desde o final" />
+      <Button fx:id="btnImprimirInicio" layoutX="835.0" layoutY="142.0" mnemonicParsing="false" onAction="#imprimirListaInicio" text="Imprimir desde o início" />
+      <Button fx:id="btnImprimirFinal" layoutX="835.0" layoutY="176.0" mnemonicParsing="false" onAction="#imprimirListaFinal" prefHeight="26.0" prefWidth="138.0" text="Imprimir desde o final" />
    </children>
 </AnchorPane>

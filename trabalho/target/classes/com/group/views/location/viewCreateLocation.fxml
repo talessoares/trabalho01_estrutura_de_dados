@@ -11,24 +11,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.controller.location.ControllerCreateLocation">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.controller.location.ControllerCreateLocation">
    <children>
-      <TextField fx:id="textFieldCnh" layoutX="38.0" layoutY="126.0" prefHeight="40.0" prefWidth="398.0" promptText="Digite a cnh do cliente" style="-fx-background-radius: 5; -fx-background-color: white;">
+      <TextField fx:id="textFieldCnh" layoutX="38.0" layoutY="126.0" prefHeight="40.0" prefWidth="440.0" promptText="Digite a cnh do cliente" style="-fx-background-radius: 5; -fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Button fx:id="btnAdicionar" layoutX="514.0" layoutY="520.0" mnemonicParsing="false" onAction="#createLocation" prefHeight="46.0" prefWidth="134.0" styleClass="greenBtn" stylesheets="@../style.css" text="Adicionar" textFill="WHITE">
+      <Button fx:id="btnAdicionar" layoutX="537.0" layoutY="520.0" mnemonicParsing="false" onAction="#createLocation" prefHeight="46.0" prefWidth="134.0" styleClass="greenBtn" stylesheets="@../style.css" text="Adicionar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btnLimpar" layoutX="289.0" layoutY="520.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="46.0" prefWidth="133.0" styleClass="grayBtn" stylesheets="@../style.css" text="Limpar" textFill="WHITE">
+      <Button fx:id="btnLimpar" layoutX="328.0" layoutY="520.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="46.0" prefWidth="133.0" styleClass="grayBtn" stylesheets="@../style.css" text="Limpar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Label layoutX="332.0" layoutY="27.0" prefHeight="54.0" prefWidth="236.0" text="Criar Locação" textFill="WHITE">
+      <Label layoutX="405.0" layoutY="27.0" prefHeight="54.0" prefWidth="236.0" text="Criar Locação" textFill="WHITE">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
@@ -53,12 +53,12 @@
             <Image url="@../../views/images/pngVoltar.png" />
          </image>
       </ImageView>
-      <TextField fx:id="textFieldPlaca" layoutX="461.0" layoutY="126.0" prefHeight="40.0" prefWidth="398.0" promptText="Digite a placa do veículo" style="-fx-background-radius: 5; -fx-background-color: white;">
+      <TextField fx:id="textFieldPlaca" layoutX="523.0" layoutY="126.0" prefHeight="40.0" prefWidth="440.0" promptText="Digite a placa do veículo" style="-fx-background-radius: 5; -fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Label layoutX="461.0" layoutY="100.0" text="Placa" textFill="WHITE">
+      <Label layoutX="523.0" layoutY="100.0" text="Placa" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -69,13 +69,13 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <DatePicker fx:id="datePickerDataFinal" layoutX="237.0" layoutY="208.0" prefHeight="40.0" prefWidth="175.0" />
-      <Label layoutX="237.0" layoutY="182.0" text="Data final" textFill="WHITE">
+      <DatePicker fx:id="datePickerDataFinal" layoutX="260.0" layoutY="208.0" prefHeight="40.0" prefWidth="175.0" />
+      <Label layoutX="260.0" layoutY="182.0" text="Data final" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <TableView fx:id="tableViewVehicle" layoutX="38.0" layoutY="275.0" prefHeight="212.0" prefWidth="819.0">
+      <TableView fx:id="tableViewVehicle" layoutX="38.0" layoutY="275.0" prefHeight="212.0" prefWidth="925.0">
          <columns>
             <TableColumn fx:id="tableColumnPlaca" prefWidth="143.20000457763672" text="Placa" />
             <TableColumn fx:id="tableColumnModelo" prefWidth="71.19998168945312" text="Modelo" />
@@ -87,6 +87,6 @@
             <TableColumn fx:id="tableColumnNomeCategoria" prefWidth="134.4000244140625" text="Nome Categoria" />
          </columns>
       </TableView>
-      <Button fx:id="btnListar" layoutX="713.0" layoutY="215.0" mnemonicParsing="false" onAction="#listarVeiculosDisponiveis" prefHeight="26.0" prefWidth="144.0" text="Ver veículos disponíveis" />
+      <Button fx:id="btnListar" layoutX="819.0" layoutY="215.0" mnemonicParsing="false" onAction="#listarVeiculosDisponiveis" prefHeight="26.0" prefWidth="144.0" text="Ver veículos disponíveis" />
    </children>
 </AnchorPane>

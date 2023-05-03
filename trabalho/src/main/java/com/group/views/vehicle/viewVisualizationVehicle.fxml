@@ -10,19 +10,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.controller.vehicle.ControllerVisualizationVehicle">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.controller.vehicle.ControllerVisualizationVehicle">
    <children>
-      <Button fx:id="btnConsultar" layoutX="462.0" layoutY="521.0" mnemonicParsing="false" onAction="#consultVehicle" prefHeight="46.0" prefWidth="134.0" styleClass="greenBtn" stylesheets="@../style.css" text="Consultar" textFill="WHITE">
+      <Button fx:id="btnConsultar" layoutX="537.0" layoutY="521.0" mnemonicParsing="false" onAction="#consultVehicle" prefHeight="46.0" prefWidth="134.0" styleClass="greenBtn" stylesheets="@../style.css" text="Consultar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btnLimpar" layoutX="287.0" layoutY="521.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="46.0" prefWidth="133.0" styleClass="grayBtn" stylesheets="@../style.css" text="Limpar" textFill="WHITE">
+      <Button fx:id="btnLimpar" layoutX="328.0" layoutY="521.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="46.0" prefWidth="133.0" styleClass="grayBtn" stylesheets="@../style.css" text="Limpar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Label layoutX="313.0" layoutY="27.0" prefHeight="54.0" prefWidth="298.0" text="Visualizar Veículo" textFill="WHITE">
+      <Label layoutX="354.0" layoutY="27.0" prefHeight="54.0" prefWidth="298.0" text="Visualizar Veículo" textFill="WHITE">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
@@ -42,7 +42,7 @@
             <Image url="@../../views/images/pngVoltar.png" />
          </image>
       </ImageView>
-      <TableView fx:id="tableViewVehicle" layoutX="40.0" layoutY="180.0" prefHeight="310.0" prefWidth="819.0">
+      <TableView fx:id="tableViewVehicle" layoutX="40.0" layoutY="180.0" prefHeight="310.0" prefWidth="925.0">
         <columns>
           <TableColumn fx:id="tableColumnPlaca" prefWidth="143.20000457763672" text="Placa" />
           <TableColumn fx:id="tableColumnModelo" prefWidth="71.19998168945312" text="Modelo" />
@@ -54,9 +54,9 @@
             <TableColumn fx:id="tableColumnNomeCategoria" prefWidth="134.4000244140625" text="Nome Categoria" />
         </columns>
       </TableView>
-      <Button fx:id="btnImprimirInicio" layoutX="720.0" layoutY="102.0" mnemonicParsing="false" onAction="#imprimirListaInicio" text="Imprimir desde o início" />
-      <Button fx:id="btnImprimirFinal" layoutX="720.0" layoutY="136.0" mnemonicParsing="false" onAction="#imprimirListaFinal" prefHeight="26.0" prefWidth="138.0" text="Imprimir desde o final" />
-      <TextField fx:id="textFieldPlaca" layoutX="40.0" layoutY="121.0" prefHeight="40.0" prefWidth="398.0" promptText="Digite a placa" style="-fx-background-radius: 5; -fx-background-color: white;">
+      <Button fx:id="btnImprimirInicio" layoutX="827.0" layoutY="108.0" mnemonicParsing="false" onAction="#imprimirListaInicio" text="Imprimir desde o início" />
+      <Button fx:id="btnImprimirFinal" layoutX="827.0" layoutY="142.0" mnemonicParsing="false" onAction="#imprimirListaFinal" prefHeight="26.0" prefWidth="138.0" text="Imprimir desde o final" />
+      <TextField fx:id="textFieldPlaca" layoutX="40.0" layoutY="121.0" prefHeight="40.0" prefWidth="440.0" promptText="Digite a placa" style="-fx-background-radius: 5; -fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>

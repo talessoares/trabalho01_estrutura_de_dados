@@ -8,24 +8,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.controller.client.ControllerCreateClient">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.controller.client.ControllerCreateClient">
    <children>
       <TextField fx:id="textFieldNome" layoutX="38.0" layoutY="126.0" prefHeight="40.0" prefWidth="922.0" promptText="Digite o nome" style="-fx-background-radius: 5; -fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Button fx:id="btnAdicionar" layoutX="514.0" layoutY="520.0" mnemonicParsing="false" onAction="#createClient" prefHeight="46.0" prefWidth="134.0" styleClass="greenBtn" stylesheets="@../style.css" text="Adicionar" textFill="WHITE">
+      <Button fx:id="btnAdicionar" layoutX="537.0" layoutY="520.0" mnemonicParsing="false" onAction="#createClient" prefHeight="46.0" prefWidth="134.0" styleClass="greenBtn" stylesheets="@../style.css" text="Adicionar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btnLimpar" layoutX="395.0" layoutY="520.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="46.0" prefWidth="133.0" styleClass="grayBtn" stylesheets="@../style.css" text="Limpar" textFill="WHITE">
+      <Button fx:id="btnLimpar" layoutX="328.0" layoutY="520.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="46.0" prefWidth="133.0" styleClass="grayBtn" stylesheets="@../style.css" text="Limpar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Label layoutX="352.0" layoutY="27.0" prefHeight="54.0" prefWidth="210.0" text="Criar Cliente" textFill="WHITE">
+      <Label layoutX="394.0" layoutY="27.0" prefHeight="54.0" prefWidth="210.0" text="Criar Cliente" textFill="WHITE">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>

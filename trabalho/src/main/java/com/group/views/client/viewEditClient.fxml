@@ -8,24 +8,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.controller.client.ControllerEditClient">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.controller.client.ControllerEditClient">
    <children>
-      <TextField fx:id="textFieldEditNome" layoutX="38.0" layoutY="227.0" prefHeight="40.0" prefWidth="822.0" promptText="Digite o nome" style="-fx-background-radius: 5; -fx-background-color: white;">
+      <TextField fx:id="textFieldEditNome" layoutX="38.0" layoutY="217.0" prefHeight="40.0" prefWidth="922.0" promptText="Digite o nome" style="-fx-background-radius: 5; -fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Button fx:id="btnEditarCliente" layoutX="550.0" layoutY="520.0" mnemonicParsing="false" onAction="#editClient" prefHeight="46.0" prefWidth="134.0" styleClass="greenBtn" stylesheets="@../style.css" text="Editar" textFill="WHITE">
+      <Button fx:id="btnEditarCliente" layoutX="615.0" layoutY="520.0" mnemonicParsing="false" onAction="#editClient" prefHeight="46.0" prefWidth="134.0" styleClass="greenBtn" stylesheets="@../style.css" text="Editar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btnLimpar" layoutX="213.0" layoutY="520.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="46.0" prefWidth="133.0" styleClass="grayBtn" stylesheets="@../style.css" text="Limpar" textFill="WHITE">
+      <Button fx:id="btnLimpar" layoutX="250.0" layoutY="520.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="46.0" prefWidth="133.0" styleClass="grayBtn" stylesheets="@../style.css" text="Limpar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Label layoutX="334.0" layoutY="27.0" prefHeight="54.0" prefWidth="232.0" text="Editar Cliente" textFill="WHITE">
+      <Label layoutX="383.0" layoutY="27.0" prefHeight="54.0" prefWidth="232.0" text="Editar Cliente" textFill="WHITE">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
@@ -40,7 +40,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="39.0" layoutY="202.0" text="Novo nome" textFill="WHITE">
+      <Label layoutX="39.0" layoutY="192.0" text="Novo nome" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -50,17 +50,17 @@
             <Image url="@../../views/images/pngVoltar.png" />
          </image>
       </ImageView>
-      <TextField fx:id="textFieldEditCNH" layoutX="38.0" layoutY="307.0" prefHeight="40.0" prefWidth="822.0" promptText="Digite a CNH" style="-fx-background-radius: 5; -fx-background-color: white;">
+      <TextField fx:id="textFieldEditCNH" layoutX="38.0" layoutY="301.0" prefHeight="40.0" prefWidth="922.0" promptText="Digite a CNH" style="-fx-background-radius: 5; -fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Label layoutX="38.0" layoutY="281.0" text="Nova CNH" textFill="WHITE">
+      <Label layoutX="38.0" layoutY="275.0" text="Nova CNH" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="textFieldEditTelefone" layoutX="38.0" layoutY="383.0" prefHeight="40.0" prefWidth="822.0" promptText="Digite o telefone" style="-fx-background-radius: 5; -fx-background-color: white;">
+      <TextField fx:id="textFieldEditTelefone" layoutX="38.0" layoutY="383.0" prefHeight="40.0" prefWidth="922.0" promptText="Digite o telefone" style="-fx-background-radius: 5; -fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
@@ -70,17 +70,17 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="textFieldEditCPF" layoutX="39.0" layoutY="133.0" prefHeight="40.0" prefWidth="413.0" promptText="Digite o CPF do cliente que deseja alterar" style="-fx-background-radius: 5; -fx-background-color: white;">
+      <TextField fx:id="textFieldEditCPF" layoutX="39.0" layoutY="134.0" prefHeight="40.0" prefWidth="922.0" promptText="Digite o CPF do cliente que deseja alterar" style="-fx-background-radius: 5; -fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Label layoutX="42.0" layoutY="108.0" text="CPF" textFill="WHITE">
+      <Label layoutX="42.0" layoutY="109.0" text="CPF" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Button fx:id="btnConsultarCliente" layoutX="382.0" layoutY="520.0" mnemonicParsing="false" onAction="#consultClient" prefHeight="46.0" prefWidth="134.0" styleClass="greenBtn" stylesheets="@../style.css" text="Consultar" textFill="WHITE">
+      <Button fx:id="btnConsultarCliente" layoutX="432.0" layoutY="520.0" mnemonicParsing="false" onAction="#consultClient" prefHeight="46.0" prefWidth="134.0" styleClass="greenBtn" stylesheets="@../style.css" text="Consultar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>

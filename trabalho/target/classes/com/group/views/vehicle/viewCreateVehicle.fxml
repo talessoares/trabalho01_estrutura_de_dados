@@ -8,24 +8,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.controller.vehicle.ControllerCreateVehicle">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group.controller.vehicle.ControllerCreateVehicle">
    <children>
-      <TextField fx:id="textFieldPlaca" layoutX="38.0" layoutY="126.0" prefHeight="40.0" prefWidth="398.0" promptText="Digite a placa" style="-fx-background-radius: 5; -fx-background-color: white;">
+      <TextField fx:id="textFieldPlaca" layoutX="38.0" layoutY="126.0" prefHeight="40.0" prefWidth="440.0" promptText="Digite a placa" style="-fx-background-radius: 5; -fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Button fx:id="btnAdicionar" layoutX="514.0" layoutY="520.0" mnemonicParsing="false" onAction="#createVehicle" prefHeight="46.0" prefWidth="134.0" styleClass="greenBtn" stylesheets="@../style.css" text="Adicionar" textFill="WHITE">
+      <Button fx:id="btnAdicionar" layoutX="537.0" layoutY="520.0" mnemonicParsing="false" onAction="#createVehicle" prefHeight="46.0" prefWidth="134.0" styleClass="greenBtn" stylesheets="@../style.css" text="Adicionar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btnLimpar" layoutX="289.0" layoutY="520.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="46.0" prefWidth="133.0" styleClass="grayBtn" stylesheets="@../style.css" text="Limpar" textFill="WHITE">
+      <Button fx:id="btnLimpar" layoutX="328.0" layoutY="520.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="46.0" prefWidth="133.0" styleClass="grayBtn" stylesheets="@../style.css" text="Limpar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Label layoutX="354.0" layoutY="27.0" prefHeight="54.0" prefWidth="216.0" text="Criar Veículo" textFill="WHITE">
+      <Label layoutX="392.0" layoutY="27.0" prefHeight="54.0" prefWidth="216.0" text="Criar Veículo" textFill="WHITE">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
@@ -50,7 +50,7 @@
             <Image url="@../../views/images/pngVoltar.png" />
          </image>
       </ImageView>
-      <TextField fx:id="textFieldAno" layoutX="38.0" layoutY="208.0" prefHeight="40.0" prefWidth="204.0" promptText="Digite o ano" style="-fx-background-radius: 5; -fx-background-color: white;">
+      <TextField fx:id="textFieldAno" layoutX="38.0" layoutY="208.0" prefHeight="40.0" prefWidth="220.0" promptText="Digite o ano" style="-fx-background-radius: 5; -fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
@@ -60,37 +60,37 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="textFieldModelo" layoutX="461.0" layoutY="126.0" prefHeight="40.0" prefWidth="398.0" promptText="Digite o modelo" style="-fx-background-radius: 5; -fx-background-color: white;">
+      <TextField fx:id="textFieldModelo" layoutX="523.0" layoutY="126.0" prefHeight="40.0" prefWidth="440.0" promptText="Digite o modelo" style="-fx-background-radius: 5; -fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Label layoutX="461.0" layoutY="100.0" text="Modelo" textFill="WHITE">
+      <Label layoutX="523.0" layoutY="100.0" text="Modelo" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="textFieldPotencia" layoutX="270.0" layoutY="208.0" prefHeight="40.0" prefWidth="277.0" promptText="Digite a potência" style="-fx-background-radius: 5; -fx-background-color: white;">
+      <TextField fx:id="textFieldPotencia" layoutX="311.0" layoutY="208.0" prefHeight="40.0" prefWidth="300.0" promptText="Digite a potência" style="-fx-background-radius: 5; -fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Label layoutX="270.0" layoutY="182.0" text="Potência" textFill="WHITE">
+      <Label layoutX="311.0" layoutY="182.0" text="Potência" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="textFieldAssentos" layoutX="574.0" layoutY="208.0" prefHeight="40.0" prefWidth="284.0" promptText="Digite a quantidade de assentos" style="-fx-background-radius: 5; -fx-background-color: white;">
+      <TextField fx:id="textFieldAssentos" layoutX="663.0" layoutY="208.0" prefHeight="40.0" prefWidth="300.0" promptText="Digite a quantidade de assentos" style="-fx-background-radius: 5; -fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Label layoutX="574.0" layoutY="182.0" text="Assentos" textFill="WHITE">
+      <Label layoutX="663.0" layoutY="182.0" text="Assentos" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="textFieldMarca" layoutX="38.0" layoutY="293.0" prefHeight="40.0" prefWidth="277.0" promptText="Digite a marca" style="-fx-background-radius: 5; -fx-background-color: white;">
+      <TextField fx:id="textFieldMarca" layoutX="38.0" layoutY="293.0" prefHeight="40.0" prefWidth="440.0" promptText="Digite a marca" style="-fx-background-radius: 5; -fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
@@ -100,12 +100,12 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="textFieldCategoria" layoutX="350.0" layoutY="291.0" prefHeight="40.0" prefWidth="277.0" promptText="Digite o id da categoria" style="-fx-background-radius: 5; -fx-background-color: white;">
+      <TextField fx:id="textFieldCategoria" layoutX="523.0" layoutY="293.0" prefHeight="40.0" prefWidth="440.0" promptText="Digite o id da categoria" style="-fx-background-radius: 5; -fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Label layoutX="350.0" layoutY="265.0" text="Categoria" textFill="WHITE">
+      <Label layoutX="523.0" layoutY="267.0" text="Categoria" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
