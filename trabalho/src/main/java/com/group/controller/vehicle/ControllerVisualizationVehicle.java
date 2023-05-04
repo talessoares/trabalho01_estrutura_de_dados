@@ -3,7 +3,6 @@ package com.group.controller.vehicle;
 import com.group.controller.ControllerIndex;
 import com.group.entities.Category;
 import com.group.entities.Vehicle;
-import com.group.lde.Node;
 import com.group.list.ListVehicle;
 
 import javafx.beans.property.SimpleObjectProperty;
@@ -100,13 +99,11 @@ public class ControllerVisualizationVehicle {
                 throw new NullPointerException("Campo placa não pode ser vazio");
             }
 
-            Node node = listVehicle.find(placa);
-
-            if(node == null) {
+            if(!listVehicle.existe(placa)) {
                 throw new NullPointerException("Veiculo não encontrado");
             }
 
-            Vehicle client = (Vehicle) node.getInfo();
+            Vehicle client = (Vehicle) listVehicle.find(placa).getInfo();
 
             tableViewVehicle.getItems().clear();
             tableViewVehicle.getItems().add(client);

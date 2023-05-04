@@ -64,6 +64,16 @@ public class ListClient {
         }      
     }
 
+    public boolean existe(String cpf) {
+        if(cpf == null || cpf.trim().isEmpty()) {
+            throw new NullPointerException("O objeto informado é nulo");
+        }
+
+        Node node = this.ldeClient.find(cpf);
+
+        return node != null;
+    }
+
     public Node findByCNH(String cnh) {
         if(cnh == null || cnh.trim().isEmpty()) {
             throw new NullPointerException("O objeto informado é nulo");
@@ -74,6 +84,16 @@ public class ListClient {
         } catch (Exception e) {
             throw e;
         }
+    }
+
+    public boolean existeByCNH(String cnh) {
+        if(cnh == null || cnh.trim().isEmpty()) {
+            throw new NullPointerException("O objeto informado é nulo");
+        }
+
+        Node node = this.ldeClient.findByCNH(cnh);
+
+        return node != null;
     }
 
     public int size() {

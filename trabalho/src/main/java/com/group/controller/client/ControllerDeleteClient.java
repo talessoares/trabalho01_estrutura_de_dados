@@ -2,7 +2,6 @@ package com.group.controller.client;
 
 import com.group.controller.ControllerIndex;
 import com.group.entities.Client;
-import com.group.lde.Node;
 import com.group.list.ListClient;
 import com.group.list.ListLocation;
 
@@ -47,24 +46,6 @@ public class ControllerDeleteClient {
     }
 
     @FXML
-    void hoverBtnVoltar(MouseEvent event) {
-        btnVoltar.setImage(new Image("com/group/views/images/pngVoltarHover.png"));
-        btnVoltar.setStyle("-fx-cursor: hand;");
-    }
-
-    @FXML
-    void notHoverBtnVoltar(MouseEvent event) {
-        btnVoltar.setImage(new Image("com/group/views/images/pngVoltar.png"));
-        btnVoltar.setStyle("-fx-cursor: hand;");
-    }
-
-    @FXML
-    void limparCampos(ActionEvent event) {
-        textFieldCPF.setText("");
-    }
-
-
-    @FXML
     void removeClient(ActionEvent event) {
         String cpf = textFieldCPF.getText();
 
@@ -74,19 +55,16 @@ public class ControllerDeleteClient {
                 throw new NullPointerException("Cpf não pode ser vazio");
             }
 
-            Node node = listClient.find(cpf);
 
-            if(node == null) {
+            if(!listClient.existe(cpf)) {
                 throw new NullPointerException("Cliente não encontrado");
             }
 
-            Client client = (Client) node.getInfo();
+            Client client = (Client) listClient.find(cpf).getInfo();
 
             String cnh = client.getCnh();
 
-            node = listLocation.findByCnh(cnh);
-
-            if(node != null) {
+            if(listLocation.existeByCNH(cnh)) {
                 throw new NullPointerException("Cliente possui locação ativa");
             }
 
@@ -124,5 +102,22 @@ public class ControllerDeleteClient {
         alert.setHeaderText(null);
         alert.setContentText(mensagem);
         alert.showAndWait();
+    }
+
+    @FXML
+    void hoverBtnVoltar(MouseEvent event) {
+        btnVoltar.setImage(new Image("com/group/views/images/pngVoltarHover.png"));
+        btnVoltar.setStyle("-fx-cursor: hand;");
+    }
+
+    @FXML
+    void notHoverBtnVoltar(MouseEvent event) {
+        btnVoltar.setImage(new Image("com/group/views/images/pngVoltar.png"));
+        btnVoltar.setStyle("-fx-cursor: hand;");
+    }
+
+    @FXML
+    void limparCampos(ActionEvent event) {
+        textFieldCPF.setText("");
     }
 }

@@ -76,12 +76,32 @@ public class ListLocation {
         return this.ldeLocation.find(placa);        
     }
 
+    public boolean existe(String placa) {
+        if(placa == null || placa.trim().isEmpty()) {
+            throw new NullPointerException("O objeto informado é nulo");
+        }
+
+        Node node = this.ldeLocation.find(placa);
+        
+        return node != null;
+    }
+
     public Node findByCnh(String cnh) {
         if(cnh == null || cnh.trim().isEmpty()) {
             throw new NullPointerException("O objeto informado é nulo");
         }
 
         return this.ldeLocation.findByCnh(cnh);        
+    }
+
+    public boolean existeByCNH(String cnh) {
+        if(cnh == null || cnh.trim().isEmpty()) {
+            throw new NullPointerException("O objeto informado é nulo");
+        }
+
+        Node node = this.ldeLocation.findByCnh(cnh);
+        
+        return node != null;
     }
 
     

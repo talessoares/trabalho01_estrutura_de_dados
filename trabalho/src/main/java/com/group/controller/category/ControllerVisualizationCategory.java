@@ -2,7 +2,6 @@ package com.group.controller.category;
 
 import com.group.controller.ControllerIndex;
 import com.group.entities.Category;
-import com.group.lde.Node;
 import com.group.list.ListCategory;
 
 import javafx.collections.FXCollections;
@@ -66,48 +65,30 @@ public class ControllerVisualizationCategory {
     }
 
     @FXML
-    void hoverBtnVoltar(MouseEvent event) {
-        btnVoltarEdirCat.setImage(new Image("com/group/views/images/pngVoltarHover.png"));
-        btnVoltarEdirCat.setStyle("-fx-cursor: hand;");
-    }
-
-    @FXML
-    void notHoverBtnVoltar(MouseEvent event) {
-        btnVoltarEdirCat.setImage(new Image("com/group/views/images/pngVoltar.png"));
-        btnVoltarEdirCat.setStyle("-fx-cursor: hand;");
-    }
-
-    @FXML
-    void limparCampos(ActionEvent event) {
-        textFieldIdEditCategoria.setText("");
-    }
-
-    @FXML
     void consultCategory(ActionEvent event) {
 
         String idCategoria = textFieldIdEditCategoria.getText();
 
         try {
 
-            if(idCategoria == null || idCategoria.trim().isEmpty()) {
+            if (idCategoria == null || idCategoria.trim().isEmpty()) {
                 throw new NullPointerException("Campo categoria não pode ser vazio");
             }
 
             try {
                 long id = Long.parseLong(idCategoria);
-                Node node = listCategory.find(id);
 
-                if (node == null) {
-                    alertInterface("ERRO", "Categoria não encontrada", AlertType.ERROR);
-                } else {
-                    Category category = (Category) node.getInfo();
-
-                    ObservableList<Category> observableList = tableviewVisuCat.getItems();
-                    observableList.clear();
-                    observableList.add(category);
-
-                    tableviewVisuCat.setItems(observableList);
+                if (!listCategory.existe(id)) {
+                    throw new NullPointerException("Categoria não encontrada");
                 }
+
+                Category category = (Category) listCategory.find(id).getInfo();
+
+                ObservableList<Category> observableList = tableviewVisuCat.getItems();
+                observableList.clear();
+                observableList.add(category);
+
+                tableviewVisuCat.setItems(observableList);
 
             } catch (NumberFormatException e) {
                 alertInterface("ERRO", "Campo categoria deve ser um número", AlertType.ERROR);
@@ -124,7 +105,7 @@ public class ControllerVisualizationCategory {
     @FXML
     void imprimirListaInicio(ActionEvent event) {
 
-        if(listCategory.isEmpty()) {
+        if (listCategory.isEmpty()) {
             alertInterface("Lista Vazia", "A lista está vazia, não há o que imprimir.", AlertType.INFORMATION);
             return;
         }
@@ -134,7 +115,7 @@ public class ControllerVisualizationCategory {
 
         ObservableList<Category> observableList = FXCollections.observableArrayList();
 
-        for(String line : breakContent) {
+        for (String line : breakContent) {
             String id = line.split(";")[0].split(":")[1];
             String name = line.split(";")[1].split(":")[1];
 
@@ -149,7 +130,7 @@ public class ControllerVisualizationCategory {
     @FXML
     void imprimirListaFinal(ActionEvent event) {
 
-        if(listCategory.isEmpty()) {
+        if (listCategory.isEmpty()) {
             alertInterface("Lista Vazia", "A lista está vazia, não há o que imprimir.", AlertType.INFORMATION);
             return;
         }
@@ -159,7 +140,7 @@ public class ControllerVisualizationCategory {
 
         ObservableList<Category> observableList = FXCollections.observableArrayList();
 
-        for(String line : breakContent) {
+        for (String line : breakContent) {
             String id = line.split(";")[0].split(":")[1];
             String name = line.split(";")[1].split(":")[1];
 
@@ -190,6 +171,23 @@ public class ControllerVisualizationCategory {
         alert.setHeaderText(null);
         alert.setContentText(mensagem);
         alert.showAndWait();
+    }
+
+    @FXML
+    void hoverBtnVoltar(MouseEvent event) {
+        btnVoltarEdirCat.setImage(new Image("com/group/views/images/pngVoltarHover.png"));
+        btnVoltarEdirCat.setStyle("-fx-cursor: hand;");
+    }
+
+    @FXML
+    void notHoverBtnVoltar(MouseEvent event) {
+        btnVoltarEdirCat.setImage(new Image("com/group/views/images/pngVoltar.png"));
+        btnVoltarEdirCat.setStyle("-fx-cursor: hand;");
+    }
+
+    @FXML
+    void limparCampos(ActionEvent event) {
+        textFieldIdEditCategoria.setText("");
     }
 
 }

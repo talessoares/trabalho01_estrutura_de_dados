@@ -88,7 +88,7 @@ public class ControllerCreateLocation {
     @FXML
     private TextField textFieldPlaca;
 
-    private final double valorPorDia = 250;
+    private final double VALOR_POR_DIA = 250;
 
     private ListLocation listLocation;
 
@@ -139,27 +139,21 @@ public class ControllerCreateLocation {
                 throw new NullPointerException("Placa não foi preenchida");
             }
 
-            Node node = listLocation.find(placa);
-
-            if(node != null) {
+            if(listLocation.existe(placa)) {
                 throw new Exception("Veículo já está locado");
             }
 
-            node = listClient.findByCNH(cnh);
-
-            if(node == null) {
+            if(!listClient.existeByCNH(cnh)) {
                 throw new NullPointerException("CNH não encontrada");
             }
 
-            Client client = (Client) node.getInfo();
-
-            node = listVehicle.find(placa);
-
-            if(node == null) {
+            if(!listVehicle.existe(placa)) {
                 throw new NullPointerException("Placa não encontrada");
             }
 
-            Vehicle vehicle = (Vehicle) node.getInfo();
+            Client client = (Client) listClient.findByCNH(cnh).getInfo();
+
+            Vehicle vehicle = (Vehicle) listVehicle.find(placa).getInfo();
 
             Calendar dataInicioCalendar = Calendar.getInstance();
             dataInicioCalendar.setTime(Date.valueOf(dataInicio));
@@ -168,7 +162,7 @@ public class ControllerCreateLocation {
             dataFinalCalendar.setTime(Date.valueOf(dataFinal));
 
             double dias = (dataFinalCalendar.getTimeInMillis() - dataInicioCalendar.getTimeInMillis()) / (1000 * 60 * 60 * 24);
-            double valorParaPagar = dias * valorPorDia;
+            double valorParaPagar = dias * VALOR_POR_DIA;
 
             Location location = new Location(client, vehicle, dataInicioCalendar, dataFinalCalendar, valorParaPagar);
             listLocation.addLocationAtEnd(location);

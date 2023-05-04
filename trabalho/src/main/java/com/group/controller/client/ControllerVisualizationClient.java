@@ -2,7 +2,6 @@ package com.group.controller.client;
 
 import com.group.controller.ControllerIndex;
 import com.group.entities.Client;
-import com.group.lde.Node;
 import com.group.list.ListClient;
 
 import javafx.collections.FXCollections;
@@ -74,23 +73,6 @@ public class ControllerVisualizationClient {
     }
 
     @FXML
-    void hoverBtnVoltar(MouseEvent event) {
-        btnVoltarEdirCat.setImage(new Image("com/group/views/images/pngVoltarHover.png"));
-        btnVoltarEdirCat.setStyle("-fx-cursor: hand;");
-    }
-
-    @FXML
-    void notHoverBtnVoltar(MouseEvent event) {
-        btnVoltarEdirCat.setImage(new Image("com/group/views/images/pngVoltar.png"));
-        btnVoltarEdirCat.setStyle("-fx-cursor: hand;");
-    }
-
-    @FXML
-    void limparCampos(ActionEvent event) {
-        textFieldCpf.setText("");
-    }
-
-    @FXML
     void imprimirListaInicio(ActionEvent event) {
 
         if(listClient.isEmpty()) {
@@ -156,13 +138,11 @@ public class ControllerVisualizationClient {
                 throw new NullPointerException("Campo categoria não pode ser vazio");
             }
 
-            Node node = listClient.find(cpf);
-
-            if(node == null) {
+            if(!listClient.existe(cpf)) {
                 throw new NullPointerException("Cliente não encontrado");
             }
 
-            Client client = (Client) node.getInfo();
+            Client client = (Client) listClient.find(cpf).getInfo();
 
             tableviewVisuClient.getItems().clear();
             tableviewVisuClient.getItems().add(client);
@@ -193,6 +173,23 @@ public class ControllerVisualizationClient {
         alert.setHeaderText(null);
         alert.setContentText(mensagem);
         alert.showAndWait();
+    }
+
+    @FXML
+    void hoverBtnVoltar(MouseEvent event) {
+        btnVoltarEdirCat.setImage(new Image("com/group/views/images/pngVoltarHover.png"));
+        btnVoltarEdirCat.setStyle("-fx-cursor: hand;");
+    }
+
+    @FXML
+    void notHoverBtnVoltar(MouseEvent event) {
+        btnVoltarEdirCat.setImage(new Image("com/group/views/images/pngVoltar.png"));
+        btnVoltarEdirCat.setStyle("-fx-cursor: hand;");
+    }
+
+    @FXML
+    void limparCampos(ActionEvent event) {
+        textFieldCpf.setText("");
     }
 
 }

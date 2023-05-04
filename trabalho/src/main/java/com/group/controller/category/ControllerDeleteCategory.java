@@ -1,6 +1,5 @@
 package com.group.controller.category;
 import com.group.controller.ControllerIndex;
-import com.group.lde.Node;
 import com.group.list.ListCategory;
 import com.group.list.ListVehicle;
 
@@ -58,9 +57,7 @@ public class ControllerDeleteCategory {
             try {
                 long idCategoriaLong = Long.parseLong(idCategoria);
 
-                Node node = listVehicle.findByCategory(idCategoriaLong);
-
-                if(node != null) {
+                if(listVehicle.existeByCategory(idCategoriaLong)) {
                     throw new Exception("Não é possível remover uma categoria que possui veículos");
                 }
 

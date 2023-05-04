@@ -3,7 +3,6 @@ package com.group.controller.vehicle;
 import com.group.controller.ControllerIndex;
 import com.group.entities.Category;
 import com.group.entities.Vehicle;
-import com.group.lde.Node;
 import com.group.list.ListCategory;
 import com.group.list.ListVehicle;
 
@@ -134,21 +133,16 @@ public class ControllerCreateVehicle {
             } catch (NumberFormatException e) {
                 throw new NumberFormatException("Assentos deve ser um número");
             }
-           
 
-            Node node = listCategory.find(idLongCategoria);
-
-            if(node == null) {
+            if(!listCategory.existe(idLongCategoria)) {
                 throw new NullPointerException("Categoria não encontrada");
             }
 
-            Category category = (Category) node.getInfo();
-
-            node = listVehicle.find(placa);
-
-            if(node != null) {
+            if(listVehicle.existe(placa)) {
                 throw new NullPointerException("Veículo já cadastrado");
             }
+
+            Category category = (Category) listCategory.find(idLongCategoria).getInfo();
 
             Vehicle vehicle = new Vehicle(placa, modelo, anoInt, potenciaInt, assentosInt, marca, category);
             listVehicle.addVehicleAtEnd(vehicle);

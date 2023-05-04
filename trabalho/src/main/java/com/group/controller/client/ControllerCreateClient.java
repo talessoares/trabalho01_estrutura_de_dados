@@ -2,7 +2,6 @@ package com.group.controller.client;
 
 import com.group.controller.ControllerIndex;
 import com.group.entities.Client;
-import com.group.lde.Node;
 import com.group.list.ListClient;
 
 import javafx.event.ActionEvent;
@@ -76,21 +75,15 @@ public class ControllerCreateClient {
                 throw new NullPointerException("Telefone não pode ser vazio");
             }
 
-            Client client = null;
-
-            Node node = listClient.find(cpf);
-
-            if(node != null) {
+            if(listClient.existe(cpf)) {
                 throw new Exception("Cliente já cadastrado");
             }
 
-            node = listClient.findByCNH(cnh);
-
-            if(node != null) {
+            if(listClient.existeByCNH(cnh)) {
                 throw new Exception("CNH já cadastrada");
             }
 
-            client = new Client(nome, cnh, telefone, cpf);
+            Client client = new Client(nome, cnh, telefone, cpf);
             listClient.addClientAtEnd(client);
             
             alertInterface("Sucesso", "Cliente cadastrado com sucesso!", AlertType.INFORMATION);

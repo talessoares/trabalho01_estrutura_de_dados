@@ -5,7 +5,6 @@ import java.util.Calendar;
 
 import com.group.controller.ControllerIndex;
 import com.group.entities.Location;
-import com.group.lde.Node;
 import com.group.list.ListLocation;
 
 import javafx.beans.property.SimpleObjectProperty;
@@ -152,13 +151,11 @@ public class ControllerVisualizationLocation {
                 throw new NullPointerException("Placa não pode ser vazia");
             }
 
-            Node node = listLocation.find(placa);
-
-            if(node == null) {
+            if(!listLocation.existe(placa)) {
                 throw new NullPointerException("Não foi possível encontrar a locação");
             }
 
-            Location location = (Location) node.getInfo();
+            Location location = (Location) listLocation.find(placa).getInfo();
 
             ObservableList<Location> observableList = FXCollections.observableArrayList();
             observableList.add(location);

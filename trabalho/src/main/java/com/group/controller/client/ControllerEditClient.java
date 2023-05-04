@@ -2,7 +2,6 @@ package com.group.controller.client;
 
 import com.group.controller.ControllerIndex;
 import com.group.entities.Client;
-import com.group.lde.Node;
 import com.group.list.ListClient;
 
 import javafx.event.ActionEvent;
@@ -55,24 +54,6 @@ public class ControllerEditClient {
     }
 
     @FXML
-    void hoverBtnVoltar(MouseEvent event) {
-        btnVoltar.setImage(new Image("com/group/views/images/pngVoltarHover.png"));
-        btnVoltar.setStyle("-fx-cursor: hand;");
-    }
-
-    @FXML
-    void notHoverBtnVoltar(MouseEvent event) {
-        btnVoltar.setImage(new Image("com/group/views/images/pngVoltar.png"));
-        btnVoltar.setStyle("-fx-cursor: hand;");
-    }
-
-    @FXML
-    void limparCampos(ActionEvent event) {
-        textFieldEditCPF.setText("");
-    }
-
-
-    @FXML
     void editClient(ActionEvent event) {
         String cpf = textFieldEditCPF.getText();
         String name = textFieldEditNome.getText();
@@ -97,14 +78,11 @@ public class ControllerEditClient {
                 throw new NullPointerException("Telefone não pode ser vazio");
             }
 
-            Node node = listClient.find(cpf);
-
-            if(node == null) {
+            if(!listClient.existe(cpf)) {
                 throw new NullPointerException("Cliente não encontrado");
             }
 
-            Client client = (Client) node.getInfo();
-
+            Client client = (Client) listClient.find(cpf).getInfo();
             client.setName(name);
             client.setCnh(cnh);
             client.setPhone(phone);
@@ -130,13 +108,11 @@ public class ControllerEditClient {
                 throw new NullPointerException("Cpf não pode ser vazio");
             }
 
-            Node node = listClient.find(cpf);
-
-            if(node == null) {
+            if(!listClient.existe(cpf)) {
                 throw new NullPointerException("Cliente não encontrado");
             }
 
-            Client client = (Client) node.getInfo();
+            Client client = (Client) listClient.find(cpf).getInfo();
 
             textFieldEditNome.setText(client.getName());
             textFieldEditCNH.setText(client.getCnh());
@@ -169,5 +145,22 @@ public class ControllerEditClient {
         alert.setHeaderText(null);
         alert.setContentText(mensagem);
         alert.showAndWait();
+    }
+
+    @FXML
+    void hoverBtnVoltar(MouseEvent event) {
+        btnVoltar.setImage(new Image("com/group/views/images/pngVoltarHover.png"));
+        btnVoltar.setStyle("-fx-cursor: hand;");
+    }
+
+    @FXML
+    void notHoverBtnVoltar(MouseEvent event) {
+        btnVoltar.setImage(new Image("com/group/views/images/pngVoltar.png"));
+        btnVoltar.setStyle("-fx-cursor: hand;");
+    }
+
+    @FXML
+    void limparCampos(ActionEvent event) {
+        textFieldEditCPF.setText("");
     }
 }

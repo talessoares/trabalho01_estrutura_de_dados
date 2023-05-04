@@ -3,7 +3,6 @@ package com.group.controller.category;
 import com.group.controller.ControllerIndex;
 import com.group.entities.Category;
 import com.group.list.ListCategory;
-import com.group.lde.Node;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -49,24 +48,6 @@ public class ControllerEditCategory {
     }
 
     @FXML
-    void hoverBtnVoltar(MouseEvent event) {
-        btnVoltarEdirCat.setImage(new Image("com/group/views/images/pngVoltarHover.png"));
-        btnVoltarEdirCat.setStyle("-fx-cursor: hand;");
-    }
-
-    @FXML
-    void notHoverBtnVoltar(MouseEvent event) {
-        btnVoltarEdirCat.setImage(new Image("com/group/views/images/pngVoltar.png"));
-        btnVoltarEdirCat.setStyle("-fx-cursor: hand;");
-    }
-
-    @FXML
-    void limparCampos(ActionEvent event) {
-        textFieldIdEditCategoria.setText("");
-        textFieldNovoNomeCategoria.setText("");
-    }
-
-    @FXML
     void consultarCategoria() {
 
         String textFieldIdCategory = textFieldIdEditCategoria.getText();
@@ -85,13 +66,11 @@ public class ControllerEditCategory {
                 throw new Exception("O campo ID deve ser um número inteiro!");
             }
 
-            Node node = listCategory.find(id);
-
-            if(node == null) {
+            if(!listCategory.existe(id)) {
                 throw new Exception("Categoria não encontrada!");
             }
             
-            Category category = (Category) node.getInfo();
+            Category category = (Category) listCategory.find(id).getInfo();
             textFieldNovoNomeCategoria.setText(category.getName());
             
         } catch (Exception e) {
@@ -123,13 +102,11 @@ public class ControllerEditCategory {
                 throw new Exception("O campo ID deve ser um número inteiro!");
             }
 
-            Node node = listCategory.find(id);
-
-            if(node == null) {
+            if(!listCategory.existe(id)) {
                 throw new Exception("Categoria não encontrada!");
             }
             
-            Category category = (Category) node.getInfo();
+            Category category = (Category) listCategory.find(id).getInfo();
             category.setName(nomeCategory);
 
             alertInterface("SUCESSO", "Categoria editada com sucesso!", AlertType.INFORMATION);
@@ -159,4 +136,23 @@ public class ControllerEditCategory {
         alert.setContentText(mensagem);
         alert.showAndWait();
     }
+
+    @FXML
+    void hoverBtnVoltar(MouseEvent event) {
+        btnVoltarEdirCat.setImage(new Image("com/group/views/images/pngVoltarHover.png"));
+        btnVoltarEdirCat.setStyle("-fx-cursor: hand;");
+    }
+
+    @FXML
+    void notHoverBtnVoltar(MouseEvent event) {
+        btnVoltarEdirCat.setImage(new Image("com/group/views/images/pngVoltar.png"));
+        btnVoltarEdirCat.setStyle("-fx-cursor: hand;");
+    }
+
+    @FXML
+    void limparCampos(ActionEvent event) {
+        textFieldIdEditCategoria.setText("");
+        textFieldNovoNomeCategoria.setText("");
+    }
+
 }

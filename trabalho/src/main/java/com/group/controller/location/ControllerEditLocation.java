@@ -10,7 +10,6 @@ import com.group.controller.ControllerIndex;
 import com.group.entities.Client;
 import com.group.entities.Location;
 import com.group.entities.Vehicle;
-import com.group.lde.Node;
 import com.group.list.ListClient;
 import com.group.list.ListLocation;
 import com.group.list.ListVehicle;
@@ -58,7 +57,7 @@ public class ControllerEditLocation {
     @FXML
     private TextField textFieldPlaca;
 
-    private final double valorPorDia = 250.0;
+    private final double VALOR_POR_DIA = 250.0;
 
     private ListLocation listLocation;
 
@@ -88,13 +87,11 @@ public class ControllerEditLocation {
                 throw new NullPointerException("O campo placa não pode ser vazio");
             }
 
-            Node node = listLocation.find(placa);
-
-            if(node == null) {
+            if(!listLocation.existe(placa)) {
                 throw new Exception("Placa não encontrada");
             }
 
-            Location location = (Location) node.getInfo();
+            Location location = (Location) listLocation.find(placa).getInfo();
 
             textFieldCnh.setText(location.getClient().getCnh());
 
@@ -122,7 +119,6 @@ public class ControllerEditLocation {
 
     @FXML
     void saveLocation(ActionEvent event) {
-
         String cnh = textFieldCnh.getText();
         String placa = textFieldPlaca.getText();
 
@@ -147,27 +143,25 @@ public class ControllerEditLocation {
                 throw new NullPointerException("Placa não foi preenchida");
             }
 
-            Node node = listLocation.find(placa);
-
-            if(node == null) {
+            if(!listLocation.existe(placa)) {
                 throw new Exception("Veículo não está locado");
             }
 
-            node = listClient.findByCNH(cnh);
-
-            if(node == null) {
+            if(!listClient.existeByCNH(cnh)) {
                 throw new NullPointerException("CNH não encontrada");
             }
 
-            Client client = (Client) node.getInfo();
-
-            node = listVehicle.find(placa);
-
-            if(node == null) {
+            if(!listVehicle.existe(placa)) {
                 throw new NullPointerException("Placa não encontrada");
             }
 
-            Vehicle vehicle = (Vehicle) node.getInfo();
+            if(!listLocation.existe(placa)) {
+                throw new Exception("Locação não encontrada");
+            }
+
+            Client client = (Client) listClient.findByCNH(cnh).getInfo();
+
+            Vehicle vehicle = (Vehicle) listVehicle.find(placa).getInfo();
 
             Calendar dataInicioCalendar = Calendar.getInstance();
             dataInicioCalendar.setTime(Date.valueOf(dataInicio));
@@ -176,23 +170,15 @@ public class ControllerEditLocation {
             dataFinalCalendar.setTime(Date.valueOf(dataFinal));
 
             double dias = (dataFinalCalendar.getTimeInMillis() - dataInicioCalendar.getTimeInMillis()) / (1000 * 60 * 60 * 24);
-            double valorParaPagar = dias * valorPorDia;
+            double valorParaPagar = dias * VALOR_POR_DIA;
 
-            node = listLocation.find(placa);
-
-            if(node == null) {
-                throw new Exception("Locação não encontrada");
-            }
-
-            Location location = (Location) node.getInfo();
+            Location location = (Location) listLocation.find(placa).getInfo();
 
             location.setClient(client);
             location.setVehicle(vehicle);
             location.setLocationDate(dataInicioCalendar);
             location.setDevolutionDate(dataFinalCalendar);
             location.setValue(valorParaPagar);
-
-            System.out.println(listLocation.getListFromBeginning());
 
             alertInterface("SUCESSO", "Locação criada com sucesso!\nO valor a ser pago será de: " + valorParaPagar, AlertType.INFORMATION);
 

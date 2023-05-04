@@ -3,7 +3,6 @@ package com.group.controller.vehicle;
 import com.group.controller.ControllerIndex;
 import com.group.entities.Category;
 import com.group.entities.Vehicle;
-import com.group.lde.Node;
 import com.group.list.ListCategory;
 import com.group.list.ListVehicle;
 
@@ -136,23 +135,17 @@ public class ControllerEditVehicle {
             } catch (NumberFormatException e) {
                 throw new NumberFormatException("Assentos deve ser um número");
             }
-           
 
-            Node node = listCategory.find(idLongCategoria);
-
-            if(node == null) {
+            if(!listCategory.existe(idLongCategoria)) {
                 throw new NullPointerException("Categoria não encontrada");
             }
 
-            Category category = (Category) node.getInfo();
-
-            node = listVehicle.find(placa);
-
-            if(node == null) {
+            if(!listVehicle.existe(placa)) {
                 throw new NullPointerException("Veículo não encontrado");
             }
 
-            Vehicle vehicle = (Vehicle) node.getInfo();
+            Category category = (Category) listCategory.find(idLongCategoria).getInfo();
+            Vehicle vehicle = (Vehicle) listVehicle.find(placa).getInfo();
 
             vehicle.setBrand(marca);
             vehicle.setModel(modelo);
@@ -180,13 +173,11 @@ public class ControllerEditVehicle {
                 throw new NullPointerException("O campo placa não pode ser vazio");
             }
 
-            Node node = listVehicle.find(placa);
-
-            if(node == null) {
+            if(!listVehicle.existe(placa)) {
                 throw new NullPointerException("Veículo não encontrado");
             }
 
-            Vehicle vehicle = (Vehicle) node.getInfo();
+            Vehicle vehicle = (Vehicle) listVehicle.find(placa).getInfo();
 
             textFieldAno.setText(String.valueOf(vehicle.getYear()));
             textFieldAssentos.setText(String.valueOf(vehicle.getSeats()));

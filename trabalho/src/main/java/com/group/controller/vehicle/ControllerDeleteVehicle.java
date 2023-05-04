@@ -1,6 +1,7 @@
 package com.group.controller.vehicle;
 
 import com.group.controller.ControllerIndex;
+import com.group.list.ListLocation;
 import com.group.list.ListVehicle;
 
 import javafx.event.ActionEvent;
@@ -35,10 +36,12 @@ public class ControllerDeleteVehicle {
 
     private ListVehicle listVehicle;
 
+    private ListLocation listLocation;
 
     @FXML
     void initialize() {
         this.listVehicle = ControllerIndex.getListVehicle();
+        this.listLocation = ControllerIndex.getListLocation();
     }
 
     @FXML
@@ -49,6 +52,10 @@ public class ControllerDeleteVehicle {
 
             if(placa == null || placa.trim().isEmpty()) {
                 throw new NullPointerException("Placa não pode ser vazio");
+            }
+
+            if(listLocation.existe(placa)) {
+                throw new Exception("Veículo está alocado");
             }
 
             if(listVehicle.removeVehicle(placa)) {

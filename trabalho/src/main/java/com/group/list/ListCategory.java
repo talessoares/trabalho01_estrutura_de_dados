@@ -60,6 +60,16 @@ public class ListCategory {
         return this.ldeCategory.find(id);        
     }
 
+    public boolean existe(long id) {
+        if(id < 0) {
+            throw new NullPointerException("O objeto informado é nulo");
+        }
+
+        Node node = this.ldeCategory.find(id);
+
+        return node != null;
+    }
+
     public int size() {
         return this.ldeCategory.size();
     }
