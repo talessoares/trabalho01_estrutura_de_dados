@@ -4,8 +4,6 @@ import com.group.controller.ControllerIndex;
 import com.group.entities.Client;
 import com.group.list.ListClient;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -83,7 +81,7 @@ public class ControllerVisualizationClient {
         String content = listClient.getListFromBeginning();
         String[] contentBreak = content.split("\n");
 
-        ObservableList<Client> list = FXCollections.observableArrayList();
+        tableviewVisuClient.getItems().clear();
 
         for(String line : contentBreak) {
             
@@ -93,11 +91,8 @@ public class ControllerVisualizationClient {
             String cpf = line.split(";")[3].split(":")[1];
 
             Client client = new Client(name, cnh, phone, cpf);
-            list.add(client);
+            tableviewVisuClient.getItems().add(client);
         }
-
-        tableviewVisuClient.getItems().clear();
-        tableviewVisuClient.setItems(list);
     }
 
     @FXML
@@ -111,7 +106,7 @@ public class ControllerVisualizationClient {
         String content = listClient.getListFromEnd();
         String[] contentBreak = content.split("\n");
 
-        ObservableList<Client> list = FXCollections.observableArrayList();
+        tableviewVisuClient.getItems().clear();
 
         for(String line : contentBreak) {
             
@@ -121,11 +116,8 @@ public class ControllerVisualizationClient {
             String cpf = line.split(";")[3].split(":")[1];
 
             Client client = new Client(name, cnh, phone, cpf);
-            list.add(client);
+            tableviewVisuClient.getItems().add(client);
         }
-
-        tableviewVisuClient.getItems().clear();
-        tableviewVisuClient.setItems(list);
     }
 
     @FXML

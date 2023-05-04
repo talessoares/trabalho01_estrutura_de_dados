@@ -4,8 +4,6 @@ import com.group.controller.ControllerIndex;
 import com.group.entities.Category;
 import com.group.list.ListCategory;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -84,11 +82,8 @@ public class ControllerVisualizationCategory {
 
                 Category category = (Category) listCategory.find(id).getInfo();
 
-                ObservableList<Category> observableList = tableviewVisuCat.getItems();
-                observableList.clear();
-                observableList.add(category);
-
-                tableviewVisuCat.setItems(observableList);
+                tableviewVisuCat.getItems().clear();
+                tableviewVisuCat.getItems().add(category);
 
             } catch (NumberFormatException e) {
                 alertInterface("ERRO", "Campo categoria deve ser um número", AlertType.ERROR);
@@ -113,7 +108,7 @@ public class ControllerVisualizationCategory {
         String content = listCategory.getListFromBeginning();
         String[] breakContent = content.split("\n");
 
-        ObservableList<Category> observableList = FXCollections.observableArrayList();
+        tableviewVisuCat.getItems().clear();
 
         for (String line : breakContent) {
             String id = line.split(";")[0].split(":")[1];
@@ -121,10 +116,8 @@ public class ControllerVisualizationCategory {
 
             Category category = new Category(name, Long.parseLong(id));
 
-            observableList.add(category);
+            tableviewVisuCat.getItems().add(category);
         }
-
-        tableviewVisuCat.setItems(observableList);
     }
 
     @FXML
@@ -138,7 +131,7 @@ public class ControllerVisualizationCategory {
         String content = listCategory.getListFromEnd();
         String[] breakContent = content.split("\n");
 
-        ObservableList<Category> observableList = FXCollections.observableArrayList();
+        tableviewVisuCat.getItems().clear();
 
         for (String line : breakContent) {
             String id = line.split(";")[0].split(":")[1];
@@ -146,10 +139,8 @@ public class ControllerVisualizationCategory {
 
             Category category = new Category(name, Long.parseLong(id));
 
-            observableList.add(category);
+            tableviewVisuCat.getItems().add(category);
         }
-
-        tableviewVisuCat.setItems(observableList);
     }
 
     @FXML

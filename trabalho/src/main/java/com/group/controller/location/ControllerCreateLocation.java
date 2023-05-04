@@ -14,8 +14,6 @@ import com.group.list.ListLocation;
 import com.group.list.ListVehicle;
 
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -183,7 +181,7 @@ public class ControllerCreateLocation {
         String content = listVehicle.getListFromBeginning();
         String[] breakContent = content.split("\n");
 
-        ObservableList<Vehicle> observableList = FXCollections.observableArrayList();
+        tableViewVehicle.getItems().clear();
 
         for(String line : breakContent) {
 
@@ -194,11 +192,11 @@ public class ControllerCreateLocation {
             if(node == null) {
                 node = listVehicle.find(placa);
                 Vehicle vehicle = (Vehicle) node.getInfo();
-                observableList.add(vehicle);
+
+                tableViewVehicle.getItems().add(vehicle);
             }
         }
 
-        tableViewVehicle.setItems(observableList);
     }
 
     @FXML

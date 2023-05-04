@@ -9,8 +9,6 @@ import com.group.list.ListLocation;
 
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -157,10 +155,8 @@ public class ControllerVisualizationLocation {
 
             Location location = (Location) listLocation.find(placa).getInfo();
 
-            ObservableList<Location> observableList = FXCollections.observableArrayList();
-            observableList.add(location);
-
-            tableViewLocation.setItems(observableList);
+            tableViewLocation.getItems().clear();
+            tableViewLocation.getItems().add(location);
         } catch (NullPointerException e) {
             alertInterface("ERRO", "Placa não pode ser vazia", AlertType.ERROR);
         } catch (Exception e) {
@@ -180,18 +176,15 @@ public class ControllerVisualizationLocation {
         String content = listLocation.getListFromEnd();
         String[] contentBreak = content.split("\n");
 
-        ObservableList<Location> list = FXCollections.observableArrayList();
+        tableViewLocation.getItems().clear();
 
         for(String line : contentBreak) {
             String placa = line.split(";")[1].split(":")[1];
 
             Location location = (Location) listLocation.find(placa).getInfo();
 
-            list.add(location);
+            tableViewLocation.getItems().add(location);
         }
-
-        tableViewLocation.getItems().clear();
-        tableViewLocation.setItems(list);
     }
 
     @FXML
@@ -205,18 +198,15 @@ public class ControllerVisualizationLocation {
         String content = listLocation.getListFromBeginning();
         String[] contentBreak = content.split("\n");
 
-        ObservableList<Location> list = FXCollections.observableArrayList();
+        tableViewLocation.getItems().clear();
 
         for(String line : contentBreak) {
             String placa = line.split(";")[1].split(":")[1];
 
             Location location = (Location) listLocation.find(placa).getInfo();
 
-            list.add(location);
+            tableViewLocation.getItems().add(location);
         }
-
-        tableViewLocation.getItems().clear();
-        tableViewLocation.setItems(list);
     }
 
     @FXML

@@ -6,8 +6,6 @@ import com.group.entities.Vehicle;
 import com.group.list.ListVehicle;
 
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -126,7 +124,7 @@ public class ControllerVisualizationVehicle {
         String content = listVehicle.getListFromBeginning();
         String[] contentBreak = content.split("\n");
 
-        ObservableList<Vehicle> list = FXCollections.observableArrayList();
+        tableViewVehicle.getItems().clear();
 
         for(String line : contentBreak) {
             String placa = line.split(";")[0].split(":")[1];
@@ -147,11 +145,8 @@ public class ControllerVisualizationVehicle {
 
             Vehicle vehicle = new Vehicle(placa, modelo, anoInt, potenciaInt, assentosInt, marca, category);
 
-            list.add(vehicle);
+            tableViewVehicle.getItems().add(vehicle);
         }
-
-        tableViewVehicle.getItems().clear();
-        tableViewVehicle.setItems(list);
     }
 
     @FXML
@@ -165,7 +160,7 @@ public class ControllerVisualizationVehicle {
         String content = listVehicle.getListFromEnd();
         String[] contentBreak = content.split("\n");
 
-        ObservableList<Vehicle> list = FXCollections.observableArrayList();
+        tableViewVehicle.getItems().clear();
 
         for(String line : contentBreak) {
             String placa = line.split(";")[0].split(":")[1];
@@ -186,11 +181,8 @@ public class ControllerVisualizationVehicle {
 
             Vehicle vehicle = new Vehicle(placa, modelo, anoInt, potenciaInt, assentosInt, marca, category);
 
-            list.add(vehicle);
+            tableViewVehicle.getItems().add(vehicle);
         }
-
-        tableViewVehicle.getItems().clear();
-        tableViewVehicle.setItems(list);
     }
 
     @FXML
